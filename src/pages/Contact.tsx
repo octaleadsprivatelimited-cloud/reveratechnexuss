@@ -11,8 +11,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: "+91 9620203000",
-    action: "tel:+919620203000",
+    details: "+91 99009 49512",
+    action: "tel:+919900949512",
   },
   {
     icon: Mail,
@@ -73,7 +73,7 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const whatsappUrl = `https://wa.me/919620203000?text=${encodeURIComponent("Hi, I'm interested in your recruitment services.")}`;
+  const whatsappUrl = `https://wa.me/919900949512?text=${encodeURIComponent("Hi, I'm interested in your recruitment services.")}`;
 
   return (
     <Layout>

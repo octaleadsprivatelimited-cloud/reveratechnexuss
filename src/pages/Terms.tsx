@@ -70,7 +70,7 @@ const Terms = () => {
               </p>
               <p className="text-muted-foreground mt-2">
                 Email: legal@talentsphere.in<br />
-                Phone: +91 9620203000
+                Phone: +91 99009 49512
               </p>
             </div>
           </div>

@@ -80,7 +80,7 @@ const Employers = () => {
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <a href="tel:+919620203000">Call +91 9620203000</a>
+                <a href="tel:+919900949512">Call +91 99009 49512</a>
               </Button>
             </div>
           </div>

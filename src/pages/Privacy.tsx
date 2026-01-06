@@ -59,7 +59,7 @@ const Privacy = () => {
               </p>
               <p className="text-muted-foreground mt-2">
                 Email: privacy@talentsphere.in<br />
-                Phone: +91 9620203000<br />
+                Phone: +91 99009 49512<br />
                 Address: 123 Business Park, Koramangala, Bangalore 560034
               </p>
             </div>
