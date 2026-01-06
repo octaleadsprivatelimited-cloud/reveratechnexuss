@@ -58,11 +58,11 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-3">
               <a
-                href="tel:+919620203000"
+                href="tel:+919900949512"
                 className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Phone className="h-4 w-4 text-secondary" />
-                +91 9620203000
+                +91 99009 49512
               </a>
               <a
                 href="mailto:info@talentsphere.in"
