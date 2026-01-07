@@ -82,19 +82,13 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-navy-900 to-primary py-20 md:py-28">
-        <div className="container-custom relative">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
-              Our Services
-            </span>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-              Comprehensive{" "}
-              <span className="bg-gradient-to-r from-secondary to-coral-400 bg-clip-text text-transparent">
-                Recruitment Solutions
-              </span>
+      <section className="gradient-navy py-16 md:py-24">
+        <div className="container-custom">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-light text-white mb-6 lowercase">
+              our services.
             </h1>
-            <p className="mt-6 text-lg text-white/80">
+            <p className="text-lg text-white/70">
               From contract staffing to executive search, we offer end-to-end recruitment services 
               tailored to your specific industry and organizational needs.
             </p>
@@ -105,21 +99,21 @@ const Services = () => {
       {/* Services Grid */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
                 key={service.id}
                 id={service.id}
-                className="group rounded-2xl bg-card p-8 shadow-soft card-hover scroll-mt-24"
+                className="group p-6 border border-border rounded-lg hover:border-secondary hover:shadow-md transition-all scroll-mt-24"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent group-hover:bg-secondary transition-colors">
-                  <service.icon className="h-7 w-7 text-secondary group-hover:text-secondary-foreground transition-colors" />
+                <div className="w-12 h-12 rounded-full bg-beige flex items-center justify-center mb-4 group-hover:bg-secondary/10 transition-colors">
+                  <service.icon className="h-6 w-6 text-secondary" />
                 </div>
-                <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
+                <h3 className="text-xl font-medium text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-muted-foreground">{service.description}</p>
-                <ul className="mt-6 space-y-2">
+                <p className="text-muted-foreground mb-4">{service.description}</p>
+                <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center text-sm text-muted-foreground">
                       <ArrowRight className="mr-2 h-4 w-4 text-secondary" />
@@ -127,8 +121,8 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button asChild variant="outline" className="mt-6 w-full">
-                  <Link to="/contact">Enquire Now</Link>
+                <Button asChild variant="outline" size="sm" className="w-full">
+                  <Link to="/contact">enquire now</Link>
                 </Button>
               </div>
             ))}
@@ -137,16 +131,16 @@ const Services = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-primary to-navy-700 py-16">
+      <section className="bg-beige py-16">
         <div className="container-custom text-center">
-          <h2 className="font-heading text-3xl font-bold text-white">
-            Need a Custom Solution?
+          <h2 className="text-3xl font-light text-foreground mb-4 lowercase">
+            need a custom solution?
           </h2>
-          <p className="mt-4 text-lg text-white/80">
+          <p className="text-lg text-muted-foreground mb-8">
             We tailor our services to match your unique recruitment requirements.
           </p>
-          <Button asChild variant="hero" size="lg" className="mt-8">
-            <Link to="/contact">Talk to Our Experts</Link>
+          <Button asChild size="lg" className="gradient-blue text-white">
+            <Link to="/contact">talk to our experts</Link>
           </Button>
         </div>
       </section>

@@ -1,42 +1,30 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Monitor, HeartPulse, Hotel, Briefcase } from "lucide-react";
-import industryIT from "@/assets/industry-it.jpg";
-import industryHealthcare from "@/assets/industry-healthcare.jpg";
-import industryHospitality from "@/assets/industry-hospitality.jpg";
-import industryCorporate from "@/assets/industry-corporate.jpg";
 
 const industries = [
   {
     title: "IT & Technology",
-    description: "Software developers, data scientists, cloud architects, and tech leaders for the digital age.",
-    image: industryIT,
+    description: "Software developers, data scientists, cloud architects, and tech leaders.",
     icon: Monitor,
     href: "/industries#it",
-    color: "from-blue-500/20 to-blue-600/20",
   },
   {
     title: "Healthcare",
-    description: "Doctors, nurses, medical technicians, and healthcare administrators for hospitals and clinics.",
-    image: industryHealthcare,
+    description: "Doctors, nurses, medical technicians, and healthcare administrators.",
     icon: HeartPulse,
     href: "/industries#healthcare",
-    color: "from-emerald-500/20 to-emerald-600/20",
   },
   {
     title: "Hospitality",
-    description: "Hotel managers, chefs, front desk professionals, and service staff for luxury hospitality.",
-    image: industryHospitality,
+    description: "Hotel managers, chefs, front desk professionals, and service staff.",
     icon: Hotel,
     href: "/industries#hospitality",
-    color: "from-amber-500/20 to-amber-600/20",
   },
   {
     title: "Corporate",
-    description: "Finance, HR, marketing, and management professionals for corporate enterprises.",
-    image: industryCorporate,
+    description: "Finance, HR, marketing, and management professionals.",
     icon: Briefcase,
     href: "/industries#corporate",
-    color: "from-slate-500/20 to-slate-600/20",
   },
 ];
 
@@ -44,67 +32,42 @@ export function IndustriesSection() {
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
-        {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-12">
-          <span className="inline-block rounded-full bg-coral-50 px-4 py-1.5 text-sm font-medium text-secondary mb-4">
-            Industries We Serve
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
-            Specialized Recruitment Across Key Sectors
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Deep expertise in finding exceptional talent for diverse industry verticals
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-light text-foreground mb-4 lowercase">
+              industries we serve.
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Deep expertise in finding exceptional talent across diverse industry verticals.
+            </p>
+          </div>
+          <Link
+            to="/industries"
+            className="inline-flex items-center text-secondary font-medium mt-4 md:mt-0 hover:underline"
+          >
+            view all industries
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
 
-        {/* Industry Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {industries.map((industry) => (
             <Link
               key={industry.title}
               to={industry.href}
-              className="group relative overflow-hidden rounded-2xl bg-card shadow-soft card-hover"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group p-6 border border-border rounded-lg hover:border-secondary hover:shadow-md transition-all"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={industry.image}
-                  alt={industry.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-t ${industry.color} to-transparent`} />
-                <div className="absolute top-4 left-4 flex h-12 w-12 items-center justify-center rounded-xl bg-card/90 backdrop-blur-sm shadow-md">
-                  <industry.icon className="h-6 w-6 text-secondary" />
-                </div>
+              <div className="w-12 h-12 rounded-full bg-beige flex items-center justify-center mb-4 group-hover:bg-secondary/10 transition-colors">
+                <industry.icon className="h-6 w-6 text-secondary" />
               </div>
-              
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-secondary transition-colors">
-                  {industry.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                  {industry.description}
-                </p>
-                <div className="mt-4 flex items-center text-sm font-medium text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
+              <h3 className="text-lg font-medium text-foreground mb-2 group-hover:text-secondary transition-colors">
+                {industry.title}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {industry.description}
+              </p>
             </Link>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <Link
-            to="/industries"
-            className="inline-flex items-center font-medium text-primary hover:text-secondary transition-colors"
-          >
-            View All Industries
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>

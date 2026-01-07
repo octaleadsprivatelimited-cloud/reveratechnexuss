@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -13,10 +18,6 @@ export default {
       },
     },
     extend: {
-      fontFamily: {
-        heading: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -51,26 +52,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        success: {
-          DEFAULT: "hsl(var(--success))",
-          foreground: "hsl(var(--success-foreground))",
-        },
         navy: {
-          50: "hsl(var(--navy-50))",
-          100: "hsl(var(--navy-100))",
-          200: "hsl(var(--navy-200))",
-          600: "hsl(var(--navy-600))",
-          700: "hsl(var(--navy-700))",
-          800: "hsl(var(--navy-800))",
-          900: "hsl(var(--navy-900))",
+          DEFAULT: "hsl(var(--navy))",
+          light: "hsl(var(--navy-light))",
         },
-        coral: {
-          50: "hsl(var(--coral-50))",
-          100: "hsl(var(--coral-100))",
-          400: "hsl(var(--coral-400))",
-          500: "hsl(var(--coral-500))",
-          600: "hsl(var(--coral-600))",
+        blue: {
+          DEFAULT: "hsl(var(--blue))",
+          light: "hsl(var(--blue-light))",
         },
+        beige: {
+          DEFAULT: "hsl(var(--beige))",
+          dark: "hsl(var(--beige-dark))",
+        },
+        cream: "hsl(var(--cream))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -96,25 +90,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "pulse-gentle": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.8" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-gentle": "pulse-gentle 2s ease-in-out infinite",
-        float: "float 3s ease-in-out infinite",
-      },
-      boxShadow: {
-        soft: "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)",
-        elevated: "0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 2px 10px -2px rgba(0, 0, 0, 0.04)",
-        glow: "0 0 40px rgba(234, 88, 12, 0.15)",
       },
     },
   },

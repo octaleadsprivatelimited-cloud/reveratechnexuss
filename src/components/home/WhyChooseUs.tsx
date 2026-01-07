@@ -9,12 +9,12 @@ const features = [
   {
     icon: Clock,
     title: "Fast Turnaround",
-    description: "Quick shortlisting and placement with our extensive talent database and networks.",
+    description: "Quick shortlisting and placement with our extensive talent database.",
   },
   {
     icon: Users,
     title: "Quality Candidates",
-    description: "Pre-screened, verified professionals with proven track records in their fields.",
+    description: "Pre-screened, verified professionals with proven track records.",
   },
   {
     icon: Award,
@@ -24,47 +24,41 @@ const features = [
   {
     icon: Target,
     title: "Custom Solutions",
-    description: "Tailored recruitment strategies aligned with your business goals and culture.",
+    description: "Tailored recruitment strategies aligned with your business goals.",
   },
   {
     icon: Headphones,
     title: "Dedicated Support",
-    description: "Personal account managers providing guidance throughout the hiring journey.",
+    description: "Personal account managers providing guidance throughout the journey.",
   },
 ];
 
 export function WhyChooseUs() {
   return (
-    <section className="section-padding bg-muted">
+    <section className="section-padding bg-beige">
       <div className="container-custom">
-        {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-12">
-          <span className="inline-block rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-accent-foreground mb-4">
-            Why TalentSphere
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
-            Your Trusted Recruitment Partner
+        <div className="max-w-2xl mb-12">
+          <h2 className="text-3xl md:text-4xl font-light text-foreground mb-4 lowercase">
+            why partner with us.
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Experience the difference of working with a recruitment agency that truly understands your needs
+          <p className="text-lg text-muted-foreground">
+            Experience the difference of working with a recruitment agency that truly understands your needs.
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature) => (
             <div
               key={feature.title}
-              className="group rounded-2xl bg-card p-6 shadow-soft card-hover"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="bg-background p-6 rounded-lg"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent group-hover:gradient-coral transition-all duration-300">
-                <feature.icon className="h-7 w-7 text-accent-foreground group-hover:text-secondary-foreground transition-colors" />
+              <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
+                <feature.icon className="h-6 w-6 text-secondary" />
               </div>
-              <h3 className="mt-4 font-heading text-lg font-bold text-foreground">
+              <h3 className="text-lg font-medium text-foreground mb-2">
                 {feature.title}
               </h3>
-              <p className="mt-2 text-muted-foreground">
+              <p className="text-sm text-muted-foreground">
                 {feature.description}
               </p>
             </div>
