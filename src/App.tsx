@@ -16,6 +16,20 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
+// Service pages
+import ContractStaffing from "./pages/services/ContractStaffing";
+import PermanentStaffing from "./pages/services/PermanentStaffing";
+import ExecutiveSearch from "./pages/services/ExecutiveSearch";
+import PayrollServices from "./pages/services/PayrollServices";
+import HRConsulting from "./pages/services/HRConsulting";
+
+// Industry pages
+import InformationTechnology from "./pages/industries/InformationTechnology";
+import Healthcare from "./pages/industries/Healthcare";
+import Hospitality from "./pages/industries/Hospitality";
+import Corporate from "./pages/industries/Corporate";
+import Manufacturing from "./pages/industries/Manufacturing";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -36,6 +50,21 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          
+          {/* Service pages */}
+          <Route path="/services/contract-staffing" element={<ContractStaffing />} />
+          <Route path="/services/permanent-staffing" element={<PermanentStaffing />} />
+          <Route path="/services/executive-search" element={<ExecutiveSearch />} />
+          <Route path="/services/payroll-services" element={<PayrollServices />} />
+          <Route path="/services/hr-consulting" element={<HRConsulting />} />
+          
+          {/* Industry pages */}
+          <Route path="/industries/information-technology" element={<InformationTechnology />} />
+          <Route path="/industries/healthcare" element={<Healthcare />} />
+          <Route path="/industries/hospitality" element={<Hospitality />} />
+          <Route path="/industries/corporate" element={<Corporate />} />
+          <Route path="/industries/manufacturing" element={<Manufacturing />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
