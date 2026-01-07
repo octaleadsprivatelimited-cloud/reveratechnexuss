@@ -78,7 +78,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-navy-900 to-primary py-20 md:py-28">
+      <section className="gradient-navy py-20 md:py-28">
         <div className="container-custom relative">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
