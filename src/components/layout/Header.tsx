@@ -20,22 +20,22 @@ const navigation = [
     name: "services",
     href: "/services",
     children: [
-      { name: "Contract Staffing", href: "/services#contract", description: "Flexible workforce solutions" },
-      { name: "Permanent Staffing", href: "/services#permanent", description: "Find the right permanent talent" },
-      { name: "Executive Search", href: "/services#executive", description: "C-suite and leadership hiring" },
-      { name: "Payroll Services", href: "/services#payroll", description: "End-to-end payroll management" },
-      { name: "HR Consulting", href: "/services#consulting", description: "Strategic HR advisory services" },
+      { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions" },
+      { name: "Permanent Staffing", href: "/services/permanent-staffing", description: "Find the right permanent talent" },
+      { name: "Executive Search", href: "/services/executive-search", description: "C-suite and leadership hiring" },
+      { name: "Payroll Services", href: "/services/payroll-services", description: "End-to-end payroll management" },
+      { name: "HR Consulting", href: "/services/hr-consulting", description: "Strategic HR advisory services" },
     ],
   },
   {
     name: "industries",
     href: "/industries",
     children: [
-      { name: "Information Technology", href: "/industries#it", description: "Tech talent solutions" },
-      { name: "Healthcare", href: "/industries#healthcare", description: "Medical & healthcare staffing" },
-      { name: "Hospitality", href: "/industries#hospitality", description: "Hotel & restaurant staffing" },
-      { name: "Corporate", href: "/industries#corporate", description: "Office & admin professionals" },
-      { name: "Manufacturing", href: "/industries#manufacturing", description: "Industrial workforce solutions" },
+      { name: "Information Technology", href: "/industries/information-technology", description: "Tech talent solutions" },
+      { name: "Healthcare", href: "/industries/healthcare", description: "Medical & healthcare staffing" },
+      { name: "Hospitality", href: "/industries/hospitality", description: "Hotel & restaurant staffing" },
+      { name: "Corporate", href: "/industries/corporate", description: "Office & admin professionals" },
+      { name: "Manufacturing", href: "/industries/manufacturing", description: "Industrial workforce solutions" },
     ],
   },
   {
@@ -56,7 +56,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (href: string) => location.pathname === href;
+  const isActive = (href: string) => location.pathname === href || location.pathname.startsWith(href + "/");
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background border-b border-border">
