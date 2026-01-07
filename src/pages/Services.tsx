@@ -82,13 +82,19 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="gradient-navy py-16 md:py-24">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-light text-white mb-6 lowercase">
-              our services.
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-900 to-primary py-20 md:py-28">
+        <div className="container-custom relative">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
+              Our Services
+            </span>
+            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
+              Comprehensive{" "}
+              <span className="bg-gradient-to-r from-secondary to-coral-400 bg-clip-text text-transparent">
+                Recruitment Solutions
+              </span>
             </h1>
-            <p className="text-lg text-white/70">
+            <p className="mt-6 text-lg text-white/80">
               From contract staffing to executive search, we offer end-to-end recruitment services 
               tailored to your specific industry and organizational needs.
             </p>

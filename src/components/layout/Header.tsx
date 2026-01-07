@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -63,6 +63,11 @@ export function Header() {
       {/* Top bar */}
       <div className="border-b border-border">
         <div className="container-custom flex h-10 items-center justify-end gap-4 text-sm">
+          <a href="tel:+919900949512" className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
+            <Phone className="h-3.5 w-3.5" />
+            +91 99009 49512
+          </a>
+          <span className="text-border">|</span>
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
             contact us
           </Link>
