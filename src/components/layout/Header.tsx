@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Heart, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, ChevronDown } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,30 +17,34 @@ const navigation = [
     href: "/careers",
   },
   {
+    name: "services",
+    href: "/services",
+    children: [
+      { name: "Contract Staffing", href: "/services#contract", description: "Flexible workforce solutions" },
+      { name: "Permanent Staffing", href: "/services#permanent", description: "Find the right permanent talent" },
+      { name: "Executive Search", href: "/services#executive", description: "C-suite and leadership hiring" },
+      { name: "Payroll Services", href: "/services#payroll", description: "End-to-end payroll management" },
+      { name: "HR Consulting", href: "/services#consulting", description: "Strategic HR advisory services" },
+    ],
+  },
+  {
+    name: "industries",
+    href: "/industries",
+    children: [
+      { name: "Information Technology", href: "/industries#it", description: "Tech talent solutions" },
+      { name: "Healthcare", href: "/industries#healthcare", description: "Medical & healthcare staffing" },
+      { name: "Hospitality", href: "/industries#hospitality", description: "Hotel & restaurant staffing" },
+      { name: "Corporate", href: "/industries#corporate", description: "Office & admin professionals" },
+      { name: "Manufacturing", href: "/industries#manufacturing", description: "Industrial workforce solutions" },
+    ],
+  },
+  {
     name: "for talent",
     href: "/job-seekers",
-    children: [
-      { name: "Submit Resume", href: "/job-seekers#resume", description: "Upload your CV for opportunities" },
-      { name: "Career Resources", href: "/job-seekers#resources", description: "Tips and guidance for job seekers" },
-      { name: "Browse Jobs", href: "/careers", description: "View all open positions" },
-    ],
   },
   {
     name: "for employer",
     href: "/employers",
-    children: [
-      { name: "Staffing Solutions", href: "/services#contract", description: "Flexible workforce solutions" },
-      { name: "Permanent Hiring", href: "/services#corporate", description: "Find the right permanent talent" },
-      { name: "Executive Search", href: "/services#executive", description: "C-suite and leadership hiring" },
-    ],
-  },
-  {
-    name: "resources",
-    href: "/blog",
-    children: [
-      { name: "Blog & Insights", href: "/blog", description: "Latest hiring trends and tips" },
-      { name: "Industries", href: "/industries", description: "Sectors we specialize in" },
-    ],
   },
   {
     name: "about us",
@@ -94,7 +97,7 @@ export function Header() {
                       {item.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[350px] gap-2 p-4">
+                      <ul className="grid w-[350px] gap-2 p-4 bg-background border border-border rounded-md shadow-lg z-50">
                         {item.children.map((child) => (
                           <li key={child.name}>
                             <NavigationMenuLink asChild>
@@ -129,18 +132,6 @@ export function Header() {
               )}
             </NavigationMenuList>
           </NavigationMenu>
-        </div>
-
-        {/* Right side icons */}
-        <div className="hidden lg:flex lg:items-center lg:gap-4">
-          <button className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
-            <Heart className="h-4 w-4" />
-            <span>0</span>
-          </button>
-          <Link to="/contact" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-            <User className="h-4 w-4" />
-            <span>my talentsphere</span>
-          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -187,16 +178,6 @@ export function Header() {
                 )}
               </div>
             ))}
-            <div className="pt-4 border-t border-border">
-              <Link
-                to="/contact"
-                className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <User className="h-4 w-4" />
-                my talentsphere
-              </Link>
-            </div>
           </div>
         </div>
       )}
