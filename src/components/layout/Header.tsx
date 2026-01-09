@@ -189,6 +189,14 @@ export function Header() {
               )}
             </div>
           ))}
+
+          {/* CTA Button */}
+          <Link
+            to="/contact"
+            className="ml-4 inline-flex h-10 items-center justify-center rounded-full bg-[hsl(174,100%,29%)] px-6 text-sm font-medium text-white transition-all hover:bg-[hsl(174,100%,24%)] hover:shadow-lg"
+          >
+            Get Started
+          </Link>
         </div>
 
         {/* Mobile menu button */}
