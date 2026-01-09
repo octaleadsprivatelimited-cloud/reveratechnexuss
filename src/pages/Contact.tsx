@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { HeroBackground } from "@/components/HeroBackground";
 
 const contactInfo = [
   {
@@ -78,19 +79,20 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="gradient-navy py-20 md:py-28">
-        <div className="container-custom relative">
+      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+        <HeroBackground />
+        <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
+            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
               Contact Us
             </span>
             <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
               Let&apos;s Start a{" "}
-              <span className="bg-gradient-to-r from-secondary to-coral-400 bg-clip-text text-transparent">
+              <span className="text-[hsl(174,100%,45%)]">
                 Conversation
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white/80">
+            <p className="mt-6 text-lg text-gray-300">
               Whether you&apos;re looking to hire or find your next opportunity, 
               our team is ready to help. Reach out today.
             </p>
@@ -114,15 +116,15 @@ const Contact = () => {
               <div className="space-y-4">
                 {contactInfo.map((item) => (
                   <div key={item.title} className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent">
-                      <item.icon className="h-5 w-5 text-secondary" />
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[hsl(174,100%,29%)]/10">
+                      <item.icon className="h-5 w-5 text-[hsl(174,100%,29%)]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">{item.title}</h3>
                       {item.action ? (
                         <a
                           href={item.action}
-                          className="text-muted-foreground hover:text-secondary transition-colors"
+                          className="text-muted-foreground hover:text-[hsl(174,100%,29%)] transition-colors"
                         >
                           {item.details}
                         </a>
@@ -238,7 +240,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" variant="secondary" size="lg" disabled={isSubmitting} className="w-full sm:w-auto">
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)]">
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>

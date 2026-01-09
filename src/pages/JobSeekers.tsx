@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
   Briefcase, FileText, Award, TrendingUp, 
-  CheckCircle, ArrowRight, Upload, Search
+  ArrowRight, Upload, Search
 } from "lucide-react";
+import { HeroBackground } from "@/components/HeroBackground";
 
 const benefits = [
   {
@@ -42,30 +43,31 @@ const JobSeekers = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="gradient-navy py-20 md:py-28">
-        <div className="container-custom relative">
+      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+        <HeroBackground />
+        <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
+            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
               For Job Seekers
             </span>
             <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
               Find Your{" "}
-              <span className="bg-gradient-to-r from-secondary to-coral-400 bg-clip-text text-transparent">
+              <span className="text-[hsl(174,100%,45%)]">
                 Dream Career
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white/80">
+            <p className="mt-6 text-lg text-gray-300">
               Join thousands of professionals who found their ideal job through TalentSphere. 
               We connect you with top employers across Bangalore and beyond.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button asChild variant="hero" size="xl">
+              <Button asChild size="lg" className="bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)] text-white">
                 <Link to="/careers">
                   Browse Jobs
                   <Search className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="heroOutline" size="xl">
+              <Button asChild size="lg" className="border-white/30 text-white hover:bg-white/10 bg-transparent border">
                 <Link to="/contact">
                   <Upload className="mr-2 h-5 w-5" />
                   Submit Resume
@@ -90,8 +92,8 @@ const JobSeekers = () => {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((benefit) => (
               <div key={benefit.title} className="rounded-2xl bg-card p-6 shadow-soft card-hover text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-accent">
-                  <benefit.icon className="h-7 w-7 text-secondary" />
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-[hsl(174,100%,29%)]/10">
+                  <benefit.icon className="h-7 w-7 text-[hsl(174,100%,29%)]" />
                 </div>
                 <h3 className="mt-4 font-heading text-lg font-bold text-foreground">
                   {benefit.title}
@@ -122,12 +124,12 @@ const JobSeekers = () => {
                 className="group flex items-center justify-between rounded-xl bg-card p-6 shadow-soft card-hover"
               >
                 <div>
-                  <h3 className="font-heading font-bold text-foreground group-hover:text-secondary transition-colors">
+                  <h3 className="font-heading font-bold text-foreground group-hover:text-[hsl(174,100%,29%)] transition-colors">
                     {category.name}
                   </h3>
                   <p className="text-sm text-muted-foreground">{category.count}</p>
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-secondary transition-colors" />
+                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-[hsl(174,100%,29%)] transition-colors" />
               </Link>
             ))}
           </div>
@@ -149,7 +151,7 @@ const JobSeekers = () => {
               { step: "3", title: "Interview & Join", desc: "We prepare you for interviews and negotiate offers" },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-secondary to-coral-600 text-2xl font-bold text-white">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(174,100%,29%)] text-2xl font-bold text-white">
                   {item.step}
                 </div>
                 <h3 className="mt-6 font-heading text-xl font-bold text-foreground">{item.title}</h3>
@@ -161,8 +163,12 @@ const JobSeekers = () => {
       </section>
 
       {/* Success Stats */}
-      <section className="bg-gradient-to-r from-primary to-navy-700 py-16">
-        <div className="container-custom">
+      <section className="relative bg-[hsl(210,11%,15%)] py-16 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-[hsl(174,100%,29%)]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-[hsl(174,100%,29%)]/5 rounded-full blur-2xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="grid gap-8 md:grid-cols-4 text-center">
             {[
               { value: "5000+", label: "Placements" },
@@ -171,8 +177,8 @@ const JobSeekers = () => {
               { value: "2 Weeks", label: "Avg. Placement Time" },
             ].map((stat) => (
               <div key={stat.label}>
-                <div className="font-heading text-4xl font-bold text-white">{stat.value}</div>
-                <div className="mt-2 text-white/70">{stat.label}</div>
+                <div className="font-heading text-4xl font-bold text-[hsl(174,100%,45%)]">{stat.value}</div>
+                <div className="mt-2 text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -188,7 +194,7 @@ const JobSeekers = () => {
           <p className="mt-4 text-lg text-muted-foreground">
             Submit your resume today and let us find your perfect opportunity.
           </p>
-          <Button asChild variant="secondary" size="lg" className="mt-8">
+          <Button asChild size="lg" className="mt-8 bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)]">
             <Link to="/contact">
               <Upload className="mr-2 h-5 w-5" />
               Submit Your Resume

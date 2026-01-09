@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
+import { HeroBackground } from "@/components/HeroBackground";
 
 const blogPosts = [
   {
@@ -72,19 +73,20 @@ const Blog = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="gradient-navy py-20 md:py-28">
-        <div className="container-custom relative">
+      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+        <HeroBackground />
+        <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
+            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
               Blog & Insights
             </span>
             <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
               Career Insights &{" "}
-              <span className="bg-gradient-to-r from-secondary to-coral-400 bg-clip-text text-transparent">
+              <span className="text-[hsl(174,100%,45%)]">
                 Industry Trends
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white/80">
+            <p className="mt-6 text-lg text-gray-300">
               Stay updated with the latest hiring trends, career advice, and industry insights 
               from our recruitment experts.
             </p>
@@ -100,7 +102,7 @@ const Blog = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                className="rounded-full px-4 py-2 text-sm font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                className="rounded-full px-4 py-2 text-sm font-medium bg-muted text-muted-foreground hover:bg-[hsl(174,100%,29%)]/10 hover:text-[hsl(174,100%,29%)] transition-colors"
               >
                 {category}
               </button>
@@ -121,7 +123,7 @@ const Blog = () => {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
+                    <span className="rounded-full bg-[hsl(174,100%,29%)] px-3 py-1 text-xs font-medium text-white">
                       {post.category}
                     </span>
                   </div>
@@ -137,7 +139,7 @@ const Blog = () => {
                       {post.readTime}
                     </span>
                   </div>
-                  <h3 className="font-heading text-xl font-bold text-foreground group-hover:text-secondary transition-colors line-clamp-2">
+                  <h3 className="font-heading text-xl font-bold text-foreground group-hover:text-[hsl(174,100%,29%)] transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="mt-2 text-muted-foreground line-clamp-2">{post.excerpt}</p>
@@ -146,7 +148,7 @@ const Blog = () => {
                       <User className="h-4 w-4" />
                       {post.author}
                     </span>
-                    <span className="flex items-center text-sm font-medium text-secondary">
+                    <span className="flex items-center text-sm font-medium text-[hsl(174,100%,29%)]">
                       Read More
                       <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
@@ -158,7 +160,7 @@ const Blog = () => {
 
           {/* Load More */}
           <div className="mt-12 text-center">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="hover:bg-[hsl(174,100%,29%)] hover:text-white hover:border-[hsl(174,100%,29%)]">
               Load More Articles
             </Button>
           </div>
@@ -166,8 +168,12 @@ const Blog = () => {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="bg-gradient-to-r from-primary to-navy-700 py-16">
-        <div className="container-custom text-center">
+      <section className="relative bg-[hsl(174,100%,29%)] py-16 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-2xl" />
+        </div>
+        <div className="container-custom relative z-10 text-center">
           <h2 className="font-heading text-3xl font-bold text-white">
             Stay Updated
           </h2>
@@ -178,9 +184,9 @@ const Blog = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 h-12 rounded-lg px-4 bg-white/10 border border-white/20 text-white placeholder:text-white/50"
+              className="flex-1 h-12 rounded-lg px-4 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
             />
-            <Button variant="hero">Subscribe</Button>
+            <Button className="bg-white text-[hsl(174,100%,29%)] hover:bg-gray-100">Subscribe</Button>
           </div>
         </div>
       </section>

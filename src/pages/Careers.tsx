@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { Search, MapPin, Clock, Briefcase, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { HeroBackground } from "@/components/HeroBackground";
 
 const jobs = [
   {
@@ -91,32 +92,33 @@ const Careers = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="gradient-navy py-20 md:py-28">
-        <div className="container-custom relative">
+      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+        <HeroBackground />
+        <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
+            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
               Career Opportunities
             </span>
             <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
               Find Your{" "}
-              <span className="bg-gradient-to-r from-secondary to-coral-400 bg-clip-text text-transparent">
+              <span className="text-[hsl(174,100%,45%)]">
                 Perfect Role
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white/80">
+            <p className="mt-6 text-lg text-gray-300">
               Explore exciting opportunities with top employers across Bangalore
             </p>
 
             {/* Search Bar */}
             <div className="mt-8 mx-auto max-w-2xl">
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <Input
                   type="text"
                   placeholder="Search jobs by title or company..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="h-14 pl-12 pr-4 text-lg bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  className="h-14 pl-12 pr-4 text-lg bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[hsl(174,100%,29%)] focus:ring-[hsl(174,100%,29%)]"
                 />
               </div>
             </div>
@@ -135,8 +137,8 @@ const Careers = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   selectedCategory === category
-                    ? "bg-secondary text-secondary-foreground"
-                    : "bg-muted text-muted-foreground hover:bg-accent"
+                    ? "bg-[hsl(174,100%,29%)] text-white"
+                    : "bg-muted text-muted-foreground hover:bg-[hsl(174,100%,29%)]/10 hover:text-[hsl(174,100%,29%)]"
                 }`}
               >
                 {category}
@@ -155,12 +157,12 @@ const Careers = () => {
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="rounded-full bg-accent px-3 py-1 text-xs font-medium text-accent-foreground">
+                        <span className="rounded-full bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)] px-3 py-1 text-xs font-medium">
                           {job.category}
                         </span>
                         <span className="text-xs text-muted-foreground">{job.posted}</span>
                       </div>
-                      <h3 className="font-heading text-xl font-bold text-foreground group-hover:text-secondary transition-colors">
+                      <h3 className="font-heading text-xl font-bold text-foreground group-hover:text-[hsl(174,100%,29%)] transition-colors">
                         {job.title}
                       </h3>
                       <p className="mt-1 text-muted-foreground">{job.company}</p>
@@ -184,7 +186,7 @@ const Careers = () => {
                         <p className="font-semibold text-foreground">{job.salary}</p>
                         <p className="text-sm text-muted-foreground">per annum</p>
                       </div>
-                      <Button asChild>
+                      <Button asChild className="bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)]">
                         <Link to="/contact">
                           Apply
                           <ArrowRight className="ml-2 h-4 w-4" />
@@ -206,7 +208,7 @@ const Careers = () => {
 
           {/* Load More */}
           <div className="mt-12 text-center">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="hover:bg-[hsl(174,100%,29%)] hover:text-white hover:border-[hsl(174,100%,29%)]">
               Load More Jobs
             </Button>
           </div>
@@ -214,15 +216,19 @@ const Careers = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-primary to-navy-700 py-16">
-        <div className="container-custom text-center">
+      <section className="relative bg-[hsl(174,100%,29%)] py-16 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-2xl" />
+        </div>
+        <div className="container-custom relative z-10 text-center">
           <h2 className="font-heading text-3xl font-bold text-white">
             Can&apos;t Find What You&apos;re Looking For?
           </h2>
           <p className="mt-4 text-lg text-white/80">
             Submit your resume and we&apos;ll match you with suitable opportunities.
           </p>
-          <Button asChild variant="hero" size="lg" className="mt-8">
+          <Button asChild size="lg" className="mt-8 bg-white text-[hsl(174,100%,29%)] hover:bg-gray-100">
             <Link to="/contact">Submit Your Resume</Link>
           </Button>
         </div>
