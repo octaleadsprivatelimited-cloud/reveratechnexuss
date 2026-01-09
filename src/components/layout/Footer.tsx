@@ -26,9 +26,31 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-[hsl(210,11%,15%)] text-white">
+    <footer className="relative bg-[hsl(210,11%,15%)] text-white overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Gradient orbs */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[hsl(174,100%,29%)]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -left-20 w-72 h-72 bg-[hsl(174,100%,29%)]/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 right-1/4 w-80 h-80 bg-[hsl(210,50%,30%)]/10 rounded-full blur-3xl" />
+        
+        {/* Decorative grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }} />
+        
+        {/* Diagonal lines */}
+        <svg className="absolute top-0 right-0 w-1/3 h-full opacity-[0.02]" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <pattern id="diagonalLines" patternUnits="userSpaceOnUse" width="10" height="10">
+            <path d="M0,10 L10,0" stroke="white" strokeWidth="0.5" fill="none" />
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#diagonalLines)" />
+        </svg>
+      </div>
+
       {/* CTA Section */}
-      <div className="border-b border-white/10">
+      <div className="relative border-b border-white/10">
         <div className="container-custom py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
@@ -38,7 +60,7 @@ export function Footer() {
             <div className="flex gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-[hsl(174,100%,29%)] px-6 py-3 text-sm font-medium text-white transition-all hover:bg-[hsl(174,100%,24%)] hover:shadow-lg"
+                className="inline-flex items-center gap-2 rounded-full bg-[hsl(174,100%,29%)] px-6 py-3 text-sm font-medium text-white transition-all hover:bg-[hsl(174,100%,24%)] hover:shadow-lg hover:shadow-[hsl(174,100%,29%)]/20"
               >
                 Get Started
                 <ArrowRight className="h-4 w-4" />
@@ -54,7 +76,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-custom py-16">
+      <div className="relative container-custom py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
@@ -151,7 +173,7 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="relative border-t border-white/10">
         <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} TalentSphere. All rights reserved.
