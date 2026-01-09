@@ -1,62 +1,54 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import { Menu, X, ChevronDown, Phone, Users, Building2, Search, FileText, Calculator, Briefcase, Laptop, Heart, Hotel, Building, Factory, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const services = [
+  { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions for project-based needs", icon: Users },
+  { name: "Permanent Staffing", href: "/services/permanent-staffing", description: "Find the right permanent talent for your organization", icon: Briefcase },
+  { name: "Executive Search", href: "/services/executive-search", description: "C-suite and leadership hiring solutions", icon: Search },
+  { name: "Payroll Services", href: "/services/payroll-services", description: "End-to-end payroll management and compliance", icon: Calculator },
+  { name: "HR Consulting", href: "/services/hr-consulting", description: "Strategic HR advisory and transformation services", icon: FileText },
+];
+
+const industries = [
+  { name: "Information Technology", href: "/industries/information-technology", description: "Tech talent for digital transformation", icon: Laptop },
+  { name: "Healthcare", href: "/industries/healthcare", description: "Medical & healthcare staffing solutions", icon: Heart },
+  { name: "Hospitality", href: "/industries/hospitality", description: "Hotel, restaurant & tourism staffing", icon: Hotel },
+  { name: "Corporate", href: "/industries/corporate", description: "Office & administrative professionals", icon: Building },
+  { name: "Manufacturing", href: "/industries/manufacturing", description: "Industrial workforce solutions", icon: Factory },
+];
+
 const navigation = [
-  {
-    name: "find a job",
-    href: "/careers",
-  },
-  {
-    name: "services",
-    href: "/services",
-    children: [
-      { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions" },
-      { name: "Permanent Staffing", href: "/services/permanent-staffing", description: "Find the right permanent talent" },
-      { name: "Executive Search", href: "/services/executive-search", description: "C-suite and leadership hiring" },
-      { name: "Payroll Services", href: "/services/payroll-services", description: "End-to-end payroll management" },
-      { name: "HR Consulting", href: "/services/hr-consulting", description: "Strategic HR advisory services" },
-    ],
-  },
-  {
-    name: "industries",
-    href: "/industries",
-    children: [
-      { name: "Information Technology", href: "/industries/information-technology", description: "Tech talent solutions" },
-      { name: "Healthcare", href: "/industries/healthcare", description: "Medical & healthcare staffing" },
-      { name: "Hospitality", href: "/industries/hospitality", description: "Hotel & restaurant staffing" },
-      { name: "Corporate", href: "/industries/corporate", description: "Office & admin professionals" },
-      { name: "Manufacturing", href: "/industries/manufacturing", description: "Industrial workforce solutions" },
-    ],
-  },
-  {
-    name: "for talent",
-    href: "/job-seekers",
-  },
-  {
-    name: "for employer",
-    href: "/employers",
-  },
-  {
-    name: "about us",
-    href: "/about",
-  },
+  { name: "find a job", href: "/careers" },
+  { name: "services", href: "/services", hasDropdown: true },
+  { name: "industries", href: "/industries", hasDropdown: true },
+  { name: "for talent", href: "/job-seekers" },
+  { name: "for employer", href: "/employers" },
+  { name: "about us", href: "/about" },
 ];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileExpandedItems, setMobileExpandedItems] = useState<string[]>([]);
   const location = useLocation();
 
   const isActive = (href: string) => location.pathname === href || location.pathname.startsWith(href + "/");
+
+  const handleMouseEnter = (name: string) => {
+    setActiveDropdown(name);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null);
+  };
+
+  const toggleMobileExpand = (name: string) => {
+    setMobileExpandedItems(prev => 
+      prev.includes(name) ? prev.filter(item => item !== name) : [...prev, name]
+    );
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background border-b border-border">
@@ -88,55 +80,115 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:items-center lg:gap-1">
-          <NavigationMenu>
-            <NavigationMenuList>
-              {navigation.map((item) =>
-                item.children ? (
-                  <NavigationMenuItem key={item.name}>
-                    <NavigationMenuTrigger
-                      className={cn(
-                        "text-sm font-medium lowercase",
-                        isActive(item.href) && "text-secondary"
-                      )}
-                    >
-                      {item.name}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid w-[350px] gap-2 p-4 bg-background border border-border rounded-md shadow-lg z-50">
-                        {item.children.map((child) => (
-                          <li key={child.name}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to={child.href}
-                                className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent"
-                              >
-                                <div className="text-sm font-medium">{child.name}</div>
-                                <p className="mt-1 text-sm text-muted-foreground">
-                                  {child.description}
-                                </p>
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                ) : (
-                  <NavigationMenuItem key={item.name}>
-                    <Link
-                      to={item.href}
-                      className={cn(
-                        "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium lowercase transition-colors hover:bg-accent",
-                        isActive(item.href) && "text-secondary"
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  </NavigationMenuItem>
-                )
+          {navigation.map((item) => (
+            <div
+              key={item.name}
+              className="relative"
+              onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.name)}
+              onMouseLeave={handleMouseLeave}
+            >
+              {item.hasDropdown ? (
+                <button
+                  className={cn(
+                    "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium lowercase transition-colors hover:text-secondary",
+                    isActive(item.href) ? "text-secondary" : "text-foreground",
+                    activeDropdown === item.name && "text-secondary"
+                  )}
+                >
+                  {item.name}
+                  <ChevronDown
+                    className={cn(
+                      "ml-1 h-4 w-4 transition-transform duration-200",
+                      activeDropdown === item.name && "rotate-180"
+                    )}
+                  />
+                </button>
+              ) : (
+                <Link
+                  to={item.href}
+                  className={cn(
+                    "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium lowercase transition-colors hover:text-secondary",
+                    isActive(item.href) ? "text-secondary" : "text-foreground"
+                  )}
+                >
+                  {item.name}
+                </Link>
               )}
-            </NavigationMenuList>
-          </NavigationMenu>
+
+              {/* Mega Menu Dropdown */}
+              {item.hasDropdown && activeDropdown === item.name && (
+                <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
+                  <div className="w-[600px] rounded-xl border border-border bg-background shadow-2xl overflow-hidden animate-fade-in">
+                    {/* Header */}
+                    <div className="bg-muted/50 px-6 py-4 border-b border-border">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground capitalize">{item.name}</h3>
+                          <p className="text-sm text-muted-foreground mt-0.5">
+                            {item.name === "services" 
+                              ? "Comprehensive staffing and HR solutions" 
+                              : "Industry-specific talent expertise"
+                            }
+                          </p>
+                        </div>
+                        <Link
+                          to={item.href}
+                          className="text-sm font-medium text-secondary hover:underline flex items-center gap-1"
+                        >
+                          View all
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Menu Items */}
+                    <div className="p-4">
+                      <div className="grid grid-cols-2 gap-2">
+                        {(item.name === "services" ? services : industries).map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.href}
+                            className="group flex items-start gap-4 rounded-lg p-4 transition-all hover:bg-accent"
+                          >
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                              <subItem.icon className="h-5 w-5" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-sm font-medium text-foreground group-hover:text-secondary transition-colors">
+                                {subItem.name}
+                              </div>
+                              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">
+                                {subItem.description}
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Footer CTA */}
+                    <div className="bg-muted/30 px-6 py-4 border-t border-border">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm text-muted-foreground">
+                          {item.name === "services" 
+                            ? "Need a custom solution?" 
+                            : "Don't see your industry?"
+                          }
+                        </p>
+                        <Link
+                          to="/contact"
+                          className="text-sm font-medium text-secondary hover:underline flex items-center gap-1"
+                        >
+                          Contact us
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Mobile menu button */}
@@ -151,35 +203,66 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border">
+        <div className="lg:hidden border-t border-border bg-background">
           <div className="space-y-1 px-4 pb-4 pt-2">
             {navigation.map((item) => (
               <div key={item.name}>
-                <Link
-                  to={item.href}
-                  className={cn(
-                    "block rounded-md px-3 py-2 text-base font-medium lowercase",
-                    isActive(item.href)
-                      ? "bg-accent text-secondary"
-                      : "text-foreground hover:bg-accent"
-                  )}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-                {item.children && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        to={child.href}
-                        className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
+                {item.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => toggleMobileExpand(item.name)}
+                      className={cn(
+                        "flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium lowercase",
+                        isActive(item.href)
+                          ? "bg-accent text-secondary"
+                          : "text-foreground hover:bg-accent"
+                      )}
+                    >
+                      {item.name}
+                      <ChevronDown 
+                        className={cn(
+                          "h-4 w-4 transition-transform",
+                          mobileExpandedItems.includes(item.name) && "rotate-180"
+                        )} 
+                      />
+                    </button>
+                    {mobileExpandedItems.includes(item.name) && (
+                      <div className="ml-4 mt-1 space-y-1 border-l-2 border-border pl-4">
+                        {(item.name === "services" ? services : industries).map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.href}
+                            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <subItem.icon className="h-4 w-4" />
+                            {subItem.name}
+                          </Link>
+                        ))}
+                        <Link
+                          to={item.href}
+                          className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-secondary"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          View all {item.name}
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={cn(
+                      "block rounded-md px-3 py-2 text-base font-medium lowercase",
+                      isActive(item.href)
+                        ? "bg-accent text-secondary"
+                        : "text-foreground hover:bg-accent"
+                    )}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
                 )}
               </div>
             ))}
