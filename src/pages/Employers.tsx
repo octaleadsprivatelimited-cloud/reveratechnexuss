@@ -5,6 +5,7 @@ import {
   Target, Shield, Users, Clock, CheckCircle, 
   ArrowRight, Building2, Handshake, FileCheck 
 } from "lucide-react";
+import { HeroBackground } from "@/components/HeroBackground";
 
 const benefits = [
   {
@@ -56,30 +57,31 @@ const Employers = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="gradient-navy py-20 md:py-28">
-        <div className="container-custom relative">
+      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+        <HeroBackground />
+        <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm mb-6">
+            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
               For Employers
             </span>
             <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
               Build Your{" "}
-              <span className="bg-gradient-to-r from-secondary to-coral-400 bg-clip-text text-transparent">
+              <span className="text-[hsl(174,100%,45%)]">
                 Dream Team
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white/80">
+            <p className="mt-6 text-lg text-gray-300">
               Partner with TalentSphere for efficient, quality-driven recruitment that 
               saves you time and connects you with exceptional talent.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button asChild variant="hero" size="xl">
+              <Button asChild size="lg" className="bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)] text-white">
                 <Link to="/contact">
                   Request a Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="heroOutline" size="xl">
+              <Button asChild size="lg" className="border-white/30 text-white hover:bg-white/10 bg-transparent border">
                 <a href="tel:+919900949512">Call +91 99009 49512</a>
               </Button>
             </div>
@@ -101,8 +103,8 @@ const Employers = () => {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((benefit) => (
               <div key={benefit.title} className="rounded-2xl bg-card p-6 shadow-soft card-hover">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent">
-                  <benefit.icon className="h-6 w-6 text-secondary" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(174,100%,29%)]/10">
+                  <benefit.icon className="h-6 w-6 text-[hsl(174,100%,29%)]" />
                 </div>
                 <h3 className="mt-4 font-heading text-lg font-bold text-foreground">
                   {benefit.title}
@@ -133,7 +135,7 @@ const Employers = () => {
                 <ul className="mt-4 space-y-2">
                   {model.features.map((feature) => (
                     <li key={feature} className="flex items-center text-sm text-muted-foreground">
-                      <CheckCircle className="mr-2 h-4 w-4 text-success" />
+                      <CheckCircle className="mr-2 h-4 w-4 text-[hsl(174,100%,29%)]" />
                       {feature}
                     </li>
                   ))}
@@ -160,11 +162,11 @@ const Employers = () => {
               { icon: Building2, title: "Placement", desc: "Seamless onboarding support" },
             ].map((step, index) => (
               <div key={step.title} className="text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-primary to-navy-700">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]">
                   <step.icon className="h-8 w-8 text-white" />
                 </div>
                 <div className="mt-4">
-                  <span className="text-sm font-medium text-secondary">Step {index + 1}</span>
+                  <span className="text-sm font-medium text-[hsl(174,100%,29%)]">Step {index + 1}</span>
                   <h3 className="font-heading text-lg font-bold text-foreground">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.desc}</p>
                 </div>
@@ -175,15 +177,19 @@ const Employers = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-primary to-navy-700 py-16">
-        <div className="container-custom text-center">
+      <section className="relative bg-[hsl(174,100%,29%)] py-16 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-2xl" />
+        </div>
+        <div className="container-custom relative z-10 text-center">
           <h2 className="font-heading text-3xl font-bold text-white">
             Ready to Start Hiring?
           </h2>
           <p className="mt-4 text-lg text-white/80">
             Get in touch with our team for a free consultation.
           </p>
-          <Button asChild variant="hero" size="lg" className="mt-8">
+          <Button asChild size="lg" className="mt-8 bg-white text-[hsl(174,100%,29%)] hover:bg-gray-100">
             <Link to="/contact">Request a Call Back</Link>
           </Button>
         </div>
