@@ -51,17 +51,17 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background border-b border-border">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       {/* Top bar */}
-      <div className="border-b border-border">
-        <div className="container-custom flex h-10 items-center justify-end gap-4 text-sm">
-          <a href="tel:+919900949512" className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
-            <Phone className="h-3.5 w-3.5" />
+      <div className="bg-[hsl(210,11%,15%)]">
+        <div className="container-custom flex h-9 items-center justify-end gap-4 text-xs">
+          <a href="tel:+919900949512" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
+            <Phone className="h-3 w-3" />
             +91 99009 49512
           </a>
-          <span className="text-border">|</span>
-          <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-            contact us
+          <span className="text-gray-600">|</span>
+          <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
+            Contact Us
           </Link>
         </div>
       </div>
@@ -71,10 +71,10 @@ export function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="flex items-center">
-            <svg className="h-8 w-8 text-secondary" viewBox="0 0 32 32" fill="currentColor">
+            <svg className="h-8 w-8 text-[hsl(174,100%,29%)]" viewBox="0 0 32 32" fill="currentColor">
               <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4-8 4-8-4 8-4zm-8 8l8 4 8-4v8l-8 4-8-4v-8z"/>
             </svg>
-            <span className="ml-2 text-xl font-semibold text-secondary">talentsphere</span>
+            <span className="ml-2 text-xl font-bold text-[hsl(210,11%,15%)]">talentsphere</span>
           </div>
         </Link>
 
@@ -90,9 +90,9 @@ export function Header() {
               {item.hasDropdown ? (
                 <button
                   className={cn(
-                    "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium lowercase transition-colors hover:text-secondary",
-                    isActive(item.href) ? "text-secondary" : "text-foreground",
-                    activeDropdown === item.name && "text-secondary"
+                    "inline-flex h-10 items-center justify-center px-4 py-2 text-sm font-medium capitalize transition-colors hover:text-[hsl(174,100%,29%)]",
+                    isActive(item.href) ? "text-[hsl(174,100%,29%)]" : "text-[hsl(210,11%,15%)]",
+                    activeDropdown === item.name && "text-[hsl(174,100%,29%)]"
                   )}
                 >
                   {item.name}
@@ -107,8 +107,8 @@ export function Header() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium lowercase transition-colors hover:text-secondary",
-                    isActive(item.href) ? "text-secondary" : "text-foreground"
+                    "inline-flex h-10 items-center justify-center px-4 py-2 text-sm font-medium capitalize transition-colors hover:text-[hsl(174,100%,29%)]",
+                    isActive(item.href) ? "text-[hsl(174,100%,29%)]" : "text-[hsl(210,11%,15%)]"
                   )}
                 >
                   {item.name}
@@ -118,13 +118,13 @@ export function Header() {
               {/* Mega Menu Dropdown */}
               {item.hasDropdown && activeDropdown === item.name && (
                 <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
-                  <div className="w-[600px] rounded-xl border border-border bg-background shadow-2xl overflow-hidden animate-fade-in">
+                  <div className="w-[600px] rounded-xl border border-gray-100 bg-white shadow-2xl overflow-hidden animate-fade-in">
                     {/* Header */}
-                    <div className="bg-muted/50 px-6 py-4 border-b border-border">
+                    <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground capitalize">{item.name}</h3>
-                          <p className="text-sm text-muted-foreground mt-0.5">
+                          <h3 className="text-lg font-semibold text-[hsl(210,11%,15%)] capitalize">{item.name}</h3>
+                          <p className="text-sm text-gray-500 mt-0.5">
                             {item.name === "services" 
                               ? "Comprehensive staffing and HR solutions" 
                               : "Industry-specific talent expertise"
@@ -133,7 +133,7 @@ export function Header() {
                         </div>
                         <Link
                           to={item.href}
-                          className="text-sm font-medium text-secondary hover:underline flex items-center gap-1"
+                          className="text-sm font-medium text-[hsl(174,100%,29%)] hover:underline flex items-center gap-1"
                         >
                           View all
                           <ArrowRight className="h-3.5 w-3.5" />
@@ -148,16 +148,16 @@ export function Header() {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className="group flex items-start gap-4 rounded-lg p-4 transition-all hover:bg-accent"
+                            className="group flex items-start gap-4 rounded-lg p-4 transition-all hover:bg-gray-50"
                           >
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)] group-hover:bg-[hsl(174,100%,29%)] group-hover:text-white transition-colors">
                               <subItem.icon className="h-5 w-5" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="text-sm font-medium text-foreground group-hover:text-secondary transition-colors">
+                              <div className="text-sm font-medium text-[hsl(210,11%,15%)] group-hover:text-[hsl(174,100%,29%)] transition-colors">
                                 {subItem.name}
                               </div>
-                              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">
+                              <p className="mt-1 text-xs text-gray-500 line-clamp-2">
                                 {subItem.description}
                               </p>
                             </div>
@@ -167,9 +167,9 @@ export function Header() {
                     </div>
 
                     {/* Footer CTA */}
-                    <div className="bg-muted/30 px-6 py-4 border-t border-border">
+                    <div className="bg-gray-50 px-6 py-4 border-t border-gray-100">
                       <div className="flex items-center justify-between">
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-gray-500">
                           {item.name === "services" 
                             ? "Need a custom solution?" 
                             : "Don't see your industry?"
@@ -177,7 +177,7 @@ export function Header() {
                         </p>
                         <Link
                           to="/contact"
-                          className="text-sm font-medium text-secondary hover:underline flex items-center gap-1"
+                          className="text-sm font-medium text-[hsl(174,100%,29%)] hover:underline flex items-center gap-1"
                         >
                           Contact us
                           <ArrowRight className="h-3.5 w-3.5" />
@@ -194,7 +194,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button
           type="button"
-          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground"
+          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-[hsl(210,11%,15%)]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -203,7 +203,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border bg-background">
+        <div className="lg:hidden border-t border-gray-100 bg-white">
           <div className="space-y-1 px-4 pb-4 pt-2">
             {navigation.map((item) => (
               <div key={item.name}>
@@ -212,10 +212,10 @@ export function Header() {
                     <button
                       onClick={() => toggleMobileExpand(item.name)}
                       className={cn(
-                        "flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium lowercase",
+                        "flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium capitalize",
                         isActive(item.href)
-                          ? "bg-accent text-secondary"
-                          : "text-foreground hover:bg-accent"
+                          ? "bg-gray-50 text-[hsl(174,100%,29%)]"
+                          : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
                       )}
                     >
                       {item.name}
@@ -227,21 +227,21 @@ export function Header() {
                       />
                     </button>
                     {mobileExpandedItems.includes(item.name) && (
-                      <div className="ml-4 mt-1 space-y-1 border-l-2 border-border pl-4">
+                      <div className="ml-4 mt-1 space-y-1 border-l-2 border-[hsl(174,100%,29%)]/30 pl-4">
                         {(item.name === "services" ? services : industries).map((subItem) => (
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
+                            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-[hsl(210,11%,15%)]"
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            <subItem.icon className="h-4 w-4" />
+                            <subItem.icon className="h-4 w-4 text-[hsl(174,100%,29%)]" />
                             {subItem.name}
                           </Link>
                         ))}
                         <Link
                           to={item.href}
-                          className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-secondary"
+                          className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-[hsl(174,100%,29%)]"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           View all {item.name}
@@ -254,10 +254,10 @@ export function Header() {
                   <Link
                     to={item.href}
                     className={cn(
-                      "block rounded-md px-3 py-2 text-base font-medium lowercase",
+                      "block rounded-md px-3 py-2 text-base font-medium capitalize",
                       isActive(item.href)
-                        ? "bg-accent text-secondary"
-                        : "text-foreground hover:bg-accent"
+                        ? "bg-gray-50 text-[hsl(174,100%,29%)]"
+                        : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
