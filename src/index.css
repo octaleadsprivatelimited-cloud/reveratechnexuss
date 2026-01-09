@@ -36,7 +36,7 @@
 
     --radius: 0.5rem;
 
-    /* Extended palette - Randstad style */
+    /* Extended palette - Sprinklr style */
     --navy: 222 47% 15%;
     --navy-light: 222 30% 25%;
     --blue: 214 100% 50%;
@@ -44,6 +44,11 @@
     --beige: 40 30% 94%;
     --beige-dark: 40 20% 88%;
     --cream: 40 40% 97%;
+    
+    /* Sprinklr teal accent */
+    --teal: 174 100% 29%;
+    --teal-light: 174 80% 40%;
+    --charcoal: 210 11% 15%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
