@@ -4,8 +4,24 @@ import heroImage from "@/assets/hero-image.jpg";
 
 export function AboutSection() {
   return (
-    <section className="section-padding bg-background">
-      <div className="container-custom">
+    <section className="relative section-padding bg-white overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Large geometric shape */}
+        <div className="absolute -top-40 -left-40 w-80 h-80 border border-[hsl(174,100%,29%)]/10 rounded-full" />
+        <div className="absolute -top-20 -left-20 w-60 h-60 border border-[hsl(174,100%,29%)]/5 rounded-full" />
+        
+        {/* Grid pattern on the right */}
+        <div className="absolute right-0 top-0 w-1/3 h-full opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(hsl(210 11% 15%) 1px, transparent 1px), linear-gradient(90deg, hsl(210 11% 15%) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }} />
+        
+        {/* Gradient overlay */}
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-gray-50/50 to-transparent" />
+      </div>
+
+      <div className="relative container-custom">
         <div className="max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-light text-foreground mb-6 lowercase">
             your specialised and equitable work partner.
@@ -26,7 +42,7 @@ export function AboutSection() {
               alt="For Job Seekers"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210,11%,15%)] via-[hsl(210,11%,15%)]/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <span className="inline-flex items-center gap-2 text-white text-lg font-medium mb-3 group-hover:underline">
                 let's find job
@@ -43,7 +59,7 @@ export function AboutSection() {
               alt="For Employers"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210,11%,15%)] via-[hsl(210,11%,15%)]/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <span className="inline-flex items-center gap-2 text-white text-lg font-medium mb-3 group-hover:underline">
                 helping clients succeed
