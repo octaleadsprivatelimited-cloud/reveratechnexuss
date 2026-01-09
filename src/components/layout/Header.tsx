@@ -3,6 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone, Users, Building2, Search, FileText, Calculator, Briefcase, Laptop, Heart, Hotel, Building, Factory, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import heroConsulting from "@/assets/hero-consulting.jpg";
+import industryIT from "@/assets/industry-it.jpg";
+
 const services = [
   { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions for project-based needs", icon: Users },
   { name: "Permanent Staffing", href: "/services/permanent-staffing", description: "Find the right permanent talent for your organization", icon: Briefcase },
@@ -118,70 +121,76 @@ export function Header() {
               {/* Mega Menu Dropdown */}
               {item.hasDropdown && activeDropdown === item.name && (
                 <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
-                  <div className="w-[600px] rounded-xl border border-gray-100 bg-white shadow-2xl overflow-hidden animate-fade-in">
-                    {/* Header */}
-                    <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="text-lg font-semibold text-[hsl(210,11%,15%)] capitalize">{item.name}</h3>
-                          <p className="text-sm text-gray-500 mt-0.5">
+                  <div className="w-[750px] rounded-xl border border-gray-100 bg-white shadow-2xl overflow-hidden animate-fade-in">
+                    <div className="flex">
+                      {/* Left side - Image */}
+                      <div className="w-[280px] relative overflow-hidden">
+                        <img 
+                          src={item.name === "services" ? heroConsulting : industryIT} 
+                          alt={item.name}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210,11%,15%)] via-[hsl(210,11%,15%)]/60 to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                          <h3 className="text-xl font-bold text-white capitalize mb-2">{item.name}</h3>
+                          <p className="text-sm text-gray-300 mb-4">
                             {item.name === "services" 
-                              ? "Comprehensive staffing and HR solutions" 
-                              : "Industry-specific talent expertise"
+                              ? "Comprehensive staffing and HR solutions for your business" 
+                              : "Industry-specific talent expertise across sectors"
                             }
                           </p>
-                        </div>
-                        <Link
-                          to={item.href}
-                          className="text-sm font-medium text-[hsl(174,100%,29%)] hover:underline flex items-center gap-1"
-                        >
-                          View all
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Menu Items */}
-                    <div className="p-4">
-                      <div className="grid grid-cols-2 gap-2">
-                        {(item.name === "services" ? services : industries).map((subItem) => (
                           <Link
-                            key={subItem.name}
-                            to={subItem.href}
-                            className="group flex items-start gap-4 rounded-lg p-4 transition-all hover:bg-gray-50"
+                            to={item.href}
+                            className="inline-flex items-center gap-1 text-sm font-medium text-[hsl(174,100%,45%)] hover:text-white transition-colors"
                           >
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)] group-hover:bg-[hsl(174,100%,29%)] group-hover:text-white transition-colors">
-                              <subItem.icon className="h-5 w-5" />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="text-sm font-medium text-[hsl(210,11%,15%)] group-hover:text-[hsl(174,100%,29%)] transition-colors">
-                                {subItem.name}
-                              </div>
-                              <p className="mt-1 text-xs text-gray-500 line-clamp-2">
-                                {subItem.description}
-                              </p>
-                            </div>
+                            Explore all {item.name}
+                            <ArrowRight className="h-4 w-4" />
                           </Link>
-                        ))}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Footer CTA */}
-                    <div className="bg-gray-50 px-6 py-4 border-t border-gray-100">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm text-gray-500">
-                          {item.name === "services" 
-                            ? "Need a custom solution?" 
-                            : "Don't see your industry?"
-                          }
-                        </p>
-                        <Link
-                          to="/contact"
-                          className="text-sm font-medium text-[hsl(174,100%,29%)] hover:underline flex items-center gap-1"
-                        >
-                          Contact us
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
+                      {/* Right side - Menu Items */}
+                      <div className="flex-1 p-5">
+                        <div className="grid grid-cols-2 gap-1">
+                          {(item.name === "services" ? services : industries).map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.href}
+                              className="group flex items-start gap-3 rounded-lg p-3 transition-all hover:bg-gray-50"
+                            >
+                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)] group-hover:bg-[hsl(174,100%,29%)] group-hover:text-white transition-colors">
+                                <subItem.icon className="h-4 w-4" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="text-sm font-medium text-[hsl(210,11%,15%)] group-hover:text-[hsl(174,100%,29%)] transition-colors">
+                                  {subItem.name}
+                                </div>
+                                <p className="mt-0.5 text-xs text-gray-500 line-clamp-1">
+                                  {subItem.description}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+
+                        {/* Footer CTA */}
+                        <div className="mt-4 pt-4 border-t border-gray-100">
+                          <div className="flex items-center justify-between">
+                            <p className="text-sm text-gray-500">
+                              {item.name === "services" 
+                                ? "Need a custom solution?" 
+                                : "Don't see your industry?"
+                              }
+                            </p>
+                            <Link
+                              to="/contact"
+                              className="text-sm font-medium text-[hsl(174,100%,29%)] hover:underline flex items-center gap-1"
+                            >
+                              Contact us
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </Link>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
