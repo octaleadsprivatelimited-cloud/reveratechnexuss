@@ -1,12 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Monitor, HeartPulse, Hotel, Briefcase, ArrowRight, CheckCircle } from "lucide-react";
+import { Monitor, HeartPulse, Briefcase, Building2, ArrowRight, CheckCircle } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
 import industryIT from "@/assets/industry-it.jpg";
 import industryHealthcare from "@/assets/industry-healthcare.jpg";
-import industryHospitality from "@/assets/industry-hospitality.jpg";
 import industryCorporate from "@/assets/industry-corporate.jpg";
+import industryRealEstate from "@/assets/industry-realestate.jpg";
 
 const industries = [
   {
@@ -42,19 +42,19 @@ const industries = [
     ],
   },
   {
-    id: "hospitality",
-    icon: Hotel,
-    image: industryHospitality,
-    title: "Hospitality & Tourism",
-    subtitle: "Excellence in guest experience",
-    description: "The hospitality industry thrives on service excellence. We recruit professionals who embody warmth, efficiency, and a passion for creating memorable experiences.",
+    id: "realestate",
+    icon: Building2,
+    image: industryRealEstate,
+    title: "Real Estate & Property",
+    subtitle: "Building property success stories",
+    description: "The real estate industry demands professionals who combine market expertise with exceptional client relationship skills. We specialize in recruiting talent across all segments of the property sector.",
     roles: [
-      "Hotel General Managers",
-      "F&B Managers & Chefs",
-      "Front Office Staff",
-      "Housekeeping Supervisors",
-      "Event Coordinators",
-      "Resort Operations",
+      "Real Estate Agents",
+      "Property Managers",
+      "Commercial Brokers",
+      "Leasing Consultants",
+      "Development Managers",
+      "Valuers & Appraisers",
     ],
   },
   {

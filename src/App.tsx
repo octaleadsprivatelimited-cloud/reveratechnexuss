@@ -26,9 +26,12 @@ import HRConsulting from "./pages/services/HRConsulting";
 // Industry pages
 import InformationTechnology from "./pages/industries/InformationTechnology";
 import Healthcare from "./pages/industries/Healthcare";
-import Hospitality from "./pages/industries/Hospitality";
+import RealEstate from "./pages/industries/RealEstate";
 import Corporate from "./pages/industries/Corporate";
 import Manufacturing from "./pages/industries/Manufacturing";
+
+// Other pages
+import Compliance from "./pages/Compliance";
 
 const queryClient = new QueryClient();
 
@@ -61,9 +64,12 @@ const App = () => (
           {/* Industry pages */}
           <Route path="/industries/information-technology" element={<InformationTechnology />} />
           <Route path="/industries/healthcare" element={<Healthcare />} />
-          <Route path="/industries/hospitality" element={<Hospitality />} />
+          <Route path="/industries/real-estate" element={<RealEstate />} />
           <Route path="/industries/corporate" element={<Corporate />} />
           <Route path="/industries/manufacturing" element={<Manufacturing />} />
+          
+          {/* Other pages */}
+          <Route path="/compliance" element={<Compliance />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

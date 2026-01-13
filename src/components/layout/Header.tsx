@@ -17,7 +17,7 @@ const services = [
 const industries = [
   { name: "Information Technology", href: "/industries/information-technology", description: "Tech talent for digital transformation", icon: Laptop },
   { name: "Healthcare", href: "/industries/healthcare", description: "Medical & healthcare staffing solutions", icon: Heart },
-  { name: "Hospitality", href: "/industries/hospitality", description: "Hotel, restaurant & tourism staffing", icon: Hotel },
+  { name: "Real Estate", href: "/industries/real-estate", description: "Property & real estate professionals", icon: Building },
   { name: "Corporate", href: "/industries/corporate", description: "Office & administrative professionals", icon: Building },
   { name: "Manufacturing", href: "/industries/manufacturing", description: "Industrial workforce solutions", icon: Factory },
 ];
