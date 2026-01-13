@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Monitor, HeartPulse, Briefcase } from "lucide-react";
+import { ArrowRight, Monitor, HeartPulse, Building2, Briefcase } from "lucide-react";
 
 const industries = [
   {
@@ -13,6 +13,12 @@ const industries = [
     description: "Doctors, nurses, medical technicians, and healthcare administrators.",
     icon: HeartPulse,
     href: "/industries#healthcare",
+  },
+  {
+    title: "Real Estate",
+    description: "Property managers, real estate agents, brokers, and development managers.",
+    icon: Building2,
+    href: "/industries#realestate",
   },
   {
     title: "Corporate",
