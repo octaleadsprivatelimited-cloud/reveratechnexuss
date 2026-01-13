@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import industryIT from "@/assets/industry-it.jpg";
 import industryHealthcare from "@/assets/industry-healthcare.jpg";
 import industryHospitality from "@/assets/industry-hospitality.jpg";
@@ -32,6 +33,23 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const }
+  }
+};
+
 export function ServicesSection() {
   return (
     <section className="relative section-padding overflow-hidden">
@@ -41,8 +59,20 @@ export function ServicesSection() {
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Teal accent shapes */}
-        <div className="absolute top-20 right-10 w-64 h-64 bg-[hsl(174,100%,29%)]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-48 h-48 bg-[hsl(174,100%,29%)]/3 rounded-full blur-2xl" />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+          className="absolute top-20 right-10 w-64 h-64 bg-[hsl(174,100%,29%)]/5 rounded-full blur-3xl" 
+        />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, delay: 0.2 }}
+          className="absolute bottom-20 left-10 w-48 h-48 bg-[hsl(174,100%,29%)]/3 rounded-full blur-2xl" 
+        />
         
         {/* Diagonal stripe pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -65,40 +95,55 @@ export function ServicesSection() {
       </div>
 
       <div className="relative container-custom">
-        <h2 className="text-3xl md:text-4xl font-light text-foreground mb-12 lowercase">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-3xl md:text-4xl font-light text-foreground mb-12 lowercase"
+        >
           discover how we deliver tailored talent solutions.
-        </h2>
+        </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {services.map((service) => (
-            <Link
-              key={service.title}
-              to={service.href}
-              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210,11%,15%)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-foreground lowercase mb-3 group-hover:text-[hsl(174,100%,29%)] transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                  {service.description}
-                </p>
-                <span className="inline-flex items-center text-sm font-medium text-[hsl(174,100%,29%)]">
-                  learn more
-                  <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
-            </Link>
+            <motion.div key={service.title} variants={itemVariants}>
+              <Link
+                to={service.href}
+                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 block h-full"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <motion.img
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.6 }}
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210,11%,15%)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-medium text-foreground lowercase mb-3 group-hover:text-[hsl(174,100%,29%)] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                    {service.description}
+                  </p>
+                  <span className="inline-flex items-center text-sm font-medium text-[hsl(174,100%,29%)]">
+                    learn more
+                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
