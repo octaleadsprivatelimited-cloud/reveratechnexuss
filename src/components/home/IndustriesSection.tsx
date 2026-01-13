@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Monitor, HeartPulse, Building2, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 
 const industries = [
   {
@@ -28,6 +29,24 @@ const industries = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" as const }
+  }
+};
+
 export function IndustriesSection() {
   return (
     <section className="relative section-padding overflow-hidden">
@@ -43,7 +62,13 @@ export function IndustriesSection() {
         }} />
         
         {/* Large gradient orb */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[hsl(174,100%,29%)]/3 via-transparent to-[hsl(210,11%,15%)]/3 rounded-full blur-3xl" />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[hsl(174,100%,29%)]/3 via-transparent to-[hsl(210,11%,15%)]/3 rounded-full blur-3xl" 
+        />
         
         {/* Accent lines */}
         <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-[hsl(174,100%,29%)]/20 to-transparent" />
@@ -52,42 +77,65 @@ export function IndustriesSection() {
 
       <div className="relative container-custom">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
             <h2 className="text-3xl md:text-4xl font-light text-foreground mb-4 lowercase">
               industries we serve.
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
               Deep expertise in finding exceptional talent across diverse industry verticals.
             </p>
-          </div>
-          <Link
-            to="/industries"
-            className="inline-flex items-center text-[hsl(174,100%,29%)] font-medium mt-4 md:mt-0 hover:underline"
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            view all industries
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
+            <Link
+              to="/industries"
+              className="inline-flex items-center text-[hsl(174,100%,29%)] font-medium mt-4 md:mt-0 hover:underline"
+            >
+              view all industries
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </motion.div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {industries.map((industry) => (
-            <Link
-              key={industry.title}
-              to={industry.href}
-              className="group p-6 bg-white border border-gray-200 rounded-lg hover:border-[hsl(174,100%,29%)] hover:shadow-lg transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-full bg-[hsl(174,100%,29%)]/10 flex items-center justify-center mb-4 group-hover:bg-[hsl(174,100%,29%)] transition-colors">
-                <industry.icon className="h-6 w-6 text-[hsl(174,100%,29%)] group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-lg font-medium text-foreground mb-2 group-hover:text-[hsl(174,100%,29%)] transition-colors">
-                {industry.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {industry.description}
-              </p>
-            </Link>
+            <motion.div key={industry.title} variants={itemVariants}>
+              <Link
+                to={industry.href}
+                className="group p-6 bg-white border border-gray-200 rounded-lg hover:border-[hsl(174,100%,29%)] hover:shadow-lg transition-all duration-300 block h-full"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-12 h-12 rounded-full bg-[hsl(174,100%,29%)]/10 flex items-center justify-center mb-4 group-hover:bg-[hsl(174,100%,29%)] transition-colors"
+                >
+                  <industry.icon className="h-6 w-6 text-[hsl(174,100%,29%)] group-hover:text-white transition-colors" />
+                </motion.div>
+                <h3 className="text-lg font-medium text-foreground mb-2 group-hover:text-[hsl(174,100%,29%)] transition-colors">
+                  {industry.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {industry.description}
+                </p>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
