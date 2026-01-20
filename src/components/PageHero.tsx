@@ -19,6 +19,7 @@ interface PageHeroProps {
   };
   image?: string;
   imageAlt?: string;
+  compact?: boolean;
 }
 
 export function PageHero({
@@ -30,9 +31,10 @@ export function PageHero({
   secondaryCta,
   image,
   imageAlt = "Hero image",
+  compact = false,
 }: PageHeroProps) {
   return (
-    <section className="relative min-h-[50vh] md:min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-100">
+    <section className={`relative flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-100 ${compact ? 'min-h-[35vh] md:min-h-[45vh]' : 'min-h-[50vh] md:min-h-[70vh]'}`}>
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Soft gradient orbs */}
