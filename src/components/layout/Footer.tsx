@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowRight } from "lucide-react";
+import footerBg from "@/assets/footer-bg.jpeg";
 
 const footerLinks = {
   forTalent: [
@@ -26,27 +27,17 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative bg-[hsl(210,11%,15%)] text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Gradient orbs */}
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[hsl(174,100%,29%)]/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 -left-20 w-72 h-72 bg-[hsl(174,100%,29%)]/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 right-1/4 w-80 h-80 bg-[hsl(210,50%,30%)]/10 rounded-full blur-3xl" />
-        
-        {/* Decorative grid pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-        
-        {/* Diagonal lines */}
-        <svg className="absolute top-0 right-0 w-1/3 h-full opacity-[0.02]" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <pattern id="diagonalLines" patternUnits="userSpaceOnUse" width="10" height="10">
-            <path d="M0,10 L10,0" stroke="white" strokeWidth="0.5" fill="none" />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#diagonalLines)" />
-        </svg>
+    <footer className="relative text-white overflow-hidden">
+      {/* Background Image with Dark Fade */}
+      <div className="absolute inset-0">
+        <img 
+          src={footerBg} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay with gradient fade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210,11%,10%)]/95 via-[hsl(210,11%,10%)]/85 to-[hsl(210,11%,10%)]/90" />
+        <div className="absolute inset-0 bg-[hsl(210,11%,10%)]/70" />
       </div>
 
       {/* CTA Section */}
