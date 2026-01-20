@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PageHero } from "@/components/PageHero";
+import heroContact from "@/assets/hero-contact.jpg";
 
 const contactInfo = [
   {
@@ -107,6 +108,8 @@ const Contact = () => {
         description="Whether you're looking to hire or find your next opportunity, our team is ready to help. Reach out today."
         primaryCta={{ text: "Call Us", href: "tel:+919900949512", external: true }}
         secondaryCta={{ text: "WhatsApp", href: whatsappUrl, external: true }}
+        image={heroContact}
+        imageAlt="Professional business meeting"
       />
 
       {/* Contact Section */}
