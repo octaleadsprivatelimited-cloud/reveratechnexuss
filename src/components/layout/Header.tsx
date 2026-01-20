@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone, Users, Building2, Search, FileText, Calculator, Briefcase, Laptop, Heart, Hotel, Building, Factory, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Users, Building2, Search, FileText, Calculator, Briefcase, Laptop, Heart, Hotel, Building, Factory, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import heroConsulting from "@/assets/hero-consulting.jpg";
@@ -57,15 +57,21 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       {/* Top bar */}
       <div className="bg-[hsl(210,11%,15%)]">
-        <div className="container-custom flex h-9 items-center justify-end gap-4 text-xs">
-          <a href="tel:+919900949512" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
-            <Phone className="h-3 w-3" />
-            +91 99009 49512
+        <div className="container-custom flex h-9 items-center justify-between text-xs">
+          <a href="mailto:jyothi@reveratechnexus.com" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
+            <Mail className="h-3 w-3" />
+            jyothi@reveratechnexus.com
           </a>
-          <span className="text-gray-600">|</span>
-          <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
-            Contact Us
-          </Link>
+          <div className="flex items-center gap-4">
+            <a href="tel:+919900949512" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
+              <Phone className="h-3 w-3" />
+              +91 99009 49512
+            </a>
+            <span className="text-gray-600">|</span>
+            <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -77,7 +83,7 @@ export function Header() {
             <svg className="h-8 w-8 text-[hsl(174,100%,29%)]" viewBox="0 0 32 32" fill="currentColor">
               <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4-8 4-8-4 8-4zm-8 8l8 4 8-4v8l-8 4-8-4v-8z"/>
             </svg>
-            <span className="ml-2 text-xl font-bold text-[hsl(210,11%,15%)]">talentsphere</span>
+            <span className="ml-2 text-xl font-bold text-[hsl(210,11%,15%)]">Revera Tech Nexus</span>
           </div>
         </Link>
 

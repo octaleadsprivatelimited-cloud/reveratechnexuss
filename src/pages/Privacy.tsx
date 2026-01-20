@@ -12,7 +12,7 @@ const Privacy = () => {
             <div className="mt-12 prose prose-slate max-w-none">
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8">1. Introduction</h2>
               <p className="text-muted-foreground mt-4">
-                TalentSphere Recruitment Solutions ("we," "our," or "us") respects your privacy and is 
+                Revera Tech Nexus ("we," "our," or "us") respects your privacy and is 
                 committed to protecting your personal data. This privacy policy explains how we collect, 
                 use, and safeguard your information when you visit our website or use our services.
               </p>
@@ -58,9 +58,9 @@ const Privacy = () => {
                 For any questions about this privacy policy or our data practices, please contact us at:
               </p>
               <p className="text-muted-foreground mt-2">
-                Email: privacy@talentsphere.in<br />
+                Email: jyothi@reveratechnexus.com<br />
                 Phone: +91 99009 49512<br />
-                Address: 123 Business Park, Koramangala, Bangalore 560034
+                Address: Bangalore, Karnataka, India
               </p>
             </div>
           </div>

@@ -12,14 +12,14 @@ const Terms = () => {
             <div className="mt-12 prose prose-slate max-w-none">
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8">1. Acceptance of Terms</h2>
               <p className="text-muted-foreground mt-4">
-                By accessing and using the TalentSphere website and services, you agree to be bound by 
+                By accessing and using the Revera Tech Nexus website and services, you agree to be bound by 
                 these Terms and Conditions. If you do not agree with any part of these terms, please 
                 do not use our services.
               </p>
 
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8">2. Services</h2>
               <p className="text-muted-foreground mt-4">
-                TalentSphere provides recruitment and staffing services connecting job seekers with 
+                Revera Tech Nexus provides recruitment and staffing services connecting job seekers with 
                 employers. Our services include but are not limited to permanent placement, contract 
                 staffing, and executive search.
               </p>
@@ -48,14 +48,14 @@ const Terms = () => {
 
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8">6. Limitation of Liability</h2>
               <p className="text-muted-foreground mt-4">
-                TalentSphere acts as an intermediary and does not guarantee job placements or 
+                Revera Tech Nexus acts as an intermediary and does not guarantee job placements or 
                 successful hires. We are not liable for decisions made by employers or candidates.
               </p>
 
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8">7. Intellectual Property</h2>
               <p className="text-muted-foreground mt-4">
                 All content on this website, including text, graphics, logos, and software, is the 
-                property of TalentSphere and protected by applicable copyright laws.
+                property of Revera Tech Nexus and protected by applicable copyright laws.
               </p>
 
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8">8. Modifications</h2>
@@ -69,7 +69,7 @@ const Terms = () => {
                 For questions about these terms, contact us at:
               </p>
               <p className="text-muted-foreground mt-2">
-                Email: legal@talentsphere.in<br />
+                Email: jyothi@reveratechnexus.com<br />
                 Phone: +91 99009 49512
               </p>
             </div>

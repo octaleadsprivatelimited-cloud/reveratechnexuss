@@ -18,13 +18,13 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: "info@talentsphere.in",
-    action: "mailto:info@talentsphere.in",
+    details: "jyothi@reveratechnexus.com",
+    action: "mailto:jyothi@reveratechnexus.com",
   },
   {
     icon: MapPin,
     title: "Address",
-    details: "123 Business Park, Koramangala, Bangalore 560034",
+    details: "Bangalore, Karnataka, India",
     action: "https://maps.google.com",
   },
   {
@@ -261,7 +261,7 @@ const Contact = () => {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="TalentSphere Office Location"
+          title="Revera Tech Nexus Office Location"
         />
       </section>
     </Layout>
