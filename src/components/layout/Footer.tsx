@@ -85,7 +85,7 @@ export function Footer() {
               <svg className="h-8 w-8 text-[hsl(174,100%,29%)]" viewBox="0 0 32 32" fill="currentColor">
                 <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4-8 4-8-4 8-4zm-8 8l8 4 8-4v8l-8 4-8-4v-8z"/>
               </svg>
-              <span className="text-xl font-bold text-white">talentsphere</span>
+              <span className="text-xl font-bold text-white">Revera Tech Nexus</span>
             </Link>
             <p className="text-sm text-gray-400 mb-6">
               Your trusted recruitment partner in Bangalore, connecting exceptional talent with industry-leading organizations.
@@ -159,9 +159,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@talentsphere.in" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+                <a href="mailto:jyothi@reveratechnexus.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
                   <Mail className="h-4 w-4 text-[hsl(174,100%,29%)]" />
-                  info@talentsphere.in
+                  jyothi@reveratechnexus.com
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-gray-400">
@@ -177,7 +177,7 @@ export function Footer() {
       <div className="relative border-t border-white/10">
         <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} TalentSphere. All rights reserved.
+            © {new Date().getFullYear()} Revera Tech Nexus. All rights reserved.
           </p>
           <div className="flex gap-6">
             {footerLinks.legal.map((link) => (

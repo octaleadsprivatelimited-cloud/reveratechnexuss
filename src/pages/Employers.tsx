@@ -71,7 +71,7 @@ const Employers = () => {
               </span>
             </h1>
             <p className="mt-6 text-lg text-gray-300">
-              Partner with TalentSphere for efficient, quality-driven recruitment that 
+              Partner with Revera Tech Nexus for efficient, quality-driven recruitment that 
               saves you time and connects you with exceptional talent.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -94,7 +94,7 @@ const Employers = () => {
         <div className="container-custom">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Why Partner With TalentSphere?
+              Why Partner With Revera Tech Nexus?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               We go beyond traditional recruitment to deliver lasting value

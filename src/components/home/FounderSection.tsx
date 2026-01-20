@@ -42,7 +42,7 @@ export function FounderSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">Jyothi M</h3>
                   <p className="text-[hsl(174,100%,29%)] font-medium mt-1">Co-Founder</p>
-                  <p className="text-muted-foreground text-sm mt-1">Revera TechNexus</p>
+                  <p className="text-muted-foreground text-sm mt-1">Revera Tech Nexus</p>
                 </div>
               </div>
 
@@ -64,7 +64,7 @@ export function FounderSection() {
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
               Former Head of HR with 20+ years' experience building and leading HR for large organizations 
-              (970–3,000+ employees). Now co-founding Revera TechNexus to offer trusted, high-impact talent 
+              (970–3,000+ employees). Now co-founding Revera Tech Nexus to offer trusted, high-impact talent 
               solutions rooted in real-world leadership experience.
             </p>
 

@@ -57,7 +57,7 @@ const JobSeekers = () => {
               </span>
             </h1>
             <p className="mt-6 text-lg text-gray-300">
-              Join thousands of professionals who found their ideal job through TalentSphere. 
+              Join thousands of professionals who found their ideal job through Revera Tech Nexus. 
               We connect you with top employers across Bangalore and beyond.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -83,7 +83,7 @@ const JobSeekers = () => {
         <div className="container-custom">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Why Choose TalentSphere?
+              Why Choose Revera Tech Nexus?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               We&apos;re more than just a job portal—we&apos;re your career partner

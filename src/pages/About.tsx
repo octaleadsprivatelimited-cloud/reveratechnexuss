@@ -55,7 +55,7 @@ const About = () => {
         <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
-              About Revera TechNexus
+              About Revera Tech Nexus
             </span>
             <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
               Your Strategic Partner in{" "}
@@ -91,7 +91,7 @@ const About = () => {
                     </div>
                     <h3 className="text-3xl font-bold text-foreground">Jyothi M</h3>
                     <p className="text-[hsl(174,100%,29%)] font-semibold text-lg mt-2">Co-Founder</p>
-                    <p className="text-muted-foreground mt-1">Revera TechNexus</p>
+                    <p className="text-muted-foreground mt-1">Revera Tech Nexus</p>
                   </div>
                 </div>
 
@@ -113,7 +113,7 @@ const About = () => {
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
                 Former Head of HR with 20+ years' experience building and leading HR for large organizations 
-                (970–3,000+ employees). Now co-founding Revera TechNexus to offer trusted, high-impact talent 
+                (970–3,000+ employees). Now co-founding Revera Tech Nexus to offer trusted, high-impact talent 
                 solutions rooted in real-world leadership experience.
               </p>
 
