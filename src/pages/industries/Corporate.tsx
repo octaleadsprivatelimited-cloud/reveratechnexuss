@@ -2,38 +2,22 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Briefcase, CheckCircle, ArrowRight } from "lucide-react";
-import { HeroBackground } from "@/components/HeroBackground";
+import { PageHero } from "@/components/PageHero";
 import industryCorporate from "@/assets/industry-corporate.jpg";
 
 const Corporate = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={industryCorporate}
-            alt="Corporate & Business"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/85" />
-        </div>
-        <HeroBackground />
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6">
-              <Briefcase className="h-8 w-8 text-white" />
-            </div>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-              Corporate & Business
-            </h1>
-            <p className="mt-6 text-lg text-white/80">
-              Powering business excellence with white-collar professional recruitment.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Corporate Industry"
+        title="Corporate &"
+        titleHighlight="Business"
+        description="Powering business excellence with white-collar professional recruitment across finance, marketing, HR, and operations."
+        primaryCta={{ text: "Start Hiring", href: "/contact" }}
+        secondaryCta={{ text: "View All Industries", href: "/industries" }}
+        image={industryCorporate}
+        imageAlt="Corporate & Business"
+      />
 
       {/* Content */}
       <section className="section-padding bg-background">
