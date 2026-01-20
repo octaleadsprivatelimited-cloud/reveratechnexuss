@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
@@ -57,6 +58,12 @@ const models = [
 const Employers = () => {
   return (
     <Layout>
+      <SEO
+        title="For Employers - Staffing Solutions & Recruitment Services | Revera Tech Nexus"
+        description="Partner with Revera Tech Nexus for efficient, quality-driven recruitment. We offer contract staffing, permanent hiring, executive search, and HR consulting services for employers in Bangalore."
+        keywords="employer recruitment services, staffing solutions for employers, contract staffing services, permanent hiring Bangalore, executive search services, HR consulting for employers"
+        ogImage="/hero-employers.jpg"
+      />
       <PageHero
         badge="For Employers"
         title="Build Your"

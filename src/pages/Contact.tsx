@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -99,8 +100,38 @@ const Contact = () => {
 
   const whatsappUrl = `https://wa.me/919900949512?text=${encodeURIComponent("Hi, I'm interested in your recruitment services.")}`;
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Revera Tech Nexus",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-99009-49512",
+        "contactType": "Customer Service",
+        "email": "jyothi.m@reveratechnexus.com",
+        "areaServed": "IN",
+        "availableLanguage": "English"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Contact Us - Get in Touch | Revera Tech Nexus Bangalore"
+        description="Contact Revera Tech Nexus for recruitment and staffing solutions. Call +91 99009 49512 or email jyothi.m@reveratechnexus.com. Located in Bangalore, Karnataka."
+        keywords="contact revera tech nexus, recruitment agency contact Bangalore, staffing company contact, HR consulting contact, get in touch recruitment"
+        ogImage="/hero-contact.jpg"
+        structuredData={structuredData}
+      />
       <PageHero
         badge="Contact Us"
         title="Let's Start a"

@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, CheckCircle, ArrowRight } from "lucide-react";
@@ -8,6 +9,12 @@ import servicePermanent from "@/assets/service-permanent-new.jpg";
 const PermanentStaffing = () => {
   return (
     <Layout>
+      <SEO
+        title="Permanent Staffing Services - Long-term Recruitment Solutions | Revera Tech Nexus"
+        description="Find the right permanent talent to build your core team. Revera Tech Nexus offers comprehensive permanent staffing solutions for IT, Healthcare, Real Estate, and Corporate sectors in Bangalore."
+        keywords="permanent staffing, permanent recruitment, permanent hiring services, long-term staffing solutions, permanent placement services Bangalore, permanent job placement"
+        ogImage="/service-permanent-new.jpg"
+      />
       <PageHero
         badge="Permanent Staffing"
         title="Building Teams"

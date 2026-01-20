@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
@@ -43,6 +44,12 @@ const categories = [
 const JobSeekers = () => {
   return (
     <Layout>
+      <SEO
+        title="For Job Seekers - Find Your Dream Career | Revera Tech Nexus"
+        description="Join thousands of professionals who found their ideal job through Revera Tech Nexus. We connect you with top employers across IT, Healthcare, Real Estate, and Corporate sectors in Bangalore."
+        keywords="job seekers Bangalore, IT jobs Bangalore, healthcare jobs, real estate jobs, corporate jobs, job placement services, career opportunities Bangalore, find jobs in Bangalore"
+        ogImage="/hero-jobseekers.jpg"
+      />
       <PageHero
         badge="For Job Seekers"
         title="Find Your"

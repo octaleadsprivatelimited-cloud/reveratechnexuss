@@ -32,7 +32,7 @@ export function Footer() {
       <div className="absolute inset-0">
         <img 
           src={footerBg} 
-          alt="" 
+          alt="Revera Tech Nexus Footer Background" 
           className="w-full h-full object-cover"
         />
         {/* Dark overlay with gradient fade */}

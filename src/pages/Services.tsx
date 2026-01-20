@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Monitor, HeartPulse, Hotel, Briefcase, FileSearch, Users, ArrowRight } from "lucide-react";
@@ -81,8 +82,71 @@ const services = [
 ];
 
 const Services = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Recruitment and Staffing Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "Revera Tech Nexus",
+      "url": "https://reveratechnexus.com"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Recruitment Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Contract Staffing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Permanent Staffing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Executive Search"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Payroll Services"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "HR Consulting"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Recruitment Services - Contract, Permanent & Executive Staffing | Revera Tech Nexus"
+        description="Comprehensive recruitment services including contract staffing, permanent hiring, executive search, payroll services, and HR consulting. Trusted by leading companies in Bangalore."
+        keywords="recruitment services, contract staffing, permanent staffing, executive search, payroll services, HR consulting, staffing solutions Bangalore, talent acquisition services, recruitment agency services"
+        ogImage="/hero-services.jpg"
+        structuredData={structuredData}
+      />
       <PageHero
         badge="Our Services"
         title="Comprehensive"

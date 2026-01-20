@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Target, Eye, Users, Shield, Award, Heart, CheckCircle, TrendingDown, Clock, Cog, Briefcase, FileCheck } from "lucide-react";
@@ -49,8 +50,37 @@ const achievements = [
 ];
 
 const About = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Revera Tech Nexus",
+      "founder": {
+        "@type": "Person",
+        "name": "Jyothi M",
+        "jobTitle": "Co-Founder",
+        "description": "Former Head of HR with 20+ years' experience building and leading HR for large organizations"
+      },
+      "description": "Revera Tech Nexus is a trusted recruitment agency in Bangalore offering comprehensive staffing solutions and HR consulting services.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
   return (
     <Layout>
+      <SEO
+        title="About Us - Trusted Recruitment Partner in Bangalore | Revera Tech Nexus"
+        description="Learn about Revera Tech Nexus - a trusted recruitment agency in Bangalore founded by experienced HR professionals. 20+ years of experience in talent acquisition and HR compliance."
+        keywords="about revera tech nexus, recruitment agency Bangalore, HR consulting Bangalore, staffing company India, talent acquisition experts, recruitment professionals"
+        ogImage="/hero-about.jpg"
+        structuredData={structuredData}
+      />
       <PageHero
         badge="About Revera Tech Nexus"
         title="Your Strategic Partner in"
