@@ -1,34 +1,34 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import industryIT from "@/assets/industry-it.jpg";
-import industryHealthcare from "@/assets/industry-healthcare.jpg";
-import industryHospitality from "@/assets/industry-hospitality.jpg";
-import industryCorporate from "@/assets/industry-corporate.jpg";
+import serviceStaffing from "@/assets/service-staffing.jpg";
+import servicePermanent from "@/assets/service-permanent.jpg";
+import serviceExecutive from "@/assets/service-executive.jpg";
+import serviceOutsourcing from "@/assets/service-outsourcing.jpg";
 
 const services = [
   {
     title: "staffing",
     description: "Find the right contingent talent quickly with our expertise in temporary and contract staffing solutions.",
-    image: industryIT,
+    image: serviceStaffing,
     href: "/services#contract",
   },
   {
     title: "permanent recruitment",
     description: "Build your team with top permanent talent. We help you find professionals who align with your culture.",
-    image: industryHealthcare,
+    image: servicePermanent,
     href: "/services#corporate",
   },
   {
     title: "executive search",
     description: "Confidential search for C-suite and senior leadership positions that drive your organization forward.",
-    image: industryHospitality,
+    image: serviceExecutive,
     href: "/services#executive",
   },
   {
     title: "outsourcing",
     description: "Comprehensive HR and recruitment process outsourcing to optimize your talent acquisition strategy.",
-    image: industryCorporate,
+    image: serviceOutsourcing,
     href: "/services",
   },
 ];

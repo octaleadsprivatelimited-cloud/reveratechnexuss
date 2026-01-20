@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import jobseekerCard from "@/assets/jobseeker-card.jpg";
+import employerCard from "@/assets/employer-card.jpg";
 
 export function AboutSection() {
   return (
@@ -38,7 +39,7 @@ export function AboutSection() {
           {/* Job Seekers Card */}
           <Link to="/job-seekers" className="group relative overflow-hidden rounded-lg aspect-[4/3]">
             <img
-              src={heroImage}
+              src={jobseekerCard}
               alt="For Job Seekers"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -55,7 +56,7 @@ export function AboutSection() {
           {/* Employers Card */}
           <Link to="/employers" className="group relative overflow-hidden rounded-lg aspect-[4/3]">
             <img
-              src={heroImage}
+              src={employerCard}
               alt="For Employers"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
