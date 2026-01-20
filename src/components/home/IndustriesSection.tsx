@@ -1,30 +1,38 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Monitor, HeartPulse, Building2, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
+import industryIT from "@/assets/industry-it-new.jpg";
+import industryHealthcare from "@/assets/industry-healthcare-new.jpg";
+import industryRealEstate from "@/assets/industry-realestate-new.jpg";
+import industryCorporate from "@/assets/industry-corporate-new.jpg";
 
 const industries = [
   {
     title: "IT & Technology",
     description: "Software developers, data scientists, cloud architects, and tech leaders.",
     icon: Monitor,
+    image: industryIT,
     href: "/industries#it",
   },
   {
     title: "Healthcare",
     description: "Doctors, nurses, medical technicians, and healthcare administrators.",
     icon: HeartPulse,
+    image: industryHealthcare,
     href: "/industries#healthcare",
   },
   {
     title: "Real Estate",
     description: "Property managers, real estate agents, brokers, and development managers.",
     icon: Building2,
+    image: industryRealEstate,
     href: "/industries#realestate",
   },
   {
     title: "Corporate",
     description: "Finance, HR, marketing, and management professionals.",
     icon: Briefcase,
+    image: industryCorporate,
     href: "/industries#corporate",
   },
 ];
@@ -117,21 +125,33 @@ export function IndustriesSection() {
             <motion.div key={industry.title} variants={itemVariants}>
               <Link
                 to={industry.href}
-                className="group p-6 bg-white border border-gray-200 rounded-lg hover:border-[hsl(174,100%,29%)] hover:shadow-lg transition-all duration-300 block h-full"
+                className="group bg-white border border-gray-200 rounded-lg hover:border-[hsl(174,100%,29%)] hover:shadow-lg transition-all duration-300 block h-full overflow-hidden"
               >
-                <motion.div 
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-12 h-12 rounded-full bg-[hsl(174,100%,29%)]/10 flex items-center justify-center mb-4 group-hover:bg-[hsl(174,100%,29%)] transition-colors"
-                >
-                  <industry.icon className="h-6 w-6 text-[hsl(174,100%,29%)] group-hover:text-white transition-colors" />
-                </motion.div>
-                <h3 className="text-lg font-medium text-foreground mb-2 group-hover:text-[hsl(174,100%,29%)] transition-colors">
-                  {industry.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {industry.description}
-                </p>
+                {/* Image */}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                    src={industry.image}
+                    alt={industry.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210,11%,15%)]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-3 left-3">
+                    <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
+                      <industry.icon className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                    </div>
+                  </div>
+                </div>
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="text-lg font-medium text-foreground mb-2 group-hover:text-[hsl(174,100%,29%)] transition-colors">
+                    {industry.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {industry.description}
+                  </p>
+                </div>
               </Link>
             </motion.div>
           ))}
