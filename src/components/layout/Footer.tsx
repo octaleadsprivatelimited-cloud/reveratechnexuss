@@ -36,8 +36,8 @@ export function Footer() {
           className="w-full h-full object-cover"
         />
         {/* Dark overlay with gradient fade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210,11%,10%)]/95 via-[hsl(210,11%,10%)]/85 to-[hsl(210,11%,10%)]/90" />
-        <div className="absolute inset-0 bg-[hsl(210,11%,10%)]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210,11%,10%)]/50 via-[hsl(210,11%,10%)]/40 to-[hsl(210,11%,10%)]/45" />
+        <div className="absolute inset-0 bg-[hsl(210,11%,10%)]/35" />
       </div>
 
       {/* CTA Section */}
