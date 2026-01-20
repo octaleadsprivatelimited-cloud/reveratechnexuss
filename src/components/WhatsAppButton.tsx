@@ -10,11 +10,11 @@ export function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl md:h-16 md:w-16"
+      className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl sm:bottom-6 sm:right-6 sm:h-14 sm:w-14 md:h-16 md:w-16"
       aria-label="Chat on WhatsApp"
     >
-      <MessageCircle className="h-7 w-7 md:h-8 md:w-8" />
-      <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-secondary-foreground">
+      <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+      <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-secondary text-[8px] sm:text-[10px] font-bold text-secondary-foreground">
         1
       </span>
     </a>
