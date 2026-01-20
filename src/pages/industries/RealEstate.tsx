@@ -90,21 +90,28 @@ const RealEstate = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-[hsl(174,100%,29%)] py-16 overflow-hidden">
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-100">
+        {/* Background decorations */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-2xl" />
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
         </div>
-        <div className="container-custom relative z-10 text-center">
-          <h2 className="font-heading text-3xl font-bold text-white lowercase">
-            build your real estate team
-          </h2>
-          <p className="mt-4 text-lg text-white/80">
-            Find top property professionals who drive results and close deals.
-          </p>
-          <Button asChild size="lg" className="mt-8 bg-white text-[hsl(174,100%,29%)] hover:bg-gray-100">
-            <Link to="/contact">Start Hiring Today</Link>
-          </Button>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-6">
+              Get Started Today
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Build Your Real Estate Team
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Find top property professionals who drive results and close deals.
+            </p>
+            <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-secondary/90 text-white px-8">
+              <Link to="/contact">Start Hiring Today</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>
