@@ -3,7 +3,6 @@ import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowRight
 
 const footerLinks = {
   forTalent: [
-    { name: "Find a Job", href: "/careers" },
     { name: "Submit Resume", href: "/job-seekers" },
     { name: "Career Resources", href: "/blog" },
   ],

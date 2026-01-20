@@ -23,7 +23,6 @@ const industries = [
 ];
 
 const navigation = [
-  { name: "find a job", href: "/careers" },
   { name: "services", href: "/services", hasDropdown: true },
   { name: "industries", href: "/industries", hasDropdown: true },
   { name: "for talent", href: "/job-seekers" },

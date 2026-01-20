@@ -4,8 +4,8 @@ import { ArrowRight } from "lucide-react";
 const quickLinks = [
   { title: "submit your resume", href: "/job-seekers" },
   { title: "refer a friend", href: "/job-seekers#refer" },
-  { title: "apply for trending jobs", href: "/careers" },
-  { title: "view all current job openings", href: "/careers" },
+  { title: "explore our services", href: "/services" },
+  { title: "contact us today", href: "/contact" },
 ];
 
 export function QuickLinksSection() {
