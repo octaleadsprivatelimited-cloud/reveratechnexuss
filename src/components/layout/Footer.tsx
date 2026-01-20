@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowRight } from "lucide-react";
-import footerBg from "@/assets/footer-bg.jpeg";
+import footerBg from "@/assets/footer-bg.webp";
 
 const footerLinks = {
   forTalent: [
@@ -36,8 +36,8 @@ export function Footer() {
           className="w-full h-full object-cover"
         />
         {/* Dark overlay with gradient fade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210,11%,10%)]/50 via-[hsl(210,11%,10%)]/40 to-[hsl(210,11%,10%)]/45" />
-        <div className="absolute inset-0 bg-[hsl(210,11%,10%)]/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210,11%,10%)]/65 via-[hsl(210,11%,10%)]/55 to-[hsl(210,11%,10%)]/60" />
+        <div className="absolute inset-0 bg-[hsl(210,11%,10%)]/45" />
       </div>
 
       {/* CTA Section */}
