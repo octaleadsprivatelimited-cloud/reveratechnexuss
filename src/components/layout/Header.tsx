@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone, Mail, Users, Building2, Search, FileText, Calculator, Briefcase, Laptop, Heart, Hotel, Building, Factory, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 import heroConsulting from "@/assets/hero-consulting.jpg";
 import industryIT from "@/assets/industry-it.jpg";
@@ -38,6 +39,24 @@ export function Header() {
 
   const isActive = (href: string) => location.pathname === href || location.pathname.startsWith(href + "/");
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileExpandedItems([]);
+  }, [location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const handleMouseEnter = (name: string) => {
     setActiveDropdown(name);
   };
@@ -50,6 +69,54 @@ export function Header() {
     setMobileExpandedItems(prev => 
       prev.includes(name) ? prev.filter(item => item !== name) : [...prev, name]
     );
+  };
+
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut" as const,
+        when: "afterChildren" as const
+      }
+    },
+    open: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut" as const,
+        when: "beforeChildren" as const,
+        staggerChildren: 0.05
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, x: -16 },
+    open: { opacity: 1, x: 0 }
+  };
+
+  const subMenuVariants = {
+    closed: { 
+      opacity: 0, 
+      height: 0,
+      transition: { duration: 0.2 }
+    },
+    open: { 
+      opacity: 1, 
+      height: "auto",
+      transition: { 
+        duration: 0.2,
+        staggerChildren: 0.03
+      }
+    }
+  };
+
+  const subItemVariants = {
+    closed: { opacity: 0, x: -8 },
+    open: { opacity: 1, x: 0 }
   };
 
   return (
@@ -216,83 +283,188 @@ export function Header() {
         </div>
 
         {/* Mobile menu button */}
-        <button
+        <motion.button
           type="button"
-          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-[hsl(210,11%,15%)]"
+          className="lg:hidden inline-flex items-center justify-center rounded-lg p-2.5 text-[hsl(210,11%,15%)] hover:bg-gray-100 active:bg-gray-200 transition-colors touch-manipulation"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          whileTap={{ scale: 0.95 }}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          <AnimatePresence mode="wait">
+            {mobileMenuOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="h-6 w-6" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu className="h-6 w-6" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </nav>
 
-      {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-100 bg-white">
-          <div className="space-y-1 px-4 pb-4 pt-2">
-            {navigation.map((item) => (
-              <div key={item.name}>
-                {item.hasDropdown ? (
-                  <>
-                    <button
-                      onClick={() => toggleMobileExpand(item.name)}
-                      className={cn(
-                        "flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium capitalize",
-                        isActive(item.href)
-                          ? "bg-gray-50 text-[hsl(174,100%,29%)]"
-                          : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
-                      )}
-                    >
-                      {item.name}
-                      <ChevronDown 
-                        className={cn(
-                          "h-4 w-4 transition-transform",
-                          mobileExpandedItems.includes(item.name) && "rotate-180"
-                        )} 
-                      />
-                    </button>
-                    {mobileExpandedItems.includes(item.name) && (
-                      <div className="ml-4 mt-1 space-y-1 border-l-2 border-[hsl(174,100%,29%)]/30 pl-4">
-                        {(item.name === "services" ? services : industries).map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            to={subItem.href}
-                            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-[hsl(210,11%,15%)]"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <subItem.icon className="h-4 w-4 text-[hsl(174,100%,29%)]" />
-                            {subItem.name}
-                          </Link>
-                        ))}
-                        <Link
-                          to={item.href}
-                          className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-[hsl(174,100%,29%)]"
-                          onClick={() => setMobileMenuOpen(false)}
+      {/* Mobile menu with animations */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            className="lg:hidden fixed inset-x-0 top-[56px] sm:top-[100px] bottom-0 bg-white z-40 overflow-y-auto"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+          >
+            <div className="px-4 pb-6 pt-4">
+              <div className="space-y-1">
+                {navigation.map((item, index) => (
+                  <motion.div key={item.name} variants={itemVariants}>
+                    {item.hasDropdown ? (
+                      <>
+                        <motion.button
+                          onClick={() => toggleMobileExpand(item.name)}
+                          className={cn(
+                            "flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium capitalize touch-manipulation active:bg-gray-100 transition-colors",
+                            isActive(item.href)
+                              ? "bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)]"
+                              : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
+                          )}
+                          whileTap={{ scale: 0.98 }}
                         >
-                          View all {item.name}
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
-                      </div>
+                          <span className="flex items-center gap-3">
+                            {item.name === "services" ? (
+                              <Users className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                            ) : (
+                              <Building2 className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                            )}
+                            {item.name}
+                          </span>
+                          <motion.div
+                            animate={{ rotate: mobileExpandedItems.includes(item.name) ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ChevronDown className="h-5 w-5 text-gray-400" />
+                          </motion.div>
+                        </motion.button>
+                        
+                        <AnimatePresence>
+                          {mobileExpandedItems.includes(item.name) && (
+                            <motion.div
+                              className="ml-4 mt-1 space-y-0.5 border-l-2 border-[hsl(174,100%,29%)]/30 pl-4 overflow-hidden"
+                              initial="closed"
+                              animate="open"
+                              exit="closed"
+                              variants={subMenuVariants}
+                            >
+                              {(item.name === "services" ? services : industries).map((subItem) => (
+                                <motion.div key={subItem.name} variants={subItemVariants}>
+                                  <Link
+                                    to={subItem.href}
+                                    className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 active:bg-gray-100 touch-manipulation transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                  >
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[hsl(174,100%,29%)]/10">
+                                      <subItem.icon className="h-4 w-4 text-[hsl(174,100%,29%)]" />
+                                    </div>
+                                    <span>{subItem.name}</span>
+                                  </Link>
+                                </motion.div>
+                              ))}
+                              <motion.div variants={subItemVariants}>
+                                <Link
+                                  to={item.href}
+                                  className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,29%)]/5 active:bg-[hsl(174,100%,29%)]/10 touch-manipulation transition-colors"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  View all {item.name}
+                                  <ArrowRight className="h-4 w-4" />
+                                </Link>
+                              </motion.div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className={cn(
+                          "flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium capitalize touch-manipulation active:bg-gray-100 transition-colors",
+                          isActive(item.href)
+                            ? "bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)]"
+                            : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
+                        )}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name === "for talent" && <Users className="h-5 w-5 text-[hsl(174,100%,29%)]" />}
+                        {item.name === "for employer" && <Briefcase className="h-5 w-5 text-[hsl(174,100%,29%)]" />}
+                        {item.name === "about us" && <Building2 className="h-5 w-5 text-[hsl(174,100%,29%)]" />}
+                        {item.name}
+                      </Link>
                     )}
-                  </>
-                ) : (
-                  <Link
-                    to={item.href}
-                    className={cn(
-                      "block rounded-md px-3 py-2 text-base font-medium capitalize",
-                      isActive(item.href)
-                        ? "bg-gray-50 text-[hsl(174,100%,29%)]"
-                        : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
-                    )}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )}
+                  </motion.div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      )}
+
+              {/* Mobile CTA */}
+              <motion.div 
+                className="mt-6 pt-6 border-t border-gray-100"
+                variants={itemVariants}
+              >
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-center gap-2 w-full rounded-full bg-[hsl(174,100%,29%)] px-6 py-4 text-base font-medium text-white active:bg-[hsl(174,100%,24%)] touch-manipulation transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Get Started
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </motion.div>
+
+              {/* Mobile contact info */}
+              <motion.div 
+                className="mt-6 space-y-3"
+                variants={itemVariants}
+              >
+                <a 
+                  href="tel:+919900949512" 
+                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-gray-600 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition-colors"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]/10">
+                    <Phone className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-[hsl(210,11%,15%)]">Call Us</div>
+                    <div className="text-xs text-gray-500">+91 99009 49512</div>
+                  </div>
+                </a>
+                <a 
+                  href="mailto:jyothi@reveratechnexus.com" 
+                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-gray-600 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition-colors"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]/10">
+                    <Mail className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-[hsl(210,11%,15%)]">Email Us</div>
+                    <div className="text-xs text-gray-500">jyothi@reveratechnexus.com</div>
+                  </div>
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
