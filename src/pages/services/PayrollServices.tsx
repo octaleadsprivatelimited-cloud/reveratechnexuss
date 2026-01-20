@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calculator, CheckCircle, ArrowRight } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
-import heroImage from "@/assets/hero-image.jpg";
+import servicePayroll from "@/assets/service-payroll.jpg";
 
 const PayrollServices = () => {
   return (
@@ -13,7 +13,7 @@ const PayrollServices = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src={servicePayroll}
             alt="Payroll Services"
             className="w-full h-full object-cover"
           />

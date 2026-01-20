@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Award, CheckCircle, ArrowRight } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
-import heroImage from "@/assets/hero-image.jpg";
+import serviceExecutive from "@/assets/service-executive-new.jpg";
 
 const ExecutiveSearch = () => {
   return (
@@ -13,7 +13,7 @@ const ExecutiveSearch = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src={serviceExecutive}
             alt="Executive Search"
             className="w-full h-full object-cover"
           />

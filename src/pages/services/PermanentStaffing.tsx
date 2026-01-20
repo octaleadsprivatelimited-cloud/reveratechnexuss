@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, CheckCircle, ArrowRight } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
-import heroImage from "@/assets/hero-image.jpg";
+import servicePermanent from "@/assets/service-permanent-new.jpg";
 
 const PermanentStaffing = () => {
   return (
@@ -13,7 +13,7 @@ const PermanentStaffing = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src={servicePermanent}
             alt="Permanent Staffing"
             className="w-full h-full object-cover"
           />
