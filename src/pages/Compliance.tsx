@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Shield, FileCheck, Scale, Users, AlertTriangle, BookOpen } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
-
+import serviceCompliance from "@/assets/service-compliance.jpg";
 const complianceServices = [
   {
     icon: FileCheck,
@@ -55,7 +55,16 @@ const Compliance = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={serviceCompliance}
+            alt="Compliance Services"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/85" />
+        </div>
         <HeroBackground />
         <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
