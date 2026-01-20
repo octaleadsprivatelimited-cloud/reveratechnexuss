@@ -5,7 +5,7 @@ import {
   Briefcase, FileText, Award, TrendingUp, 
   ArrowRight, Upload
 } from "lucide-react";
-import { HeroBackground } from "@/components/HeroBackground";
+import heroJobseekers from "@/assets/hero-jobseekers.jpg";
 
 const benefits = [
   {
@@ -43,24 +43,31 @@ const JobSeekers = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
-        <HeroBackground />
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroJobseekers}
+            alt="Job seekers finding their dream career"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210,11%,15%)]/95 via-[hsl(210,11%,15%)]/80 to-[hsl(210,11%,15%)]/60" />
+        </div>
+        
+        <div className="container-custom relative z-10 py-20 md:py-28">
+          <div className="max-w-2xl">
             <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
               For Job Seekers
             </span>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
               Find Your{" "}
-              <span className="text-[hsl(174,100%,45%)]">
-                Dream Career
-              </span>
+              <span className="text-[hsl(174,100%,45%)]">Dream Career</span>
             </h1>
-            <p className="mt-6 text-lg text-gray-300">
+            <p className="mt-6 text-lg text-gray-300 max-w-xl">
               Join thousands of professionals who found their ideal job through Revera Tech Nexus. 
               We connect you with top employers across Bangalore and beyond.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild size="lg" className="bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)] text-white">
                 <Link to="/contact">
                   <Upload className="mr-2 h-5 w-5" />
