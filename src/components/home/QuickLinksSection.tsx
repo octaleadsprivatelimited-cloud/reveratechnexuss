@@ -8,9 +8,8 @@ const quickLinks = [
     external: true,
     icon: FileText,
     color: "from-teal-500 to-cyan-400",
-    bgColor: "bg-teal-500/10",
-    borderColor: "border-teal-500/30",
-    hoverBg: "hover:bg-teal-500",
+    bgColor: "bg-gradient-to-r from-teal-500/20 to-cyan-500/10",
+    borderColor: "border-teal-400/40",
   },
   { 
     title: "refer a friend", 
@@ -18,9 +17,8 @@ const quickLinks = [
     external: false,
     icon: Users,
     color: "from-violet-500 to-purple-400",
-    bgColor: "bg-violet-500/10",
-    borderColor: "border-violet-500/30",
-    hoverBg: "hover:bg-violet-500",
+    bgColor: "bg-gradient-to-r from-violet-500/20 to-purple-500/10",
+    borderColor: "border-violet-400/40",
   },
   { 
     title: "explore our services", 
@@ -28,9 +26,8 @@ const quickLinks = [
     external: false,
     icon: Briefcase,
     color: "from-orange-500 to-amber-400",
-    bgColor: "bg-orange-500/10",
-    borderColor: "border-orange-500/30",
-    hoverBg: "hover:bg-orange-500",
+    bgColor: "bg-gradient-to-r from-orange-500/20 to-amber-500/10",
+    borderColor: "border-orange-400/40",
   },
   { 
     title: "contact us today", 
@@ -38,9 +35,8 @@ const quickLinks = [
     external: false,
     icon: MessageCircle,
     color: "from-rose-500 to-pink-400",
-    bgColor: "bg-rose-500/10",
-    borderColor: "border-rose-500/30",
-    hoverBg: "hover:bg-rose-500",
+    bgColor: "bg-gradient-to-r from-rose-500/20 to-pink-500/10",
+    borderColor: "border-rose-400/40",
   },
 ];
 
@@ -62,57 +58,58 @@ export function QuickLinksSection() {
       </div>
 
       <div className="relative container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 items-center">
-          {/* Left side heading */}
-          <div className="lg:col-span-1">
-            <h2 className="text-xl md:text-2xl font-medium text-white/90 lowercase leading-relaxed">
-              are you a job seeker? choose the appropriate option based on your needs.
-            </h2>
-          </div>
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-medium text-white/90 lowercase leading-relaxed max-w-2xl mx-auto">
+            are you a job seeker? choose the appropriate option based on your needs.
+          </h2>
+        </div>
 
-          {/* Right side colorful cards */}
-          <div className="lg:col-span-4 grid sm:grid-cols-2 gap-4">
-            {quickLinks.map((link) => {
-              const Icon = link.icon;
-              const cardContent = (
-                <>
-                  <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${link.color} shadow-lg`}>
-                      <Icon className="h-5 w-5 text-white" />
-                    </div>
-                    <span className="text-lg font-semibold text-white lowercase">
-                      {link.title}
-                    </span>
+        {/* Full-width curved cards */}
+        <div className="flex flex-col gap-4">
+          {quickLinks.map((link) => {
+            const Icon = link.icon;
+            const cardContent = (
+              <>
+                <div className="flex items-center gap-5">
+                  <div className={`p-4 rounded-2xl bg-gradient-to-br ${link.color} shadow-lg shadow-black/20`}>
+                    <Icon className="h-6 w-6 text-white" />
                   </div>
-                  <div className={`p-2 rounded-full ${link.bgColor} group-hover:bg-white/20 transition-colors`}>
+                  <span className="text-xl md:text-2xl font-semibold text-white lowercase">
+                    {link.title}
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-white/60 hidden sm:block">Learn more</span>
+                  <div className="p-3 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
                     <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
                   </div>
-                </>
-              );
+                </div>
+              </>
+            );
 
-              const cardClass = `group flex items-center justify-between p-5 rounded-2xl ${link.bgColor} border ${link.borderColor} backdrop-blur-sm hover:scale-[1.02] hover:shadow-xl hover:shadow-${link.color.split('-')[1]}-500/20 transition-all duration-300`;
+            const cardClass = `group flex items-center justify-between p-6 md:p-8 rounded-3xl ${link.bgColor} border-2 ${link.borderColor} backdrop-blur-sm hover:scale-[1.01] hover:border-white/30 transition-all duration-300 cursor-pointer`;
 
-              return link.external ? (
-                <a
-                  key={link.title}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cardClass}
-                >
-                  {cardContent}
-                </a>
-              ) : (
-                <Link
-                  key={link.title}
-                  to={link.href}
-                  className={cardClass}
-                >
-                  {cardContent}
-                </Link>
-              );
-            })}
-          </div>
+            return link.external ? (
+              <a
+                key={link.title}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cardClass}
+              >
+                {cardContent}
+              </a>
+            ) : (
+              <Link
+                key={link.title}
+                to={link.href}
+                className={cardClass}
+              >
+                {cardContent}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
