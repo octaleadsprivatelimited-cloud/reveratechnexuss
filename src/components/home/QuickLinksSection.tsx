@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const quickLinks = [
-  { title: "submit your resume", href: "/job-seekers" },
-  { title: "refer a friend", href: "/job-seekers#refer" },
-  { title: "explore our services", href: "/services" },
-  { title: "contact us today", href: "/contact" },
+  { title: "submit your resume", href: "https://docs.google.com/forms/d/e/1FAIpQLSdKWVKmgUUzr2T7qtdA1kx9cRvczavZ1DDAu4CNquTwHooq7A/viewform?usp=publish-editor", external: true },
+  { title: "refer a friend", href: "/job-seekers#refer", external: false },
+  { title: "explore our services", href: "/services", external: false },
+  { title: "contact us today", href: "/contact", external: false },
 ];
 
 export function QuickLinksSection() {
@@ -36,16 +36,31 @@ export function QuickLinksSection() {
           {/* Right side links */}
           <div className="lg:col-span-4 grid sm:grid-cols-2 gap-4">
             {quickLinks.map((link) => (
-              <Link
-                key={link.title}
-                to={link.href}
-                className="group flex items-center justify-between py-4 border-b border-foreground/20 hover:border-[hsl(174,100%,29%)] transition-colors"
-              >
-                <span className="text-lg font-medium text-foreground lowercase">
-                  {link.title}
-                </span>
-                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-[hsl(174,100%,29%)] group-hover:translate-x-1 transition-all" />
-              </Link>
+              link.external ? (
+                <a
+                  key={link.title}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between py-4 border-b border-foreground/20 hover:border-[hsl(174,100%,29%)] transition-colors"
+                >
+                  <span className="text-lg font-medium text-foreground lowercase">
+                    {link.title}
+                  </span>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-[hsl(174,100%,29%)] group-hover:translate-x-1 transition-all" />
+                </a>
+              ) : (
+                <Link
+                  key={link.title}
+                  to={link.href}
+                  className="group flex items-center justify-between py-4 border-b border-foreground/20 hover:border-[hsl(174,100%,29%)] transition-colors"
+                >
+                  <span className="text-lg font-medium text-foreground lowercase">
+                    {link.title}
+                  </span>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-[hsl(174,100%,29%)] group-hover:translate-x-1 transition-all" />
+                </Link>
+              )
             ))}
           </div>
         </div>

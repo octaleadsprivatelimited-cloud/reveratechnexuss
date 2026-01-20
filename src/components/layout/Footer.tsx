@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowRight
 
 const footerLinks = {
   forTalent: [
-    { name: "Submit Resume", href: "/job-seekers" },
+    { name: "Submit Resume", href: "https://docs.google.com/forms/d/e/1FAIpQLSdKWVKmgUUzr2T7qtdA1kx9cRvczavZ1DDAu4CNquTwHooq7A/viewform?usp=publish-editor", external: true },
     { name: "Career Resources", href: "/blog" },
   ],
   forEmployers: [
@@ -111,9 +111,15 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.forTalent.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-sm text-gray-400 hover:text-white transition-colors">
-                    {link.name}
-                  </Link>
+                  {'external' in link && link.external ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link to={link.href} className="text-sm text-gray-400 hover:text-white transition-colors">
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

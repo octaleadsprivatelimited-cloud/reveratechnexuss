@@ -69,10 +69,10 @@ const JobSeekers = () => {
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild size="lg" className="bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)] text-white">
-                <Link to="/contact">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKWVKmgUUzr2T7qtdA1kx9cRvczavZ1DDAu4CNquTwHooq7A/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">
                   <Upload className="mr-2 h-5 w-5" />
                   Submit Resume
-                </Link>
+                </a>
               </Button>
               <Button asChild size="lg" className="border-white/30 text-white hover:bg-white/10 bg-transparent border">
                 <Link to="/services">
@@ -202,10 +202,10 @@ const JobSeekers = () => {
             Submit your resume today and let us find your perfect opportunity.
           </p>
           <Button asChild size="lg" className="mt-8 bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)]">
-            <Link to="/contact">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKWVKmgUUzr2T7qtdA1kx9cRvczavZ1DDAu4CNquTwHooq7A/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">
               <Upload className="mr-2 h-5 w-5" />
               Submit Your Resume
-            </Link>
+            </a>
           </Button>
         </div>
       </section>
