@@ -113,35 +113,44 @@ const Contact = () => {
       />
 
       {/* Contact Section */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
+      <section className="relative py-20 bg-gradient-to-b from-white to-slate-50/50 overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-40 -left-20 w-72 h-72 bg-secondary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container-custom relative z-10">
           <div className="grid gap-12 lg:grid-cols-3">
             {/* Contact Info */}
             <div className="space-y-6">
               <div>
-                <h2 className="font-heading text-2xl font-bold text-foreground">Get in Touch</h2>
+                <span className="inline-block px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-4">
+                  Get in Touch
+                </span>
+                <h2 className="font-heading text-2xl font-bold text-foreground">Contact Information</h2>
                 <p className="mt-2 text-muted-foreground">
-                  Have questions? We&apos;d love to hear from you.
+                  Have questions? We'd love to hear from you.
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm space-y-4">
                 {contactInfo.map((item) => (
-                  <div key={item.title} className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[hsl(174,100%,29%)]/10">
-                      <item.icon className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                  <div key={item.title} className="flex items-start gap-4 bg-slate-50/50 rounded-xl p-3">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-secondary/10">
+                      <item.icon className="h-5 w-5 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">{item.title}</h3>
+                      <h3 className="font-semibold text-foreground text-sm">{item.title}</h3>
                       {item.action ? (
                         <a
                           href={item.action}
-                          className="text-muted-foreground hover:text-[hsl(174,100%,29%)] transition-colors"
+                          className="text-muted-foreground text-sm hover:text-secondary transition-colors"
                         >
                           {item.details}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground">{item.details}</p>
+                        <p className="text-muted-foreground text-sm">{item.details}</p>
                       )}
                     </div>
                   </div>
@@ -149,9 +158,11 @@ const Contact = () => {
               </div>
 
               {/* WhatsApp CTA */}
-              <div className="rounded-2xl bg-[#25D366]/10 p-6">
+              <div className="bg-gradient-to-br from-[#25D366]/10 to-[#25D366]/5 rounded-2xl border border-[#25D366]/20 p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <MessageCircle className="h-6 w-6 text-[#25D366]" />
+                  <span className="w-10 h-10 rounded-lg bg-[#25D366]/20 flex items-center justify-center">
+                    <MessageCircle className="h-5 w-5 text-[#25D366]" />
+                  </span>
                   <h3 className="font-semibold text-foreground">Quick Response on WhatsApp</h3>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
@@ -167,10 +178,15 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="rounded-2xl bg-card p-6 shadow-soft">
-                <h2 className="font-heading text-xl font-bold text-foreground mb-4">
+              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
+                <h2 className="font-heading text-xl font-bold text-foreground mb-2 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
+                    <Send className="h-4 w-4 text-secondary" />
+                  </span>
                   Send Us a Message
                 </h2>
+                <p className="text-muted-foreground text-sm mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>
+                
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
@@ -181,6 +197,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your full name"
+                        className="bg-slate-50/50 border-slate-200"
                         required
                       />
                     </div>
@@ -193,6 +210,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="your@email.com"
+                        className="bg-slate-50/50 border-slate-200"
                         required
                       />
                     </div>
@@ -208,6 +226,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+91 9876543210"
+                        className="bg-slate-50/50 border-slate-200"
                         required
                       />
                     </div>
@@ -219,6 +238,7 @@ const Contact = () => {
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your company"
+                        className="bg-slate-50/50 border-slate-200"
                       />
                     </div>
                   </div>
@@ -230,7 +250,7 @@ const Contact = () => {
                       name="enquiryType"
                       value={formData.enquiryType}
                       onChange={handleChange}
-                      className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="flex h-10 w-full rounded-lg border border-slate-200 bg-slate-50/50 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       required
                     >
                       <option value="employer">Employer looking to hire</option>
@@ -247,12 +267,13 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your requirements..."
-                      rows={3}
+                      rows={4}
+                      className="bg-slate-50/50 border-slate-200"
                       required
                     />
                   </div>
 
-                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)]">
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto rounded-full bg-secondary hover:bg-secondary/90 px-8">
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
