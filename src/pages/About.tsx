@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Target, Eye, Users, Shield, Award, Heart, CheckCircle, TrendingDown, Clock, Cog, Briefcase, FileCheck } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
 import founderImage from "@/assets/founder-jyothi.png";
+import heroAbout from "@/assets/hero-about.jpg";
 
 const values = [
   {
@@ -51,7 +52,16 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroAbout}
+            alt="About Revera Tech Nexus"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/85" />
+        </div>
         <HeroBackground />
         <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">

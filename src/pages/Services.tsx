@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Monitor, HeartPulse, Hotel, Briefcase, FileSearch, Users, ArrowRight } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
+import heroServices from "@/assets/hero-services.jpg";
 
 const services = [
   {
@@ -83,7 +84,16 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroServices}
+            alt="Our Services"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/85" />
+        </div>
         <HeroBackground />
         <div className="container-custom relative z-10">
           <div className="mx-auto max-w-3xl text-center">
