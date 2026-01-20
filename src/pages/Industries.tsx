@@ -7,6 +7,7 @@ import industryHealthcare from "@/assets/industry-healthcare.jpg";
 import industryCorporate from "@/assets/industry-corporate.jpg";
 import industryRealEstate from "@/assets/industry-realestate.jpg";
 import heroIndustries from "@/assets/hero-industries.jpg";
+import { PageHero } from "@/components/PageHero";
 
 const industries = [
   {
@@ -78,34 +79,16 @@ const industries = [
 const Industries = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={heroIndustries}
-            alt="Industries We Serve"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210,11%,15%)]/95 via-[hsl(210,11%,15%)]/80 to-[hsl(210,11%,15%)]/60" />
-        </div>
-        
-        <div className="container-custom relative z-10 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
-              Industries We Serve
-            </span>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
-              Specialized Expertise Across{" "}
-              <span className="text-[hsl(174,100%,45%)]">Key Sectors</span>
-            </h1>
-            <p className="mt-6 text-lg text-gray-300 max-w-xl">
-              Deep industry knowledge allows us to understand your unique challenges and 
-              find candidates who truly fit your organizational culture and requirements.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Industries We Serve"
+        title="Specialized Expertise Across"
+        titleHighlight="Key Sectors"
+        description="Deep industry knowledge allows us to understand your unique challenges and find candidates who truly fit your organizational culture and requirements."
+        primaryCta={{ text: "Get Started", href: "/contact" }}
+        secondaryCta={{ text: "Our Services", href: "/services" }}
+        image={heroIndustries}
+        imageAlt="Industries We Serve"
+      />
 
       {/* Industries */}
       <section className="section-padding bg-background">

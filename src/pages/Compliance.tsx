@@ -2,8 +2,9 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Shield, FileCheck, Scale, Users, AlertTriangle, BookOpen } from "lucide-react";
-import { HeroBackground } from "@/components/HeroBackground";
+import { PageHero } from "@/components/PageHero";
 import serviceCompliance from "@/assets/service-compliance.jpg";
+
 const complianceServices = [
   {
     icon: FileCheck,
@@ -54,33 +55,16 @@ const complianceServices = [
 const Compliance = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={serviceCompliance}
-            alt="Compliance Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/85" />
-        </div>
-        <HeroBackground />
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
-              Compliance Services
-            </span>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-              Stay Compliant, Stay{" "}
-              <span className="text-[hsl(174,100%,45%)]">Protected</span>
-            </h1>
-            <p className="mt-6 text-lg text-gray-300">
-              Navigate the complex landscape of employment laws and regulations with our comprehensive compliance services. We ensure your organization meets all statutory requirements.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Compliance Services"
+        title="Stay Compliant, Stay"
+        titleHighlight="Protected"
+        description="Navigate the complex landscape of employment laws and regulations with our comprehensive compliance services. We ensure your organization meets all statutory requirements."
+        primaryCta={{ text: "Get a Compliance Audit", href: "/contact" }}
+        secondaryCta={{ text: "Talk to an Expert", href: "/contact" }}
+        image={serviceCompliance}
+        imageAlt="Compliance Services"
+      />
 
       {/* Why Compliance Matters */}
       <section className="section-padding bg-background">

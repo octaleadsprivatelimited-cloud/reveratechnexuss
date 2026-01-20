@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Monitor, HeartPulse, Hotel, Briefcase, FileSearch, Users, ArrowRight } from "lucide-react";
 import heroServices from "@/assets/hero-services.jpg";
+import { PageHero } from "@/components/PageHero";
 
 const services = [
   {
@@ -82,34 +83,16 @@ const services = [
 const Services = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={heroServices}
-            alt="Our Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210,11%,15%)]/95 via-[hsl(210,11%,15%)]/80 to-[hsl(210,11%,15%)]/60" />
-        </div>
-        
-        <div className="container-custom relative z-10 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
-              Our Services
-            </span>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
-              Comprehensive{" "}
-              <span className="text-[hsl(174,100%,45%)]">Recruitment Solutions</span>
-            </h1>
-            <p className="mt-6 text-lg text-gray-300 max-w-xl">
-              From contract staffing to executive search, we offer end-to-end recruitment services 
-              tailored to your specific industry and organizational needs.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Our Services"
+        title="Comprehensive"
+        titleHighlight="Recruitment Solutions"
+        description="From contract staffing to executive search, we offer end-to-end recruitment services tailored to your specific industry and organizational needs."
+        primaryCta={{ text: "Contact Us", href: "/contact" }}
+        secondaryCta={{ text: "View Industries", href: "/industries" }}
+        image={heroServices}
+        imageAlt="Our Services"
+      />
 
       {/* Services Grid */}
       <section className="section-padding bg-background">
