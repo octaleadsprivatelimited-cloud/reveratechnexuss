@@ -1,12 +1,14 @@
+import kiaLogo from "@/assets/client-kia.jpg";
+import mfarLogo from "@/assets/client-mfar.png";
+import uknLogo from "@/assets/client-ukn.jpg";
+import valmisLogo from "@/assets/client-valmis.jpeg";
+
 export function ClientLogosSection() {
-  // Placeholder logos - replace with actual client logos
   const clients = [
-    { name: "Client 1", placeholder: true },
-    { name: "Client 2", placeholder: true },
-    { name: "Client 3", placeholder: true },
-    { name: "Client 4", placeholder: true },
-    { name: "Client 5", placeholder: true },
-    { name: "Client 6", placeholder: true },
+    { name: "Kia", logo: kiaLogo },
+    { name: "MFAR Constructions", logo: mfarLogo },
+    { name: "UKN Properties", logo: uknLogo },
+    { name: "Valmis Foods", logo: valmisLogo },
   ];
 
   return (
@@ -19,9 +21,14 @@ export function ClientLogosSection() {
           {clients.map((client, index) => (
             <div
               key={index}
-              className="w-24 h-12 md:w-32 md:h-14 bg-background border border-border/50 rounded-md flex items-center justify-center text-muted-foreground/50 text-xs font-medium cursor-pointer hover:scale-105 hover:shadow-md transition-all duration-200"
+              className="w-28 h-16 md:w-36 md:h-20 bg-background border border-border/50 rounded-lg flex items-center justify-center p-3 hover:scale-105 hover:shadow-md transition-all duration-200"
             >
-              Logo {index + 1}
+              <img 
+                src={client.logo} 
+                alt={`${client.name} logo`}
+                className="max-w-full max-h-full object-contain"
+                loading="eager"
+              />
             </div>
           ))}
         </div>
