@@ -8,22 +8,19 @@ import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { FounderSection } from "@/components/home/FounderSection";
 import { CTASection } from "@/components/home/CTASection";
-import { PageTransition } from "@/components/ui/page-transition";
 
 const Index = () => {
   return (
     <Layout>
-      <PageTransition>
-        <HeroSection />
-        <ClientLogosSection />
-        <QuickLinksSection />
-        <AboutSection />
-        <ServicesSection />
-        <IndustriesSection />
-        <WhyChooseUs />
-        <FounderSection />
-        <CTASection />
-      </PageTransition>
+      <HeroSection />
+      <ClientLogosSection />
+      <QuickLinksSection />
+      <AboutSection />
+      <ServicesSection />
+      <IndustriesSection />
+      <WhyChooseUs />
+      <FounderSection />
+      <CTASection />
     </Layout>
   );
 };

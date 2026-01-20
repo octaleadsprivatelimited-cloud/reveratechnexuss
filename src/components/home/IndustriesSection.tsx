@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Monitor, HeartPulse, Building2, Briefcase } from "lucide-react";
-import { motion } from "framer-motion";
 import industryIT from "@/assets/industry-it-new.jpg";
 import industryHealthcare from "@/assets/industry-healthcare-new.jpg";
 import industryRealEstate from "@/assets/industry-realestate-new.jpg";
@@ -37,24 +36,6 @@ const industries = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" as const }
-  }
-};
-
 export function IndustriesSection() {
   return (
     <section className="relative section-padding overflow-hidden">
@@ -70,13 +51,7 @@ export function IndustriesSection() {
         }} />
         
         {/* Large gradient orb */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[hsl(174,100%,29%)]/3 via-transparent to-[hsl(210,11%,15%)]/3 rounded-full blur-3xl" 
-        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[hsl(174,100%,29%)]/3 via-transparent to-[hsl(210,11%,15%)]/3 rounded-full blur-3xl" />
         
         {/* Accent lines */}
         <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-[hsl(174,100%,29%)]/20 to-transparent" />
@@ -85,25 +60,15 @@ export function IndustriesSection() {
 
       <div className="relative container-custom">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <div>
             <h2 className="text-3xl md:text-4xl font-light text-foreground mb-4 lowercase">
               industries we serve.
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
               Deep expertise in finding exceptional talent across diverse industry verticals.
             </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
+          </div>
+          <div>
             <Link
               to="/industries"
               className="inline-flex items-center text-[hsl(174,100%,29%)] font-medium mt-4 md:mt-0 hover:underline"
@@ -111,30 +76,22 @@ export function IndustriesSection() {
               view all industries
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry) => (
-            <motion.div key={industry.title} variants={itemVariants}>
+            <div key={industry.title}>
               <Link
                 to={industry.href}
                 className="group bg-white border border-gray-200 rounded-lg hover:border-[hsl(174,100%,29%)] hover:shadow-lg transition-all duration-300 block h-full overflow-hidden"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <motion.img
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.4 }}
+                  <img
                     src={industry.image}
                     alt={industry.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210,11%,15%)]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute top-3 left-3">
@@ -153,9 +110,9 @@ export function IndustriesSection() {
                   </p>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
