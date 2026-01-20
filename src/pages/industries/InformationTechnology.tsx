@@ -20,25 +20,42 @@ const InformationTechnology = () => {
       />
 
       {/* Content */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
+      <section className="relative py-20 bg-gradient-to-b from-white to-slate-50/50 overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-40 -left-20 w-72 h-72 bg-secondary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container-custom relative z-10">
           <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="font-heading text-3xl font-bold text-foreground">
-                Tech Talent That Drives Innovation
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                The technology landscape is evolving rapidly, and finding the right tech talent is 
-                more challenging than ever. Our IT recruitment specialists understand the nuances 
-                of technical roles and can identify candidates who truly fit your requirements.
-              </p>
-              <p className="mt-4 text-muted-foreground">
-                From startups to enterprise tech companies, we've helped organizations build 
-                engineering teams that create cutting-edge products and solutions.
-              </p>
+            {/* Left Column */}
+            <div className="space-y-8">
+              <div>
+                <span className="inline-block px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-4">
+                  Our Expertise
+                </span>
+                <h2 className="font-heading text-3xl font-bold text-foreground">
+                  Tech Talent That Drives Innovation
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  The technology landscape is evolving rapidly, and finding the right tech talent is 
+                  more challenging than ever. Our IT recruitment specialists understand the nuances 
+                  of technical roles and can identify candidates who truly fit your requirements.
+                </p>
+                <p className="mt-4 text-muted-foreground">
+                  From startups to enterprise tech companies, we've helped organizations build 
+                  engineering teams that create cutting-edge products and solutions.
+                </p>
+              </div>
 
-              <div className="mt-8">
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">Roles We Specialize In</h3>
+              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-secondary" />
+                  </span>
+                  Roles We Specialize In
+                </h3>
                 <ul className="space-y-3">
                   {[
                     "Software Engineers & Full-Stack Developers",
@@ -57,12 +74,18 @@ const InformationTechnology = () => {
               </div>
             </div>
 
+            {/* Right Column */}
             <div className="space-y-6">
-              <div className="rounded-2xl bg-muted p-8">
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">Technologies We Cover</h3>
+              <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                    <Monitor className="h-4 w-4 text-blue-500" />
+                  </span>
+                  Technologies We Cover
+                </h3>
                 <div className="grid grid-cols-2 gap-3">
                   {["React/Angular/Vue", "Python/Java/Node", "AWS/Azure/GCP", "AI/ML", "Blockchain", "Mobile (iOS/Android)"].map((tech) => (
-                    <div key={tech} className="flex items-center gap-2 text-muted-foreground">
+                    <div key={tech} className="flex items-center gap-2 text-muted-foreground bg-white/80 rounded-lg px-3 py-2 border border-slate-100">
                       <ArrowRight className="h-4 w-4 text-secondary" />
                       {tech}
                     </div>
@@ -70,18 +93,23 @@ const InformationTechnology = () => {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-card p-8 shadow-soft">
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">Why Choose Us for IT Hiring?</h3>
+              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                  </span>
+                  Why Choose Us for IT Hiring?
+                </h3>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 bg-slate-50/50 rounded-lg p-3">
                     <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">Technical screening by industry experts</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 bg-slate-50/50 rounded-lg p-3">
                     <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">Access to passive tech talent</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 bg-slate-50/50 rounded-lg p-3">
                     <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">Quick turnaround for urgent roles</span>
                   </li>

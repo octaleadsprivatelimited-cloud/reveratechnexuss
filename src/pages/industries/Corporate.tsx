@@ -20,24 +20,41 @@ const Corporate = () => {
       />
 
       {/* Content */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
+      <section className="relative py-20 bg-gradient-to-b from-white to-slate-50/50 overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-40 -left-20 w-72 h-72 bg-secondary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container-custom relative z-10">
           <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="font-heading text-3xl font-bold text-foreground">
-                Corporate Talent Solutions
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                From finance to marketing, HR to operations, we help organizations build 
-                high-performing corporate teams that drive business success.
-              </p>
-              <p className="mt-4 text-muted-foreground">
-                Our deep understanding of corporate functions and company cultures enables 
-                us to match the right professionals with the right opportunities.
-              </p>
+            {/* Left Column */}
+            <div className="space-y-8">
+              <div>
+                <span className="inline-block px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-4">
+                  Our Expertise
+                </span>
+                <h2 className="font-heading text-3xl font-bold text-foreground">
+                  Corporate Talent Solutions
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  From finance to marketing, HR to operations, we help organizations build 
+                  high-performing corporate teams that drive business success.
+                </p>
+                <p className="mt-4 text-muted-foreground">
+                  Our deep understanding of corporate functions and company cultures enables 
+                  us to match the right professionals with the right opportunities.
+                </p>
+              </div>
 
-              <div className="mt-8">
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">Functions We Cover</h3>
+              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-secondary" />
+                  </span>
+                  Functions We Cover
+                </h3>
                 <ul className="space-y-3">
                   {[
                     "Finance & Accounting",
@@ -56,12 +73,18 @@ const Corporate = () => {
               </div>
             </div>
 
+            {/* Right Column */}
             <div className="space-y-6">
-              <div className="rounded-2xl bg-muted p-8">
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">Industries We Serve</h3>
+              <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                    <Briefcase className="h-4 w-4 text-blue-500" />
+                  </span>
+                  Industries We Serve
+                </h3>
                 <div className="grid grid-cols-2 gap-3">
                   {["FMCG", "BFSI", "Retail", "Manufacturing", "Consulting", "Real Estate"].map((industry) => (
-                    <div key={industry} className="flex items-center gap-2 text-muted-foreground">
+                    <div key={industry} className="flex items-center gap-2 text-muted-foreground bg-white/80 rounded-lg px-3 py-2 border border-slate-100">
                       <ArrowRight className="h-4 w-4 text-secondary" />
                       {industry}
                     </div>
@@ -69,18 +92,23 @@ const Corporate = () => {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-card p-8 shadow-soft">
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">Why Partner With Us?</h3>
+              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                  </span>
+                  Why Partner With Us?
+                </h3>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 bg-slate-50/50 rounded-lg p-3">
                     <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">Extensive corporate talent network</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 bg-slate-50/50 rounded-lg p-3">
                     <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">Function-specific expertise</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 bg-slate-50/50 rounded-lg p-3">
                     <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">Quick turnaround times</span>
                   </li>
