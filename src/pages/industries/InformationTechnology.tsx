@@ -93,17 +93,28 @@ const InformationTechnology = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-beige py-16">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-light text-foreground mb-4 lowercase">
-            looking for tech talent?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Let's discuss your IT hiring requirements and find the perfect fit.
-          </p>
-          <Button asChild size="lg" className="gradient-blue text-white">
-            <Link to="/contact">start hiring</Link>
-          </Button>
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-100">
+        {/* Background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-6">
+              Get Started Today
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Looking for Tech Talent?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Let's discuss your IT hiring requirements and find the perfect fit.
+            </p>
+            <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-secondary/90 text-white px-8">
+              <Link to="/contact">Start Hiring</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>
