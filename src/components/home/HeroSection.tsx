@@ -129,17 +129,43 @@ export function HeroSection() {
           >
             <motion.div className="mb-6" variants={itemVariants}>
               <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
-                What can we do for
+                {"What can we do for".split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.03,
+                      delay: 0.3 + index * 0.03,
+                      ease: "easeOut"
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
               </h2>
               <div className="flex items-center gap-2">
                 <motion.span 
                   className="w-8 h-1 bg-primary rounded"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
                 />
                 <h2 className="text-2xl lg:text-3xl font-bold text-foreground">
-                  you today?
+                  {"you today?".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ 
+                        duration: 0.03,
+                        delay: 0.9 + index * 0.03,
+                        ease: "easeOut"
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
                 </h2>
               </div>
             </motion.div>
