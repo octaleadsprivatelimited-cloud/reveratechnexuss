@@ -2,38 +2,22 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calculator, CheckCircle, ArrowRight } from "lucide-react";
-import { HeroBackground } from "@/components/HeroBackground";
+import { PageHero } from "@/components/PageHero";
 import servicePayroll from "@/assets/service-payroll.jpg";
 
 const PayrollServices = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={servicePayroll}
-            alt="Payroll Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/85" />
-        </div>
-        <HeroBackground />
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6">
-              <Calculator className="h-8 w-8 text-white" />
-            </div>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-              Payroll Services
-            </h1>
-            <p className="mt-6 text-lg text-white/80">
-              End-to-end payroll management with complete statutory compliance and timely processing.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Payroll Services"
+        title="Hassle-Free"
+        titleHighlight="Payroll Management"
+        description="End-to-end payroll management with complete statutory compliance, timely processing, and 100% accuracy guarantee."
+        primaryCta={{ text: "Get a Quote", href: "/contact" }}
+        secondaryCta={{ text: "View All Services", href: "/services" }}
+        image={servicePayroll}
+        imageAlt="Payroll Services"
+      />
 
       {/* Content */}
       <section className="section-padding bg-background">

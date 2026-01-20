@@ -2,38 +2,22 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, CheckCircle, ArrowRight } from "lucide-react";
-import { HeroBackground } from "@/components/HeroBackground";
+import { PageHero } from "@/components/PageHero";
 import servicePermanent from "@/assets/service-permanent-new.jpg";
 
 const PermanentStaffing = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={servicePermanent}
-            alt="Permanent Staffing"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/85" />
-        </div>
-        <HeroBackground />
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6">
-              <Users className="h-8 w-8 text-white" />
-            </div>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-              Permanent Staffing
-            </h1>
-            <p className="mt-6 text-lg text-white/80">
-              Find the right permanent talent to build your core team with long-term commitment and cultural fit.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Permanent Staffing"
+        title="Building Teams"
+        titleHighlight="That Last"
+        description="Find the right permanent talent to build your core team with long-term commitment and cultural fit."
+        primaryCta={{ text: "Get Started", href: "/contact" }}
+        secondaryCta={{ text: "View All Services", href: "/services" }}
+        image={servicePermanent}
+        imageAlt="Permanent Staffing"
+      />
 
       {/* Content */}
       <section className="section-padding bg-background">
