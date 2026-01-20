@@ -177,13 +177,13 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="rounded-2xl bg-card p-8 shadow-soft">
-                <h2 className="font-heading text-2xl font-bold text-foreground mb-6">
+              <div className="rounded-2xl bg-card p-6 shadow-soft">
+                <h2 className="font-heading text-xl font-bold text-foreground mb-4">
                   Send Us a Message
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div className="space-y-2">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-1.5">
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
                         id="name"
@@ -194,7 +194,7 @@ const Contact = () => {
                         required
                       />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       <Label htmlFor="email">Email Address *</Label>
                       <Input
                         id="email"
@@ -208,8 +208,8 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div className="space-y-2">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-1.5">
                       <Label htmlFor="phone">Phone Number *</Label>
                       <Input
                         id="phone"
@@ -221,7 +221,7 @@ const Contact = () => {
                         required
                       />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       <Label htmlFor="company">Company Name</Label>
                       <Input
                         id="company"
@@ -233,14 +233,14 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <Label htmlFor="enquiryType">I am a *</Label>
                     <select
                       id="enquiryType"
                       name="enquiryType"
                       value={formData.enquiryType}
                       onChange={handleChange}
-                      className="flex h-11 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       required
                     >
                       <option value="employer">Employer looking to hire</option>
@@ -249,7 +249,7 @@ const Contact = () => {
                     </select>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
                       id="message"
@@ -257,7 +257,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your requirements..."
-                      rows={5}
+                      rows={3}
                       required
                     />
                   </div>
