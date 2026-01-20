@@ -110,6 +110,7 @@ const Contact = () => {
         secondaryCta={{ text: "WhatsApp", href: whatsappUrl, external: true }}
         image={heroContact}
         imageAlt="Professional business meeting"
+        compact
       />
 
       {/* Contact Section */}
