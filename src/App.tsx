@@ -9,7 +9,7 @@ import Services from "./pages/Services";
 import Industries from "./pages/Industries";
 import Employers from "./pages/Employers";
 import JobSeekers from "./pages/JobSeekers";
-import Careers from "./pages/Careers";
+
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import Privacy from "./pages/Privacy";
@@ -48,7 +48,7 @@ const App = () => (
           <Route path="/industries" element={<Industries />} />
           <Route path="/employers" element={<Employers />} />
           <Route path="/job-seekers" element={<JobSeekers />} />
-          <Route path="/careers" element={<Careers />} />
+          
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/privacy" element={<Privacy />} />

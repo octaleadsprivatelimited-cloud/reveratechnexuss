@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
   Briefcase, FileText, Award, TrendingUp, 
-  ArrowRight, Upload, Search
+  ArrowRight, Upload
 } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
 
@@ -62,15 +62,15 @@ const JobSeekers = () => {
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg" className="bg-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,24%)] text-white">
-                <Link to="/careers">
-                  Browse Jobs
-                  <Search className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" className="border-white/30 text-white hover:bg-white/10 bg-transparent border">
                 <Link to="/contact">
                   <Upload className="mr-2 h-5 w-5" />
                   Submit Resume
+                </Link>
+              </Button>
+              <Button asChild size="lg" className="border-white/30 text-white hover:bg-white/10 bg-transparent border">
+                <Link to="/services">
+                  Explore Services
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
@@ -120,7 +120,7 @@ const JobSeekers = () => {
             {categories.map((category) => (
               <Link
                 key={category.name}
-                to="/careers"
+                to="/contact"
                 className="group flex items-center justify-between rounded-xl bg-card p-6 shadow-soft card-hover"
               >
                 <div>
