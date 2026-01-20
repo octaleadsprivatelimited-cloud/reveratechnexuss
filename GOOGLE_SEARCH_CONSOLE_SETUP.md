@@ -50,11 +50,17 @@ The sitemap is discoverable through multiple methods:
 
 ### Important Notes
 
-⚠️ **Before Deployment:**
-- Update the domain in `public/sitemap.xml` if your actual domain differs from `reveratechnexus.com`
-- Update the domain in `public/robots.txt` if needed
-- Update the domain in `index.html` sitemap link if needed
-- Update the domain in `src/components/SEO.tsx` (baseUrl) if needed
+⚠️ **CRITICAL - Before Deployment:**
+- **Update the domain in `public/sitemap.xml`** - Replace ALL instances of `reveratechnexus.com` with your actual domain
+- **Update the domain in `public/robots.txt`** - Update the sitemap URL
+- **Update the domain in `index.html`** - Update the sitemap link and all meta tags
+- **Update the domain in `src/components/SEO.tsx`** - Update baseUrl variable
+
+⚠️ **If Google Search Console shows "Not Able to Fetch":**
+1. **Verify site is deployed** - The sitemap must be accessible at `https://your-domain.com/sitemap.xml`
+2. **Test sitemap URL** - Open `https://your-domain.com/sitemap.xml` in browser (should show XML, not 404)
+3. **Check domain matches** - All URLs in sitemap must use your actual domain
+4. **See `SITEMAP_TROUBLESHOOTING.md`** for detailed troubleshooting steps
 
 ### Sitemap Validation
 
