@@ -16,7 +16,7 @@ const Index = () => {
     "@type": "Organization",
     "name": "Revera Tech Nexus",
     "url": "https://reveratechnexus.com",
-    "logo": "https://reveratechnexus.com/logo.jpg",
+    "logo": "https://reveratechnexus.com/logo.webp",
     "description": "Revera Tech Nexus is Bangalore's trusted recruitment agency offering IT, Healthcare, Real Estate & Corporate staffing solutions.",
     "address": {
       "@type": "PostalAddress",
@@ -50,7 +50,7 @@ const Index = () => {
         title="Revera Tech Nexus - Hiring & Recruitment Solutions | Bangalore"
         description="Revera Tech Nexus is Bangalore's trusted recruitment agency offering IT, Healthcare, Real Estate & Corporate staffing solutions. Connect with top employers and exceptional talent today."
         keywords="recruitment agency Bangalore, IT recruitment, healthcare staffing, real estate hiring, corporate recruitment, permanent staffing, contract staffing, executive search, HR consulting, payroll services, job placement Bangalore, talent acquisition, staffing solutions India"
-        ogImage="/hero-image.jpg"
+        ogImage="/hero-image.webp"
         structuredData={structuredData}
       />
       <HeroSection />

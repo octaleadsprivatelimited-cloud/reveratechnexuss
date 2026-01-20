@@ -6,7 +6,7 @@ import {
   Briefcase, FileText, Award, TrendingUp, 
   ArrowRight, Upload
 } from "lucide-react";
-import heroJobseekers from "@/assets/hero-jobseekers.jpg";
+import heroJobseekers from "@/assets/hero-jobseekers.webp";
 import { PageHero } from "@/components/PageHero";
 
 const benefits = [
@@ -48,7 +48,7 @@ const JobSeekers = () => {
         title="For Job Seekers - Find Your Dream Career | Revera Tech Nexus"
         description="Join thousands of professionals who found their ideal job through Revera Tech Nexus. We connect you with top employers across IT, Healthcare, Real Estate, and Corporate sectors in Bangalore."
         keywords="job seekers Bangalore, IT jobs Bangalore, healthcare jobs, real estate jobs, corporate jobs, job placement services, career opportunities Bangalore, find jobs in Bangalore"
-        ogImage="/hero-jobseekers.jpg"
+        ogImage="/hero-jobseekers.webp"
       />
       <PageHero
         badge="For Job Seekers"

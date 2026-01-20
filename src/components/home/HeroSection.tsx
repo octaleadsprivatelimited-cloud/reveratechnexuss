@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Users, Building2, Briefcase, UserCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import heroConsulting from "@/assets/hero-consulting.jpg";
+import heroConsulting from "@/assets/hero-consulting.webp";
 
 export function HeroSection() {
 

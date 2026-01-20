@@ -2,11 +2,11 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Monitor, HeartPulse, Briefcase, Building2, ArrowRight, CheckCircle } from "lucide-react";
-import industryIT from "@/assets/industry-it.jpg";
-import industryHealthcare from "@/assets/industry-healthcare.jpg";
-import industryCorporate from "@/assets/industry-corporate.jpg";
-import industryRealEstate from "@/assets/industry-realestate.jpg";
-import heroIndustries from "@/assets/hero-industries.jpg";
+import industryIT from "@/assets/industry-it.webp";
+import industryHealthcare from "@/assets/industry-healthcare.webp";
+import industryCorporate from "@/assets/industry-corporate.webp";
+import industryRealEstate from "@/assets/industry-realestate.webp";
+import heroIndustries from "@/assets/hero-industries.webp";
 import { PageHero } from "@/components/PageHero";
 
 const industries = [

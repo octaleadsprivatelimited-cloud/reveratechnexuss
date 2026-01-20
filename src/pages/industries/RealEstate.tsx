@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Building2, Shield } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import heroImage from "@/assets/industry-realestate.jpg";
+import heroImage from "@/assets/industry-realestate.webp";
 
 const RealEstate = () => {
   return (

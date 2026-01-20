@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { FileSearch, CheckCircle, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import serviceContract from "@/assets/service-contract.jpg";
+import serviceContract from "@/assets/service-contract.webp";
 
 const ContractStaffing = () => {
   return (

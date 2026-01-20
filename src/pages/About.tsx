@@ -3,8 +3,8 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Target, Eye, Users, Shield, Award, Heart, CheckCircle, TrendingDown, Clock, Cog, Briefcase, FileCheck } from "lucide-react";
-import founderImage from "@/assets/founder-jyothi.png";
-import heroAbout from "@/assets/hero-about.jpg";
+import founderImage from "@/assets/founder-jyothi.webp";
+import heroAbout from "@/assets/hero-about.webp";
 import { PageHero } from "@/components/PageHero";
 
 const values = [
@@ -78,7 +78,7 @@ const About = () => {
         title="About Us - Trusted Recruitment Partner in Bangalore | Revera Tech Nexus"
         description="Learn about Revera Tech Nexus - a trusted recruitment agency in Bangalore founded by experienced HR professionals. 20+ years of experience in talent acquisition and HR compliance."
         keywords="about revera tech nexus, recruitment agency Bangalore, HR consulting Bangalore, staffing company India, talent acquisition experts, recruitment professionals"
-        ogImage="/hero-about.jpg"
+        ogImage="/hero-about.webp"
         structuredData={structuredData}
       />
       <PageHero

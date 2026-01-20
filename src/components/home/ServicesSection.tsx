@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Users, UserCheck, Search, Building2 } from "lucide-react";
-import serviceStaffing from "@/assets/service-staffing.jpg";
-import servicePermanent from "@/assets/service-permanent.jpg";
-import serviceExecutive from "@/assets/service-executive.jpg";
-import serviceOutsourcing from "@/assets/service-outsourcing.jpg";
+import serviceStaffing from "@/assets/service-staffing.webp";
+import servicePermanent from "@/assets/service-permanent.webp";
+import serviceExecutive from "@/assets/service-executive.webp";
+import serviceOutsourcing from "@/assets/service-outsourcing.webp";
 
 const services = [
   {

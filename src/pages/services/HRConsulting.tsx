@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Lightbulb, CheckCircle, ArrowRight, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import serviceHRConsulting from "@/assets/service-hr-consulting.jpg";
+import serviceHRConsulting from "@/assets/service-hr-consulting.webp";
 
 const HRConsulting = () => {
   return (

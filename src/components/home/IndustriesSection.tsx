@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Monitor, HeartPulse, Building2, Briefcase } from "lucide-react";
-import industryIT from "@/assets/industry-it-new.jpg";
-import industryHealthcare from "@/assets/industry-healthcare-new.jpg";
-import industryRealEstate from "@/assets/industry-realestate-new.jpg";
-import industryCorporate from "@/assets/industry-corporate-new.jpg";
+import industryIT from "@/assets/industry-it-new.webp";
+import industryHealthcare from "@/assets/industry-healthcare-new.webp";
+import industryRealEstate from "@/assets/industry-realestate-new.webp";
+import industryCorporate from "@/assets/industry-corporate-new.webp";
 
 const industries = [
   {

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calculator, CheckCircle, ArrowRight, Shield } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import servicePayroll from "@/assets/service-payroll.jpg";
+import servicePayroll from "@/assets/service-payroll.webp";
 
 const PayrollServices = () => {
   return (

@@ -6,7 +6,7 @@ import {
   Target, Shield, Users, Clock, CheckCircle, 
   ArrowRight, Building2, Handshake, FileCheck 
 } from "lucide-react";
-import heroEmployers from "@/assets/hero-employers.jpg";
+import heroEmployers from "@/assets/hero-employers.webp";
 import { PageHero } from "@/components/PageHero";
 
 const benefits = [
@@ -62,7 +62,7 @@ const Employers = () => {
         title="For Employers - Staffing Solutions & Recruitment Services | Revera Tech Nexus"
         description="Partner with Revera Tech Nexus for efficient, quality-driven recruitment. We offer contract staffing, permanent hiring, executive search, and HR consulting services for employers in Bangalore."
         keywords="employer recruitment services, staffing solutions for employers, contract staffing services, permanent hiring Bangalore, executive search services, HR consulting for employers"
-        ogImage="/hero-employers.jpg"
+        ogImage="/hero-employers.webp"
       />
       <PageHero
         badge="For Employers"

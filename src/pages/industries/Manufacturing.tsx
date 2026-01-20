@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Factory, CheckCircle, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import industryManufacturing from "@/assets/industry-manufacturing.jpg";
+import industryManufacturing from "@/assets/industry-manufacturing.webp";
 
 const Manufacturing = () => {
   return (

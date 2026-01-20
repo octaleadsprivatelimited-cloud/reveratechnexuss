@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Award, CheckCircle, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import serviceExecutive from "@/assets/service-executive-new.jpg";
+import serviceExecutive from "@/assets/service-executive-new.webp";
 
 const ExecutiveSearch = () => {
   return (

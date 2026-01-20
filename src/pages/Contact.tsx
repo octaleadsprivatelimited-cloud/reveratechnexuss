@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PageHero } from "@/components/PageHero";
-import heroContact from "@/assets/hero-contact.jpg";
+import heroContact from "@/assets/hero-contact.webp";
 
 const contactInfo = [
   {
@@ -129,7 +129,7 @@ const Contact = () => {
         title="Contact Us - Get in Touch | Revera Tech Nexus Bangalore"
         description="Contact Revera Tech Nexus for recruitment and staffing solutions. Call +91 99009 49512 or email jyothi.m@reveratechnexus.com. Located in Bangalore, Karnataka."
         keywords="contact revera tech nexus, recruitment agency contact Bangalore, staffing company contact, HR consulting contact, get in touch recruitment"
-        ogImage="/hero-contact.jpg"
+        ogImage="/hero-contact.webp"
         structuredData={structuredData}
       />
       <PageHero

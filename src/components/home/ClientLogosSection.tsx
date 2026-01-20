@@ -1,7 +1,7 @@
-import kiaLogo from "@/assets/client-kia.jpg";
-import mfarLogo from "@/assets/client-mfar.png";
-import uknLogo from "@/assets/client-ukn.jpg";
-import valmisLogo from "@/assets/client-valmis.jpeg";
+import kiaLogo from "@/assets/client-kia.webp";
+import mfarLogo from "@/assets/client-mfar.webp";
+import uknLogo from "@/assets/client-ukn.webp";
+import valmisLogo from "@/assets/client-valmis.webp";
 
 export function ClientLogosSection() {
   const clients = [

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Monitor, CheckCircle, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import industryIT from "@/assets/industry-it.jpg";
+import industryIT from "@/assets/industry-it.webp";
 
 const InformationTechnology = () => {
   return (
@@ -13,7 +13,7 @@ const InformationTechnology = () => {
         title="IT Recruitment Services - Technology Talent Solutions | Revera Tech Nexus"
         description="Specialized IT recruitment services for software development, data science, cloud computing, cybersecurity, and emerging technologies. Find top tech talent in Bangalore."
         keywords="IT recruitment, IT staffing, technology recruitment, software developer recruitment, IT jobs Bangalore, tech talent acquisition, IT hiring services, software engineer recruitment"
-        ogImage="/industry-it.jpg"
+        ogImage="/industry-it.webp"
       />
       <PageHero
         badge="IT Industry"

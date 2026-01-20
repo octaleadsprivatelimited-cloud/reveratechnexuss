@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Briefcase, Users } from "lucide-react";
-import jobseekerCard from "@/assets/jobseeker-card.jpg";
-import employerCard from "@/assets/employer-card.jpg";
+import jobseekerCard from "@/assets/jobseeker-card.webp";
+import employerCard from "@/assets/employer-card.webp";
 
 export function AboutSection() {
   return (

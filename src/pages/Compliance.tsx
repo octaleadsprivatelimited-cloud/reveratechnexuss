@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Shield, FileCheck, Scale, Users, AlertTriangle, BookOpen } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import serviceCompliance from "@/assets/service-compliance.jpg";
+import serviceCompliance from "@/assets/service-compliance.webp";
 
 const complianceServices = [
   {

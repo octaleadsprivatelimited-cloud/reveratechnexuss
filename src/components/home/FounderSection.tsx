@@ -1,6 +1,6 @@
 import { Award, TrendingDown, Clock, Cog, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import founderImage from "@/assets/founder-jyothi.png";
+import founderImage from "@/assets/founder-jyothi.webp";
 
 export function FounderSection() {
   const achievements = [

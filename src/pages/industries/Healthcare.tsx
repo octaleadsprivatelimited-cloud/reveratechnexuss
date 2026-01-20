@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { HeartPulse, CheckCircle, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import industryHealthcare from "@/assets/industry-healthcare.jpg";
+import industryHealthcare from "@/assets/industry-healthcare.webp";
 
 const Healthcare = () => {
   return (

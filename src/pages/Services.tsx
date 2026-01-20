@@ -3,7 +3,7 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Monitor, HeartPulse, Hotel, Briefcase, FileSearch, Users, ArrowRight } from "lucide-react";
-import heroServices from "@/assets/hero-services.jpg";
+import heroServices from "@/assets/hero-services.webp";
 import { PageHero } from "@/components/PageHero";
 
 const services = [
@@ -144,7 +144,7 @@ const Services = () => {
         title="Recruitment Services - Contract, Permanent & Executive Staffing | Revera Tech Nexus"
         description="Comprehensive recruitment services including contract staffing, permanent hiring, executive search, payroll services, and HR consulting. Trusted by leading companies in Bangalore."
         keywords="recruitment services, contract staffing, permanent staffing, executive search, payroll services, HR consulting, staffing solutions Bangalore, talent acquisition services, recruitment agency services"
-        ogImage="/hero-services.jpg"
+        ogImage="/hero-services.webp"
         structuredData={structuredData}
       />
       <PageHero

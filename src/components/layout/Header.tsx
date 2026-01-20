@@ -4,9 +4,9 @@ import { Menu, X, ChevronDown, Phone, Mail, Users, Building2, Search, FileText, 
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
-import heroConsulting from "@/assets/hero-consulting.jpg";
-import industryIT from "@/assets/industry-it.jpg";
-import logo from "@/assets/logo.jpg";
+import heroConsulting from "@/assets/hero-consulting.webp";
+import industryIT from "@/assets/industry-it.webp";
+import logo from "@/assets/logo.webp";
 
 const services = [
   { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions for project-based needs", icon: Users },
