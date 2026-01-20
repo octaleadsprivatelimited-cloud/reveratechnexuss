@@ -54,17 +54,19 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
-      {/* Top bar */}
-      <div className="bg-[hsl(210,11%,15%)]">
+      {/* Top bar - hidden on mobile */}
+      <div className="hidden sm:block bg-[hsl(210,11%,15%)]">
         <div className="container-custom flex h-9 items-center justify-between text-xs">
           <a href="mailto:jyothi@reveratechnexus.com" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
             <Mail className="h-3 w-3" />
-            jyothi@reveratechnexus.com
+            <span className="hidden md:inline">jyothi@reveratechnexus.com</span>
+            <span className="md:hidden">Email Us</span>
           </a>
           <div className="flex items-center gap-4">
             <a href="tel:+919900949512" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
               <Phone className="h-3 w-3" />
-              +91 99009 49512
+              <span className="hidden md:inline">+91 99009 49512</span>
+              <span className="md:hidden">Call</span>
             </a>
             <span className="text-gray-600">|</span>
             <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
@@ -75,14 +77,14 @@ export function Header() {
       </div>
 
       {/* Main nav */}
-      <nav className="container-custom flex h-16 items-center justify-between">
+      <nav className="container-custom flex h-14 sm:h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="flex items-center">
-            <svg className="h-8 w-8 text-[hsl(174,100%,29%)]" viewBox="0 0 32 32" fill="currentColor">
+            <svg className="h-7 w-7 sm:h-8 sm:w-8 text-[hsl(174,100%,29%)]" viewBox="0 0 32 32" fill="currentColor">
               <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4-8 4-8-4 8-4zm-8 8l8 4 8-4v8l-8 4-8-4v-8z"/>
             </svg>
-            <span className="ml-2 text-xl font-bold text-[hsl(210,11%,15%)]">Revera Tech Nexus</span>
+            <span className="ml-2 text-lg sm:text-xl font-bold text-[hsl(210,11%,15%)]">Revera Tech Nexus</span>
           </div>
         </Link>
 
