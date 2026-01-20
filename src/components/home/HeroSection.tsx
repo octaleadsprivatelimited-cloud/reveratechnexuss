@@ -12,8 +12,22 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative w-full bg-background py-8 lg:py-12">
-      <div className="container-custom">
+    <section className="relative w-full py-8 lg:py-12 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
+      
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
+                          linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)`,
+        backgroundSize: '40px 40px'
+      }} />
+      
+      {/* Decorative circles */}
+      <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accent/10 rounded-full blur-3xl" />
+      
+      <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           
           {/* Left - Image with accent bar */}
