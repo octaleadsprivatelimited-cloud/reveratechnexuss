@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
-import { HeroBackground } from "@/components/HeroBackground";
+import { PageHero } from "@/components/PageHero";
 
 const blogPosts = [
   {
@@ -72,27 +72,13 @@ const categories = ["All", "Career Tips", "Interview Tips", "Industry Insights",
 const Blog = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
-        <HeroBackground />
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
-              Blog & Insights
-            </span>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-              Career Insights &{" "}
-              <span className="text-[hsl(174,100%,45%)]">
-                Industry Trends
-              </span>
-            </h1>
-            <p className="mt-6 text-lg text-gray-300">
-              Stay updated with the latest hiring trends, career advice, and industry insights 
-              from our recruitment experts.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Blog & Insights"
+        title="Career Insights &"
+        titleHighlight="Industry Trends"
+        description="Stay updated with the latest hiring trends, career advice, and industry insights from our recruitment experts."
+        primaryCta={{ text: "Contact Us", href: "/contact" }}
+      />
 
       {/* Blog Section */}
       <section className="section-padding bg-background">

@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { HeroBackground } from "@/components/HeroBackground";
+import { PageHero } from "@/components/PageHero";
 
 const contactInfo = [
   {
@@ -100,27 +100,14 @@ const Contact = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative bg-[hsl(210,11%,15%)] py-20 md:py-28 overflow-hidden">
-        <HeroBackground />
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[hsl(174,100%,29%)]/20 border border-[hsl(174,100%,29%)]/30 px-4 py-1.5 text-sm font-medium text-[hsl(174,100%,45%)] mb-6">
-              Contact Us
-            </span>
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-              Let&apos;s Start a{" "}
-              <span className="text-[hsl(174,100%,45%)]">
-                Conversation
-              </span>
-            </h1>
-            <p className="mt-6 text-lg text-gray-300">
-              Whether you&apos;re looking to hire or find your next opportunity, 
-              our team is ready to help. Reach out today.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Contact Us"
+        title="Let's Start a"
+        titleHighlight="Conversation"
+        description="Whether you're looking to hire or find your next opportunity, our team is ready to help. Reach out today."
+        primaryCta={{ text: "Call Us", href: "tel:+919900949512", external: true }}
+        secondaryCta={{ text: "WhatsApp", href: whatsappUrl, external: true }}
+      />
 
       {/* Contact Section */}
       <section className="section-padding bg-background">

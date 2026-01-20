@@ -1,13 +1,19 @@
 import { Layout } from "@/components/layout/Layout";
+import { PageHero } from "@/components/PageHero";
 
 const Terms = () => {
   return (
     <Layout>
+      <PageHero
+        badge="Legal"
+        title="Terms &"
+        titleHighlight="Conditions"
+        description="Please read these terms and conditions carefully before using Revera Tech Nexus services. Last updated: January 2026."
+      />
+      
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl">
-            <h1 className="font-heading text-4xl font-bold text-foreground">Terms & Conditions</h1>
-            <p className="mt-4 text-muted-foreground">Last updated: January 2026</p>
 
             <div className="mt-12 prose prose-slate max-w-none">
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8">1. Acceptance of Terms</h2>
