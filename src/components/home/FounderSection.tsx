@@ -1,7 +1,7 @@
-import { CheckCircle, Award, TrendingDown, Clock, Cog } from "lucide-react";
+import { Award, TrendingDown, Clock, Cog } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-
+import founderImage from "@/assets/founder-jyothi.png";
 export function FounderSection() {
   const achievements = [
     { icon: TrendingDown, text: "Reduced attrition by 2%" },
@@ -33,16 +33,17 @@ export function FounderSection() {
               <div className="absolute -inset-4 border-2 border-[hsl(174,100%,29%)]/20 rounded-2xl" />
               <div className="absolute -inset-8 border border-[hsl(174,100%,29%)]/10 rounded-3xl" />
               
-              {/* Avatar placeholder with gradient */}
-              <div className="relative h-full w-full rounded-xl bg-gradient-to-br from-[hsl(174,100%,29%)]/20 via-[hsl(210,11%,15%)]/10 to-[hsl(174,100%,29%)]/10 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[hsl(210,11%,15%)]/5" />
-                <div className="relative text-center p-8">
-                  <div className="w-32 h-32 mx-auto rounded-full bg-[hsl(174,100%,29%)]/20 border-4 border-[hsl(174,100%,29%)]/30 flex items-center justify-center mb-6">
-                    <span className="text-5xl font-bold text-[hsl(174,100%,29%)]">JM</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">Jyothi M</h3>
-                  <p className="text-[hsl(174,100%,29%)] font-medium mt-1">Co-Founder</p>
-                  <p className="text-muted-foreground text-sm mt-1">Revera Tech Nexus</p>
+              {/* Founder Photo */}
+              <div className="relative h-full w-full rounded-xl overflow-hidden">
+                <img 
+                  src={founderImage} 
+                  alt="Jyothi M - Co-Founder of Revera Tech Nexus" 
+                  className="h-full w-full object-cover object-top"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                  <h3 className="text-2xl font-bold text-white">Jyothi M</h3>
+                  <p className="text-[hsl(174,100%,29%)] font-medium">Co-Founder</p>
+                  <p className="text-white/80 text-sm">Revera Tech Nexus</p>
                 </div>
               </div>
 
