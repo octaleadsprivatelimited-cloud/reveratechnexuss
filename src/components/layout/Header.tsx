@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import heroConsulting from "@/assets/hero-consulting.jpg";
 import industryIT from "@/assets/industry-it.jpg";
+import logo from "@/assets/logo.jpg";
 
 const services = [
   { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions for project-based needs", icon: Users },
@@ -124,9 +125,9 @@ export function Header() {
       {/* Top bar - hidden on mobile */}
       <div className="hidden sm:block bg-[hsl(210,11%,15%)]">
         <div className="container-custom flex h-9 items-center justify-between text-xs">
-          <a href="mailto:jyothi@reveratechnexus.com" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
+          <a href="mailto:jyothi.m@reveratechnexus.com" className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors">
             <Mail className="h-3 w-3" />
-            <span className="hidden md:inline">jyothi@reveratechnexus.com</span>
+            <span className="hidden md:inline">jyothi.m@reveratechnexus.com</span>
             <span className="md:hidden">Email Us</span>
           </a>
           <div className="flex items-center gap-4">
@@ -146,13 +147,12 @@ export function Header() {
       {/* Main nav */}
       <nav className="container-custom flex h-14 sm:h-16 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex items-center">
-            <svg className="h-7 w-7 sm:h-8 sm:w-8 text-[hsl(174,100%,29%)]" viewBox="0 0 32 32" fill="currentColor">
-              <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4-8 4-8-4 8-4zm-8 8l8 4 8-4v8l-8 4-8-4v-8z"/>
-            </svg>
-            <span className="ml-2 text-lg sm:text-xl font-bold text-[hsl(210,11%,15%)]">Revera Tech Nexus</span>
-          </div>
+        <Link to="/" className="flex items-center">
+          <img 
+            src={logo} 
+            alt="Revera Tech Nexus" 
+            className="h-10 sm:h-12 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -449,7 +449,7 @@ export function Header() {
                   </div>
                 </a>
                 <a 
-                  href="mailto:jyothi@reveratechnexus.com" 
+                  href="mailto:jyothi.m@reveratechnexus.com" 
                   className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-gray-600 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition-colors"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]/10">
@@ -457,7 +457,7 @@ export function Header() {
                   </div>
                   <div>
                     <div className="font-medium text-[hsl(210,11%,15%)]">Email Us</div>
-                    <div className="text-xs text-gray-500">jyothi@reveratechnexus.com</div>
+                    <div className="text-xs text-gray-500">jyothi.m@reveratechnexus.com</div>
                   </div>
                 </a>
               </motion.div>

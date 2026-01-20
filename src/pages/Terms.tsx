@@ -75,7 +75,7 @@ const Terms = () => {
                 For questions about these terms, contact us at:
               </p>
               <p className="text-muted-foreground mt-2">
-                Email: jyothi@reveratechnexus.com<br />
+                Email: jyothi.m@reveratechnexus.com<br />
                 Phone: +91 99009 49512
               </p>
             </div>

@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: "jyothi@reveratechnexus.com",
-    action: "mailto:jyothi@reveratechnexus.com",
+    details: "jyothi.m@reveratechnexus.com",
+    action: "mailto:jyothi.m@reveratechnexus.com",
   },
   {
     icon: MapPin,

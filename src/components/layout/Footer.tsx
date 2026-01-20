@@ -71,12 +71,6 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 md:col-span-4 lg:col-span-1 mb-4 lg:mb-0">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <svg className="h-7 w-7 md:h-8 md:w-8 text-[hsl(174,100%,29%)]" viewBox="0 0 32 32" fill="currentColor">
-                <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4-8 4-8-4 8-4zm-8 8l8 4 8-4v8l-8 4-8-4v-8z"/>
-              </svg>
-              <span className="text-lg md:text-xl font-bold text-white">Revera Tech Nexus</span>
-            </Link>
             <p className="text-xs md:text-sm text-gray-400 mb-4 md:mb-6">
               Your trusted recruitment partner in Bangalore, connecting exceptional talent with industry-leading organizations.
             </p>
@@ -155,9 +149,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:jyothi@reveratechnexus.com" className="flex items-center gap-2 text-xs md:text-sm text-gray-400 hover:text-white transition-colors break-all">
+                <a href="mailto:jyothi.m@reveratechnexus.com" className="flex items-center gap-2 text-xs md:text-sm text-gray-400 hover:text-white transition-colors break-all">
                   <Mail className="h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 text-[hsl(174,100%,29%)]" />
-                  <span className="hidden sm:inline">jyothi@reveratechnexus.com</span>
+                  <span className="hidden sm:inline">jyothi.m@reveratechnexus.com</span>
                   <span className="sm:hidden">Email Us</span>
                 </a>
               </li>

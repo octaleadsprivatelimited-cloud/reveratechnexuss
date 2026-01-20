@@ -64,7 +64,7 @@ const Privacy = () => {
                 For any questions about this privacy policy or our data practices, please contact us at:
               </p>
               <p className="text-muted-foreground mt-2">
-                Email: jyothi@reveratechnexus.com<br />
+                Email: jyothi.m@reveratechnexus.com<br />
                 Phone: +91 99009 49512<br />
                 Address: Bangalore, Karnataka, India
               </p>
