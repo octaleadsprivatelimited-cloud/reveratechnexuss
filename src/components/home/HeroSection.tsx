@@ -3,12 +3,6 @@ import { Users, Building2, Briefcase, UserCheck } from "lucide-react";
 import heroConsulting from "@/assets/hero-consulting.jpg";
 
 export function HeroSection() {
-  const services = [
-    "Permanent Staffing",
-    "Contract Staffing", 
-    "Executive Search",
-    "Payroll Services",
-  ];
 
   const quickActions = [
     { label: "Employers", href: "/employers", color: "bg-amber-500 hover:bg-amber-600", icon: Building2 },
@@ -20,10 +14,10 @@ export function HeroSection() {
   return (
     <section className="relative w-full bg-background py-8 lg:py-12">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           
           {/* Left - Image with accent bar */}
-          <div className="lg:col-span-4 relative">
+          <div className="relative">
             <div className="relative">
               <img
                 src={heroConsulting}
@@ -35,32 +29,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Center - Main content */}
-          <div className="lg:col-span-4">
-            <p className="text-muted-foreground text-lg mb-2">Your Partner in</p>
-            <h1 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6">
-              Talent Solutions
-            </h1>
-            
-            <ul className="space-y-3 mb-8">
-              {services.map((service, index) => (
-                <li key={index} className="flex items-center gap-3 text-lg text-foreground">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
-                  {service}
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              to="/services"
-              className="inline-flex items-center px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded transition-colors"
-            >
-              Read more
-            </Link>
-          </div>
 
           {/* Right - Quick actions */}
-          <div className="lg:col-span-4">
+          <div>
             <div className="mb-6">
               <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
                 What can we do for
