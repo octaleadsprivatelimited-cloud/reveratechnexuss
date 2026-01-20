@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Factory, CheckCircle, ArrowRight } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
-import heroImage from "@/assets/hero-image.jpg";
+import industryManufacturing from "@/assets/industry-manufacturing.jpg";
 
 const Manufacturing = () => {
   return (
@@ -13,7 +13,7 @@ const Manufacturing = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src={industryManufacturing}
             alt="Manufacturing & Industrial"
             className="w-full h-full object-cover"
           />

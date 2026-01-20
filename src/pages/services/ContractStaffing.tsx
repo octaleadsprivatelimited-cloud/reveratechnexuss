@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { FileSearch, CheckCircle, ArrowRight } from "lucide-react";
 import { HeroBackground } from "@/components/HeroBackground";
-import heroImage from "@/assets/hero-image.jpg";
+import serviceContract from "@/assets/service-contract.jpg";
 
 const ContractStaffing = () => {
   return (
@@ -13,7 +13,7 @@ const ContractStaffing = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src={serviceContract}
             alt="Contract Staffing"
             className="w-full h-full object-cover"
           />
