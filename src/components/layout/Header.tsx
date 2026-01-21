@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import heroConsulting from "@/assets/hero-consulting.webp";
 import industryIT from "@/assets/industry-it.webp";
-import logo from "@/assets/logo.webp";
+import logo from "@/assets/revera-tech-nexus.webp";
 
 const services = [
   { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions for project-based needs", icon: Users },
