@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import heroConsulting from "@/assets/hero-consulting.webp";
 import industryIT from "@/assets/industry-it.webp";
-import logo from "@/assets/revera-tech-nexus.webp";
+import logo from "@/assets/full-logo-transparent.webp";
 
 const services = [
   { name: "Contract Staffing", href: "/services/contract-staffing", description: "Flexible workforce solutions for project-based needs", icon: Users },
@@ -151,7 +151,7 @@ export function Header() {
           <img 
             src={logo} 
             alt="Revera Tech Nexus" 
-            className="h-10 sm:h-12 w-auto object-contain"
+            className="h-[130px] sm:h-[150px] w-auto object-contain"
           />
         </Link>
 

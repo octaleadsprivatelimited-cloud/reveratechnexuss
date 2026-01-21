@@ -16,7 +16,7 @@ const Index = () => {
     "@type": "Organization",
     "name": "Revera Tech Nexus",
     "url": "https://reveratechnexus.com",
-    "logo": "https://reveratechnexus.com/logo.webp",
+    "logo": "https://reveratechnexus.com/full-logo-transparent.webp",
     "description": "Revera Tech Nexus is Bangalore's trusted recruitment agency offering IT, Healthcare, Real Estate & Corporate staffing solutions.",
     "address": {
       "@type": "PostalAddress",
