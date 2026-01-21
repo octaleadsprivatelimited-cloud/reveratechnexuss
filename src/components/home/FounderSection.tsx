@@ -32,14 +32,14 @@ export function FounderSection() {
                     <div className="aspect-[4/5] overflow-hidden">
                       <img 
                         src={founderImage} 
-                        alt="Jyothi M - Co-Founder of Revera Tech Nexus" 
+                        alt="Jyothi M - Founder of Revera Tech Nexus" 
                         className="h-full w-full object-cover object-top"
                         loading="eager"
                       />
                     </div>
                     <div className="p-5 border-t border-border/50">
                       <h3 className="text-xl font-bold text-foreground">Jyothi M</h3>
-                      <p className="text-primary font-medium">Co-Founder</p>
+                      <p className="text-primary font-medium">Founder</p>
                       <p className="text-muted-foreground text-sm">Revera Tech Nexus</p>
                     </div>
                   </div>

@@ -57,11 +57,11 @@ const About = () => {
       "@type": "Organization",
       "name": "Revera Tech Nexus",
       "founder": {
-        "@type": "Person",
-        "name": "Jyothi M",
-        "jobTitle": "Co-Founder",
-        "description": "Former Head of HR with 20+ years' experience building and leading HR for large organizations"
-      },
+          "@type": "Person",
+          "name": "Jyothi M",
+          "jobTitle": "Founder",
+          "description": "Former Head of HR with 20+ years' experience building and leading HR for large organizations"
+        },
       "description": "Revera Tech Nexus is a trusted recruitment agency in Bangalore offering comprehensive staffing solutions and HR consulting services.",
       "address": {
         "@type": "PostalAddress",
@@ -107,12 +107,12 @@ const About = () => {
                 <div className="relative h-full w-full rounded-xl overflow-hidden">
                   <img 
                     src={founderImage} 
-                    alt="Jyothi M - Co-Founder of Revera Tech Nexus" 
+                    alt="Jyothi M - Founder of Revera Tech Nexus" 
                     className="h-full w-full object-cover object-top"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                     <h3 className="text-3xl font-bold text-white">Jyothi M</h3>
-                    <p className="text-[hsl(174,100%,29%)] font-semibold text-lg">Co-Founder</p>
+                    <p className="text-[hsl(174,100%,29%)] font-semibold text-lg">Founder</p>
                     <p className="text-white/80">Revera Tech Nexus</p>
                   </div>
                 </div>
