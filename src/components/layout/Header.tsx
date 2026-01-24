@@ -121,7 +121,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm backdrop-blur-sm">
+    <header className="sticky top-0 z-[100] w-full bg-white shadow-sm backdrop-blur-sm">
       {/* Top bar - hidden on mobile */}
       <div className="hidden sm:block bg-[hsl(210,11%,15%)]">
         <div className="container-custom flex h-9 items-center justify-between text-xs">
@@ -151,7 +151,7 @@ export function Header() {
           <img 
             src={logo} 
             alt="Revera Tech Nexus" 
-            className="h-[130px] sm:h-[150px] w-auto object-contain"
+            className="h-[160px] sm:h-[180px] w-auto object-contain"
           />
         </Link>
 

@@ -12,7 +12,7 @@ export function Layout({ children }: LayoutProps) {
   useScrollToTop();
   
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden">
+    <div className="flex min-h-screen flex-col" style={{ overflowX: 'hidden' }}>
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
