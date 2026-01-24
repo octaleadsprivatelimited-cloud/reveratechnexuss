@@ -55,51 +55,41 @@ export function WhyChooseUs() {
   return (
     <section className="py-8 md:py-12">
       <div className="container-custom">
-        {/* Rounded container card like Microsoft/Google style */}
-        <div className="relative bg-gradient-to-br from-slate-50 via-white to-gray-50 rounded-3xl overflow-hidden border border-border/30">
-          {/* Subtle background accents */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-gradient-to-br from-blue-500/5 to-transparent" />
-            <div className="absolute top-0 right-0 w-1/4 h-1/3 bg-gradient-to-bl from-red-500/5 to-transparent" />
-            <div className="absolute bottom-0 left-1/4 w-1/3 h-1/2 bg-gradient-to-tr from-green-500/5 to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/4 h-1/3 bg-gradient-to-tl from-yellow-500/5 to-transparent" />
+        <div className="rounded-3xl border border-slate-200 bg-white px-6 py-10 md:px-10 md:py-14">
+          {/* Header */}
+          <div className="mb-10">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground">
+              Why partner with us
+              <span className="text-muted-foreground"> – the difference</span>
+            </h2>
+            <div className="mt-3 flex items-center gap-1.5">
+              <span className="h-1 w-6 rounded-full bg-[#18a999]" />
+              <span className="h-1 w-4 rounded-full bg-[#1f9bcf]" />
+              <span className="h-1 w-3 rounded-full bg-[#3d7dd8]" />
+              <span className="h-1 w-2.5 rounded-full bg-[#6a5acd]" />
+            </div>
+            <p className="mt-4 text-muted-foreground text-base md:text-lg">
+              Experience the difference of working with a recruitment agency that truly understands your needs.
+            </p>
           </div>
 
-          <div className="relative px-8 md:px-12 lg:px-16 py-12 md:py-16">
-            {/* Header */}
-            <div className="max-w-2xl mb-10">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-3">
-                Why partner with us
-                <span className="text-muted-foreground"> – the difference</span>
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg">
-                Experience the difference of working with a recruitment agency that truly understands your needs.
-              </p>
-            </div>
-
-            {/* Feature cards with Google-style colors */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="group bg-background/80 backdrop-blur-sm border border-border/50 p-5 rounded-2xl hover:shadow-lg hover:border-border transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-xl ${feature.lightBg} flex-shrink-0`}>
-                      <feature.icon className={`h-5 w-5 ${feature.iconColor}`} />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-foreground mb-1.5">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
+          {/* Feature cards - illustration-style */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature) => (
+              <div key={feature.title} className="relative pt-6">
+                <div className="absolute left-0 top-0 h-14 w-14 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center">
+                  <feature.icon className={`h-6 w-6 ${feature.iconColor}`} />
                 </div>
-              ))}
-            </div>
+                <div className="ml-6 rounded-xl border border-dashed border-slate-300 bg-white px-5 pb-5 pt-6">
+                  <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

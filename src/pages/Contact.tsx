@@ -143,9 +143,9 @@ const Contact = () => {
       />
 
       {/* Contact Section */}
-      <section className="relative py-16 bg-[#f6f7fb]">
+      <section className="relative py-12 sm:py-16 bg-[#f6f7fb]">
         <div className="container-custom">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Contact Us</h2>
             <p className="text-sm md:text-base text-muted-foreground mt-2">
               Any question or remarks? Just write us a message!
@@ -154,13 +154,13 @@ const Contact = () => {
 
           <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
             {/* Left info panel */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2b155b] via-[#2b155b] to-[#3a1c6e] p-8 text-white">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2b155b] via-[#2b155b] to-[#3a1c6e] p-6 sm:p-8 text-white">
               <h3 className="text-lg font-semibold">Contact Information</h3>
               <p className="mt-2 text-sm text-white/70">
                 Fill up the form and our team will get back to you within 24 hours.
               </p>
 
-              <div className="mt-8 space-y-6">
+              <div className="mt-6 sm:mt-8 space-y-5 sm:space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.title} className="flex items-start gap-4">
                     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/10">
@@ -169,11 +169,11 @@ const Contact = () => {
                     <div>
                       <h4 className="text-sm font-medium">{item.title}</h4>
                       {item.action ? (
-                        <a href={item.action} className="text-sm text-white/80 hover:text-white">
+                        <a href={item.action} className="text-sm text-white/80 hover:text-white break-words">
                           {item.details}
                         </a>
                       ) : (
-                        <p className="text-sm text-white/80">{item.details}</p>
+                        <p className="text-sm text-white/80 break-words">{item.details}</p>
                       )}
                     </div>
                   </div>
@@ -185,9 +185,9 @@ const Contact = () => {
             </div>
 
             {/* Right form */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm border border-slate-100">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-slate-100">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
                     <Input
@@ -215,7 +215,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone</Label>
                     <Input
@@ -264,8 +264,13 @@ const Contact = () => {
                   />
                 </div>
 
-                <div className="flex justify-end">
-                  <Button type="submit" size="lg" disabled={isSubmitting} className="rounded-full bg-secondary hover:bg-secondary/90 px-10">
+                <div className="flex justify-center sm:justify-end">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto rounded-full bg-secondary hover:bg-secondary/90 px-10"
+                  >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
