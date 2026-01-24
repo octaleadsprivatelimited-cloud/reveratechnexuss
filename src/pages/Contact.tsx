@@ -20,8 +20,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: "jyothi.m@reveratechnexus.com",
-    action: "mailto:jyothi.m@reveratechnexus.com",
+    details: "Info@reveratechnexus.com",
+    action: "mailto:Info@reveratechnexus.com",
   },
   {
     icon: MapPin,
