@@ -1,6 +1,6 @@
 import { Award, TrendingDown, Clock, Cog, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import founderImage from "@/assets/founder-jyothi.webp";
+import founderImage from "@/assets/founder1.jpeg";
 
 export function FounderSection() {
   const achievements = [
@@ -62,7 +62,7 @@ export function FounderSection() {
                 </h2>
                 <p className="text-muted-foreground text-base md:text-lg mb-6 leading-relaxed">
                   Former Head of HR with 20+ years' experience building and leading HR for large organizations 
-                  (970–3,000+ employees). Now co-founding Revera Tech Nexus to offer trusted, high-impact talent 
+                  (970–3,000+ employees). Now founder of Revera Tech Nexus to offer trusted, high-impact talent 
                   solutions rooted in real-world leadership experience.
                 </p>
 

@@ -2,8 +2,8 @@ import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Target, Eye, Users, Shield, Award, Heart, CheckCircle, TrendingDown, Clock, Cog, Briefcase, FileCheck } from "lucide-react";
-import founderImage from "@/assets/founder-jyothi.webp";
+import { Target, Eye, Users, Shield, Award, Heart, CheckCircle, TrendingDown, Clock, Cog, Briefcase, FileCheck, Flag } from "lucide-react";
+import founderImage from "@/assets/founder1.jpeg";
 import heroAbout from "@/assets/hero-about.webp";
 import { PageHero } from "@/components/PageHero";
 
@@ -135,7 +135,7 @@ const About = () => {
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
                 Former Head of HR with 20+ years' experience building and leading HR for large organizations 
-                (970–3,000+ employees). Now co-founding Revera Tech Nexus to offer trusted, high-impact talent 
+                (970–3,000+ employees). Now founder of Revera Tech Nexus to offer trusted, high-impact talent 
                 solutions rooted in real-world leadership experience.
               </p>
 
@@ -254,27 +254,39 @@ const About = () => {
       {/* Mission & Vision */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-2xl bg-card p-8 shadow-soft">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[hsl(174,100%,29%)]/10 mb-6">
-                <Target className="h-7 w-7 text-[hsl(174,100%,29%)]" />
+          <div className="grid gap-6 lg:grid-cols-3">
+            {/* Vision Section - Left */}
+            <div className="rounded-2xl bg-[hsl(210,11%,15%)] p-8 shadow-lg flex flex-col">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(25,95%,53%)] mb-6">
+                <Eye className="h-8 w-8 text-white" />
               </div>
-              <h2 className="font-heading text-2xl font-bold text-foreground">Our Mission</h2>
-              <p className="mt-4 text-muted-foreground">
-                To bridge the gap between exceptional talent and outstanding organizations through 
-                ethical, efficient, and personalized recruitment solutions that create lasting value 
-                for all stakeholders.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-card p-8 shadow-soft">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[hsl(174,100%,29%)]/10 mb-6">
-                <Eye className="h-7 w-7 text-[hsl(174,100%,29%)]" />
-              </div>
-              <h2 className="font-heading text-2xl font-bold text-foreground">Our Vision</h2>
-              <p className="mt-4 text-muted-foreground">
+              <h2 className="font-heading text-2xl font-bold text-white mb-4">Vision</h2>
+              <p className="text-white/90 leading-relaxed">
                 To be recognized as the most trusted recruitment partner in India, known for 
                 our commitment to quality, integrity, and the transformative impact we have on 
                 careers and organizations.
+              </p>
+            </div>
+
+            {/* Image Section - Middle */}
+            <div className="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px] lg:min-h-[500px]">
+              <img 
+                src={heroAbout} 
+                alt="Our Team" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Mission Section - Right */}
+            <div className="rounded-2xl bg-[hsl(210,11%,15%)] p-8 shadow-lg flex flex-col">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(25,95%,53%)] mb-6">
+                <Flag className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="font-heading text-2xl font-bold text-white mb-4">Mission</h2>
+              <p className="text-white/90 leading-relaxed">
+                To bridge the gap between exceptional talent and outstanding organizations through 
+                ethical, efficient, and personalized recruitment solutions that create lasting value 
+                for all stakeholders.
               </p>
             </div>
           </div>

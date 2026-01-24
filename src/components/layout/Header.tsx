@@ -121,7 +121,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm backdrop-blur-sm">
       {/* Top bar - hidden on mobile */}
       <div className="hidden sm:block bg-[hsl(210,11%,15%)]">
         <div className="container-custom flex h-9 items-center justify-between text-xs">
