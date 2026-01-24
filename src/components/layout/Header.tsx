@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone, Mail, Users, Building2, Search, FileText, Calculator, Briefcase, Laptop, Heart, Hotel, Building, Factory, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Users, Building2, Search, FileText, Calculator, Briefcase, Laptop, Heart, Building, Factory, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -44,6 +44,7 @@ export function Header() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileExpandedItems([]);
+    setActiveDropdown(null);
   }, [location.pathname]);
 
   // Prevent body scroll when mobile menu is open
@@ -76,6 +77,7 @@ export function Header() {
     closed: {
       opacity: 0,
       height: 0,
+      pointerEvents: 'none' as const,
       transition: {
         duration: 0.3,
         ease: "easeInOut" as const,
@@ -85,6 +87,7 @@ export function Header() {
     open: {
       opacity: 1,
       height: "auto",
+      pointerEvents: 'auto' as const,
       transition: {
         duration: 0.3,
         ease: "easeInOut" as const,
@@ -103,11 +106,13 @@ export function Header() {
     closed: { 
       opacity: 0, 
       height: 0,
+      marginTop: 0,
       transition: { duration: 0.2 }
     },
     open: { 
       opacity: 1, 
       height: "auto",
+      marginTop: 4,
       transition: { 
         duration: 0.2,
         staggerChildren: 0.03
@@ -121,7 +126,8 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-[100] w-full bg-white shadow-sm backdrop-blur-sm">
+    <>
+      <header className="sticky top-0 z-[9999] w-full bg-white shadow-sm backdrop-blur-sm">
       {/* Top bar - hidden on mobile */}
       <div className="hidden sm:block bg-[hsl(210,11%,15%)]">
         <div className="container-custom flex h-9 items-center justify-between text-xs">
@@ -145,9 +151,9 @@ export function Header() {
       </div>
 
       {/* Main nav */}
-      <nav className="container-custom flex h-14 sm:h-16 items-center justify-between">
+      <nav className="container-custom flex h-14 sm:h-16 items-center justify-between relative">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center z-10">
           <img 
             src={logo} 
             alt="Revera Tech Nexus" 
@@ -156,7 +162,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:items-center lg:gap-1">
+        <div className="hidden lg:flex lg:items-center lg:gap-1 relative z-20">
           {navigation.map((item) => (
             <div
               key={item.name}
@@ -166,6 +172,7 @@ export function Header() {
             >
               {item.hasDropdown ? (
                 <button
+                  type="button"
                   className={cn(
                     "inline-flex h-10 items-center justify-center px-4 py-2 text-sm font-medium capitalize transition-colors hover:text-[hsl(174,100%,29%)]",
                     isActive(item.href) ? "text-[hsl(174,100%,29%)]" : "text-[hsl(210,11%,15%)]",
@@ -194,8 +201,12 @@ export function Header() {
 
               {/* Mega Menu Dropdown */}
               {item.hasDropdown && activeDropdown === item.name && (
-                <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
-                  <div className="w-[750px] rounded-xl border border-gray-100 bg-white shadow-2xl overflow-hidden animate-fade-in">
+                <div 
+                  className="absolute left-1/2 top-full -translate-x-1/2 pt-2 z-[10000]"
+                  onMouseEnter={() => handleMouseEnter(item.name)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="w-[750px] rounded-xl border border-gray-100 bg-white shadow-2xl overflow-hidden">
                     <div className="flex">
                       {/* Left side - Image */}
                       <div className="w-[280px] relative overflow-hidden">
@@ -285,7 +296,7 @@ export function Header() {
         {/* Mobile menu button */}
         <motion.button
           type="button"
-          className="lg:hidden inline-flex items-center justify-center rounded-lg p-2.5 text-[hsl(210,11%,15%)] hover:bg-gray-100 active:bg-gray-200 transition-colors touch-manipulation"
+          className="lg:hidden inline-flex items-center justify-center rounded-lg p-2.5 text-[hsl(210,11%,15%)] hover:bg-gray-100 active:bg-gray-200 transition-colors touch-manipulation z-10"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           whileTap={{ scale: 0.95 }}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -315,38 +326,43 @@ export function Header() {
           </AnimatePresence>
         </motion.button>
       </nav>
+    </header>
 
-      {/* Mobile menu with animations */}
-      <AnimatePresence>
+    {/* Mobile menu - OUTSIDE header to avoid stacking context issues */}
+    <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            className="lg:hidden fixed inset-x-0 top-[56px] sm:top-[100px] bottom-0 bg-white z-40 overflow-y-auto"
+            className="lg:hidden fixed inset-x-0 top-[56px] sm:top-[100px] bottom-0 bg-white z-[10000] overflow-y-auto overflow-x-hidden"
             initial="closed"
             animate="open"
             exit="closed"
             variants={menuVariants}
+            style={{ 
+              WebkitOverflowScrolling: 'touch',
+              touchAction: 'pan-y'
+            }}
           >
-            <div className="px-4 pb-6 pt-4">
+            <div className="px-4 pb-6 pt-4 max-w-full">
               <div className="space-y-1">
-                {navigation.map((item, index) => (
+                {navigation.map((item) => (
                   <motion.div key={item.name} variants={itemVariants}>
                     {item.hasDropdown ? (
                       <>
                         <motion.button
                           onClick={() => toggleMobileExpand(item.name)}
                           className={cn(
-                            "flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium capitalize touch-manipulation active:bg-gray-100 transition-colors",
+                            "flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium capitalize touch-manipulation active:bg-gray-100 transition-colors",
                             isActive(item.href)
                               ? "bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)]"
                               : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
                           )}
                           whileTap={{ scale: 0.98 }}
                         >
-                          <span className="flex items-center gap-3">
+                          <span className="flex items-center gap-2.5">
                             {item.name === "services" ? (
-                              <Users className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                              <Users className="h-4 w-4 text-[hsl(174,100%,29%)]" />
                             ) : (
-                              <Building2 className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                              <Building2 className="h-4 w-4 text-[hsl(174,100%,29%)]" />
                             )}
                             {item.name}
                           </span>
@@ -354,41 +370,42 @@ export function Header() {
                             animate={{ rotate: mobileExpandedItems.includes(item.name) ? 180 : 0 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <ChevronDown className="h-5 w-5 text-gray-400" />
+                            <ChevronDown className="h-4 w-4 text-gray-400" />
                           </motion.div>
                         </motion.button>
                         
                         <AnimatePresence>
                           {mobileExpandedItems.includes(item.name) && (
                             <motion.div
-                              className="ml-4 mt-1 space-y-0.5 border-l-2 border-[hsl(174,100%,29%)]/30 pl-4 overflow-hidden"
+                              className="ml-4 mt-1.5 space-y-0.5 border-l-2 border-white/30 pl-3 bg-[hsl(174,100%,29%)] rounded-lg py-2"
                               initial="closed"
                               animate="open"
                               exit="closed"
                               variants={subMenuVariants}
+                              style={{ overflow: 'visible' }}
                             >
                               {(item.name === "services" ? services : industries).map((subItem) => (
                                 <motion.div key={subItem.name} variants={subItemVariants}>
                                   <Link
                                     to={subItem.href}
-                                    className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 active:bg-gray-100 touch-manipulation transition-colors"
+                                    className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs text-white hover:bg-white/10 active:bg-white/20 touch-manipulation transition-colors"
                                     onClick={() => setMobileMenuOpen(false)}
                                   >
-                                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[hsl(174,100%,29%)]/10">
-                                      <subItem.icon className="h-4 w-4 text-[hsl(174,100%,29%)]" />
+                                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/20 shrink-0">
+                                      <subItem.icon className="h-3.5 w-3.5 text-white" />
                                     </div>
-                                    <span>{subItem.name}</span>
+                                    <span className="text-white font-medium text-xs">{subItem.name}</span>
                                   </Link>
                                 </motion.div>
                               ))}
-                              <motion.div variants={subItemVariants}>
+                              <motion.div variants={subItemVariants} className="mt-2">
                                 <Link
                                   to={item.href}
-                                  className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-[hsl(174,100%,29%)] hover:bg-[hsl(174,100%,29%)]/5 active:bg-[hsl(174,100%,29%)]/10 touch-manipulation transition-colors"
+                                  className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-medium text-white hover:bg-white/10 active:bg-white/20 touch-manipulation transition-colors border-t border-white/20 pt-2"
                                   onClick={() => setMobileMenuOpen(false)}
                                 >
                                   View all {item.name}
-                                  <ArrowRight className="h-4 w-4" />
+                                  <ArrowRight className="h-3.5 w-3.5" />
                                 </Link>
                               </motion.div>
                             </motion.div>
@@ -399,16 +416,16 @@ export function Header() {
                       <Link
                         to={item.href}
                         className={cn(
-                          "flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium capitalize touch-manipulation active:bg-gray-100 transition-colors",
+                          "flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-medium capitalize touch-manipulation active:bg-gray-100 transition-colors",
                           isActive(item.href)
                             ? "bg-[hsl(174,100%,29%)]/10 text-[hsl(174,100%,29%)]"
                             : "text-[hsl(210,11%,15%)] hover:bg-gray-50"
                         )}
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        {item.name === "for talent" && <Users className="h-5 w-5 text-[hsl(174,100%,29%)]" />}
-                        {item.name === "for employer" && <Briefcase className="h-5 w-5 text-[hsl(174,100%,29%)]" />}
-                        {item.name === "about us" && <Building2 className="h-5 w-5 text-[hsl(174,100%,29%)]" />}
+                        {item.name === "for talent" && <Users className="h-4 w-4 text-[hsl(174,100%,29%)]" />}
+                        {item.name === "for employer" && <Briefcase className="h-4 w-4 text-[hsl(174,100%,29%)]" />}
+                        {item.name === "about us" && <Building2 className="h-4 w-4 text-[hsl(174,100%,29%)]" />}
                         {item.name}
                       </Link>
                     )}
@@ -418,16 +435,16 @@ export function Header() {
 
               {/* Mobile CTA */}
               <motion.div 
-                className="mt-6 pt-6 border-t border-gray-100"
+                className="mt-4 pt-4 border-t border-gray-100"
                 variants={itemVariants}
               >
                 <Link
                   to="/contact"
-                  className="flex items-center justify-center gap-2 w-full rounded-full bg-[hsl(174,100%,29%)] px-6 py-4 text-base font-medium text-white active:bg-[hsl(174,100%,24%)] touch-manipulation transition-colors"
+                  className="flex items-center justify-center gap-1.5 w-full rounded-full bg-[hsl(174,100%,29%)] px-4 py-2.5 text-sm font-medium text-white active:bg-[hsl(174,100%,24%)] touch-manipulation transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Get Started
-                  <ArrowRight className="h-5 w-5" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </motion.div>
 
@@ -438,26 +455,26 @@ export function Header() {
               >
                 <a 
                   href="tel:+919900949512" 
-                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-gray-600 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition-colors"
+                  className="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs text-gray-600 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition-colors"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]/10">
-                    <Phone className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]/10">
+                    <Phone className="h-4 w-4 text-[hsl(174,100%,29%)]" />
                   </div>
                   <div>
-                    <div className="font-medium text-[hsl(210,11%,15%)]">Call Us</div>
-                    <div className="text-xs text-gray-500">+91 99009 49512</div>
+                    <div className="font-medium text-xs text-[hsl(210,11%,15%)]">Call Us</div>
+                    <div className="text-[10px] text-gray-500">+91 99009 49512</div>
                   </div>
                 </a>
                 <a 
                   href="mailto:jyothi.m@reveratechnexus.com" 
-                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-gray-600 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition-colors"
+                  className="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs text-gray-600 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 touch-manipulation transition-colors"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]/10">
-                    <Mail className="h-5 w-5 text-[hsl(174,100%,29%)]" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(174,100%,29%)]/10">
+                    <Mail className="h-4 w-4 text-[hsl(174,100%,29%)]" />
                   </div>
                   <div>
-                    <div className="font-medium text-[hsl(210,11%,15%)]">Email Us</div>
-                    <div className="text-xs text-gray-500">jyothi.m@reveratechnexus.com</div>
+                    <div className="font-medium text-xs text-[hsl(210,11%,15%)]">Email Us</div>
+                    <div className="text-[10px] text-gray-500">jyothi.m@reveratechnexus.com</div>
                   </div>
                 </a>
               </motion.div>
@@ -465,6 +482,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
