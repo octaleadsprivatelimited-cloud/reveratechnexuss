@@ -44,8 +44,7 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    company: "",
-    enquiryType: "employer",
+    service: "contract-staffing",
     message: "",
   });
 
@@ -72,8 +71,7 @@ const Contact = () => {
           name: "",
           email: "",
           phone: "",
-          company: "",
-          enquiryType: "employer",
+          service: "contract-staffing",
           message: "",
         });
       } else {
@@ -110,7 +108,7 @@ const Contact = () => {
         "@type": "ContactPoint",
         "telephone": "+91-99009-49512",
         "contactType": "Customer Service",
-        "email": "jyothi.m@reveratechnexus.com",
+        "email": "Info@reveratechnexus.com",
         "areaServed": "IN",
         "availableLanguage": "English"
       },
@@ -127,7 +125,7 @@ const Contact = () => {
     <Layout>
       <SEO
         title="Contact Us - Get in Touch | Revera Tech Nexus Bangalore"
-        description="Contact Revera Tech Nexus for recruitment and staffing solutions. Call +91 99009 49512 or email jyothi.m@reveratechnexus.com. Located in Bangalore, Karnataka."
+        description="Contact Revera Tech Nexus for recruitment and staffing solutions. Call +91 99009 49512 or email Info@reveratechnexus.com. Located in Bangalore, Karnataka."
         keywords="contact revera tech nexus, recruitment agency contact Bangalore, staffing company contact, HR consulting contact, get in touch recruitment"
         ogImage="/hero-contact.webp"
         structuredData={structuredData}
@@ -145,167 +143,129 @@ const Contact = () => {
       />
 
       {/* Contact Section */}
-      <section className="relative py-20 bg-gradient-to-b from-white to-slate-50/50 overflow-hidden">
-        {/* Background decorations */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-40 -left-20 w-72 h-72 bg-secondary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="container-custom relative z-10">
-          <div className="grid gap-12 lg:grid-cols-3">
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <div>
-                <span className="inline-block px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-4">
-                  Get in Touch
-                </span>
-                <h2 className="font-heading text-2xl font-bold text-foreground">Contact Information</h2>
-                <p className="mt-2 text-muted-foreground">
-                  Have questions? We'd love to hear from you.
-                </p>
-              </div>
+      <section className="relative py-16 bg-[#f6f7fb]">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground">Contact Us</h2>
+            <p className="text-sm md:text-base text-muted-foreground mt-2">
+              Any question or remarks? Just write us a message!
+            </p>
+          </div>
 
-              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm space-y-4">
+          <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
+            {/* Left info panel */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2b155b] via-[#2b155b] to-[#3a1c6e] p-8 text-white">
+              <h3 className="text-lg font-semibold">Contact Information</h3>
+              <p className="mt-2 text-sm text-white/70">
+                Fill up the form and our team will get back to you within 24 hours.
+              </p>
+
+              <div className="mt-8 space-y-6">
                 {contactInfo.map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 bg-slate-50/50 rounded-xl p-3">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-secondary/10">
-                      <item.icon className="h-5 w-5 text-secondary" />
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/10">
+                      <item.icon className="h-5 w-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground text-sm">{item.title}</h3>
+                      <h4 className="text-sm font-medium">{item.title}</h4>
                       {item.action ? (
-                        <a
-                          href={item.action}
-                          className="text-muted-foreground text-sm hover:text-secondary transition-colors"
-                        >
+                        <a href={item.action} className="text-sm text-white/80 hover:text-white">
                           {item.details}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground text-sm">{item.details}</p>
+                        <p className="text-sm text-white/80">{item.details}</p>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* WhatsApp CTA */}
-              <div className="bg-gradient-to-br from-[#25D366]/10 to-[#25D366]/5 rounded-2xl border border-[#25D366]/20 p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 rounded-lg bg-[#25D366]/20 flex items-center justify-center">
-                    <MessageCircle className="h-5 w-5 text-[#25D366]" />
-                  </span>
-                  <h3 className="font-semibold text-foreground">Quick Response on WhatsApp</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Get instant answers to your queries via WhatsApp.
-                </p>
-                <Button asChild variant="whatsapp" className="w-full">
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    Chat on WhatsApp
-                  </a>
-                </Button>
-              </div>
+              <div className="absolute -bottom-12 -right-10 h-40 w-40 rounded-full bg-white/10" />
+              <div className="absolute -bottom-6 -left-8 h-24 w-24 rounded-full bg-white/10" />
             </div>
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
-                <h2 className="font-heading text-xl font-bold text-foreground mb-2 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
-                    <Send className="h-4 w-4 text-secondary" />
-                  </span>
-                  Send Us a Message
-                </h2>
-                <p className="text-muted-foreground text-sm mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>
-                
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your full name"
-                        className="bg-slate-50/50 border-slate-200"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.com"
-                        className="bg-slate-50/50 border-slate-200"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="phone">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+91 9876543210"
-                        className="bg-slate-50/50 border-slate-200"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="company">Company Name</Label>
-                      <Input
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your company"
-                        className="bg-slate-50/50 border-slate-200"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="enquiryType">I am a *</Label>
-                    <select
-                      id="enquiryType"
-                      name="enquiryType"
-                      value={formData.enquiryType}
+            {/* Right form */}
+            <div className="rounded-2xl bg-white p-8 shadow-sm border border-slate-100">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Full Name</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
-                      className="flex h-10 w-full rounded-lg border border-slate-200 bg-slate-50/50 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      required
-                    >
-                      <option value="employer">Employer looking to hire</option>
-                      <option value="jobseeker">Job seeker looking for opportunities</option>
-                      <option value="other">Other enquiry</option>
-                    </select>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your requirements..."
-                      rows={4}
-                      className="bg-slate-50/50 border-slate-200"
+                      placeholder="Your full name"
+                      className="bg-slate-50/60 border-slate-200"
                       required
                     />
                   </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Mail</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email"
+                      className="bg-slate-50/60 border-slate-200"
+                      required
+                    />
+                  </div>
+                </div>
 
-                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto rounded-full bg-secondary hover:bg-secondary/90 px-8">
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 987 654 3210"
+                      className="bg-slate-50/60 border-slate-200"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="service">Service</Label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="flex h-10 w-full rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      required
+                    >
+                      <option value="contract-staffing">Contract Staffing</option>
+                      <option value="permanent-staffing">Permanent Staffing</option>
+                      <option value="executive-search">Executive Search</option>
+                      <option value="payroll-services">Payroll Services</option>
+                      <option value="hr-consulting">HR Consulting</option>
+                      <option value="compliance">Compliance</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Write your message..."
+                    rows={4}
+                    className="bg-slate-50/60 border-slate-200"
+                    required
+                  />
+                </div>
+
+                <div className="flex justify-end">
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="rounded-full bg-secondary hover:bg-secondary/90 px-10">
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -318,8 +278,8 @@ const Contact = () => {
                       </>
                     )}
                   </Button>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
